@@ -14,9 +14,18 @@
     <![endif]-->
     {% block content %}{% endblock %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+    <!-- vendor -->
+    <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='bower_components/jquery-scrollto/src/documents/lib/jquery-scrollto.js') }}"></script>
+    <script src="{{ url_for('static', filename='bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js') }}"></script>
+    <script src="{{ url_for('static', filename='bower_components/ajaxify/ajaxify-html5.js') }}"></script>
+
+    <!-- endvendor -->
+
+    <!-- project -->
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
     {% block javascript %}{% endblock %}
+    <!-- endproject -->
 
     {% if config.DEBUG %}
     <script>document.write('<script src="http://'

@@ -15,6 +15,9 @@
   ],
   "dependencies": {
     "jquery": "~2.1.4",
-    "foundation": "~5.5.2"
+    "foundation": "~5.5.2",
+    "jquery-scrollto": "~1.4.4",
+    "history.js": "~1.8.0",
+    "ajaxify": "git@github.com:browserstate/ajaxify.git"
   }
 }
