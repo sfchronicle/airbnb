@@ -4,7 +4,7 @@ A look at Airbnb in San Francisco.
 ### Requirements
 - Python 2.7.x
 - Node.js 0.12
-- Bower and Grunt ($ npm install -g grunt-cli bower)
+- Bower and Grunt (`$ npm install -g grunt-cli bower`)
 
 ### Installation
 ```bash
