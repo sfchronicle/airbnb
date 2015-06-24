@@ -9,12 +9,31 @@ body {
 
 article {
   &.page {
+    overflow: hidden; /* hack to prevent map for busting margins */
+
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center;
+    }
+
     p {
       margin-left: 20%;
       margin-right: 20%;
     }
+
+    .big-image {
+      height: 500px;
+    }
+
+    /* States */
     &.hidden, &.content-hidden .content {
       display: none;
+    }
+    &.current {
+      .big-image {
+        .title, .description {
+          color: white;
+        }
+      }
     }
   }
   &.fade-up-out {

@@ -8,7 +8,9 @@
     display: inline-block;
     position: relative;
     width: 100%;
-    padding-bottom: 75%; /* aspect ratio */
+    max-width: 1000px;
+    padding-bottom: 48%;// 75%; /* aspect ratio */
+    margin: 0 20%;
     vertical-align: top;
     overflow: hidden;
 }
