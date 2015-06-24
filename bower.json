@@ -18,6 +18,10 @@
     "foundation": "~5.5.2",
     "jquery-scrollto": "~1.4.4",
     "history.js": "~1.8.0",
-    "ajaxify": "git@github.com:browserstate/ajaxify.git"
+    "ajaxify": "git@github.com:browserstate/ajaxify.git",
+    "d3": "~3.5.5",
+    "underscore": "~1.8.3",
+    "topojson": "~1.6.19",
+    "d3-plugins": "*"
   }
 }

@@ -22,29 +22,27 @@
         </div>
       </div>
   </div>
-  <div class='content'>
+  <div class='content container'>
       <h3 class='byline'>
         Published <time></time> by <span class='author'></span>
       </h3>
-    <h1 class='title'></h1>
-    <h2 class='description'></h2>
-    <div class='text'></div>
+      <h1 class='title'></h1>
+      <h2 class='description'></h2>
+      <div class='text'></div>
   </div>
 </article>
 {% endblock %}
 
 {% block javascript %}
 <script>
-$(document).ready(function(){
+$(document).ready(function () {
+  // Globals defined in main.js
+  $body   = $(document.body);
+  $window = $(window);
+  $html   = $(document.documentElement);
 
-  /* A couple of selections. */
-  $body         = $(document.body);
-  $window       = $(window);
-  $html         = $(document.documentElement);
-
-  /* Let's get it started. */
-  App.load();
-
+  App.Story.load();
+  App.Map.load();
 });
 </script>
 {% endblock %}

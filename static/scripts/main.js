@@ -2,7 +2,53 @@
 
 jQuery.ajaxSetup({ cache: false });
 
-var App = App || {
+var App = App || {};
+
+App.Map = App.Map || {
+  width: 600,
+  height: 400,
+  coordinates: [-122.4183, 37.7750],
+  rendered: false
+};
+
+App.Map.load = function () {
+  var self = this;
+  var tiler = d3.geo.tile()
+      .size([self.width, self.height]);
+
+  var projection = d3.geo.mercator()
+      .center(self.coordinates)
+      .scale((1 << 21) / 2 / Math.PI)
+      .translate([self.width / 2, self.height / 2]);
+
+  var path = d3.geo.path()
+      .projection(projection);
+
+  var svg = d3.select('#map').append('div').classed('svg-container', true)
+        .append('svg')
+          .attr('viewBox', '0 0 '+self.width+' '+self.height)
+          .attr('preserveAspectRatio', 'xMidYMid')
+          .classed('svg-content-responsive', true);
+
+  svg.selectAll('g')
+      .data(
+        tiler.scale(projection.scale() * 2 * Math.PI)
+        .translate(projection([0, 0]))
+      )
+    .enter().append('g')
+      .each(function (d) {
+        var g = d3.select(this);
+        d3.json("http://" + ["a", "b", "c"][(d[0] * 31 + d[1]) % 3] + ".tile.openstreetmap.us/vectiles-highroad/" + d[2] + "/" + d[0] + "/" + d[1] + ".json", function (error, json) {
+          g.selectAll('path')
+              .data(json.features.sort(function(a, b) { return a.properties.sort_key - b.properties.sort_key; }))
+            .enter().append('path')
+              .attr('class', function (d) { return d.properties.kind; })
+              .attr('d', path);
+        });
+      });
+};
+
+App.Story = App.Story || {
   canScroll:          true,
   initialLoad:        true,
   animationDuration:  500,
@@ -12,7 +58,7 @@ var App = App || {
   pageTemplate:       null,
 };
 
-App.load = function(){
+App.Story.load = function () {
   this.currentPostIndex = getURLIndex();
   this.makeSelections();
 
@@ -20,68 +66,71 @@ App.load = function(){
   $body.append( this.$next );
 
   var self = this;
-  this.createPost({ type: 'current' }, function(){
-    self.createPost({ type: 'next' }, function(){
+  this.createPost({ type: 'current' }, function () {
+    self.createPost({ type: 'next' }, function () {
 
       /* Selections. */
       self.refreshCurrentAndNextSelection();
 
       /* Push initial on to stack */
-      history.pushState(pageState(), "", "#" + self.currentPostIndex)
+      history.pushState(pageState(), '', '#' + self.currentPostIndex)
 
       /* Bind to some events. */
       self.bindGotoNextClick();
       self.bindPopstate();
       self.bindWindowScroll();
-    })
-  })
+    });
+  });
 }
 
-App.makeSelections = function(){
+App.Story.makeSelections = function () {
   this.$page         = $('.page');
   this.pageTemplate  = elementToTemplate( this.$page.clone() );
   this.$current      = this.currentElementClone();
   this.$next         = this.nextElementClone();
 }
 
-App.getPost = function(index, callback){
+App.Story.getPost = function (index, callback) {
   callback = callback || $.noop;
 
-  if ( this.postCache[index] ){
+  if ( this.postCache[index] ) {
     callback( this.postCache[index] );
     return;
   }
 
   var self = this;
-  $.getJSON('/static/stories/post_'+ index +'.json', function(d){
+  $.getJSON('/static/stories/post_'+ index +'.json', function (d) {
     self.postCache[index] = d;
-    callback(d)
+    callback(d);
   });
 }
 
-App.nextPostIndex = function(index){
-  return (index === this.postCount) ? 1 : index + 1
+App.Story.nextPostIndex = function (index) {
+  return (index === this.postCount) ? 1 : index + 1;
 }
 
-App.createPost = function(opts, callback){
+App.Story.createPost = function(opts, callback){
   opts      = opts || {};
   var self  = this;
   var type  = opts['type'] || 'next';
 
-  if ( opts['fromTemplate'] ){
+  if ( opts['fromTemplate'] ) {
     $body.append( this.nextElementClone() );
     this['$' + type] = $('.' + type)
   }
 
   var index = (type == 'next') ? this.nextPostIndex( this.currentPostIndex) : this.currentPostIndex;
-  this.getPost(index, function(d){
+  this.getPost(index, function (d) {
     self.contentizeElement(self['$' + type], d);
     callback && callback();
   });
 
+  if (this.currentPostIndex === 1) {
+    App.Map.load();
+  }
 }
 
-App.contentizeElement = function($el, d){
+App.Story.contentizeElement = function ($el, d) {
   $el.find('.big-image').css({ backgroundImage: "url(" + d.image + ")" });
   $el.find('h1.title').html(d.title);
   $el.find('h2.description').html(d.title_secondary);
@@ -90,7 +139,7 @@ App.contentizeElement = function($el, d){
   $el.find('h3.byline .author').html(d.author);
 }
 
-App.animatePage = function(callback){
+App.Story.animatePage = function(callback){
   var self              = this;
   var translationValue  = this.$next.get(0).getBoundingClientRect().top;
   this.canScroll        = false;
@@ -116,7 +165,7 @@ App.animatePage = function(callback){
   }, self.animationDuration );
 }
 
-App.bindGotoNextClick = function(){
+App.Story.bindGotoNextClick = function(){
   var self  = this;
   var e     = 'ontouchstart' in window ? 'touchstart' : 'click';
 
@@ -132,7 +181,7 @@ App.bindGotoNextClick = function(){
   });
 }
 
-App.bindPopstate = function(){
+App.Story.bindPopstate = function(){
   var self = this;
   $window.on('popstate', function(e){
 
@@ -151,7 +200,7 @@ App.bindPopstate = function(){
   });
 }
 
-App.bindWindowScroll = function(){
+App.Story.bindWindowScroll = function(){
   var self = this;
   $window.on('mousewheel', function(ev){
     if ( !self.canScroll )
@@ -159,16 +208,16 @@ App.bindWindowScroll = function(){
   })
 }
 
-App.refreshCurrentAndNextSelection = function(){
+App.Story.refreshCurrentAndNextSelection = function(){
   this.$current      = $('.page.current');
   this.$next         = $('.page.next');
 }
 
-App.nextElementClone = function(){
+App.Story.nextElementClone = function(){
   return this.$page.clone().removeClass('hidden').addClass('next content-hidden');
 }
 
-App.currentElementClone = function(){
+App.Story.currentElementClone = function(){
   return this.$page.clone().removeClass('hidden').addClass('current');
 }
 
@@ -182,9 +231,9 @@ function scrollTop(){
 }
 
 function pageState(){
-  return { index: App.currentPostIndex, current: elementToTemplate(App.$current), next: elementToTemplate(App.$next) }
+  return { index: App.Story.currentPostIndex, current: elementToTemplate(App.Story.$current), next: elementToTemplate(App.Story.$next) }
 }
 
 function getURLIndex(){
-  return parseInt( (history.state && history.state.index) ||window.location.hash.replace('#', "") || App.currentPostIndex );
+  return parseInt( (history.state && history.state.index) ||window.location.hash.replace('#', "") || App.Story.currentPostIndex );
 }

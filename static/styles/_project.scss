@@ -9,6 +9,10 @@ body {
 
 article {
   &.page {
+    p {
+      margin-left: 20%;
+      margin-right: 20%;
+    }
     &.hidden, &.content-hidden .content {
       display: none;
     }
