@@ -23,6 +23,7 @@
     "underscore": "~1.8.3",
     "topojson": "~1.6.19",
     "d3-plugins": "*",
-    "togeojson": "~0.12.0"
+    "togeojson": "~0.12.0",
+    "d3-tip": "~0.6.7"
   }
 }

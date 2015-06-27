@@ -5,14 +5,16 @@ jQuery.ajaxSetup({ cache: false });
 var App = App || {};
 
 App.Map = App.Map || {
-  width: 600,
-  height: 400,
+  width: 900,
+  height: 600,
   coordinates: [-122.4183, 37.7750],
   rendered: false
 };
 
 App.Map.load = function () {
   var self = this;
+  var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d; });
+  var layers = ['water', 'landuse', 'roads', 'buildings'];
   var tiler = d3.geo.tile()
       .size([self.width, self.height]);
 
@@ -30,10 +32,10 @@ App.Map.load = function () {
           .attr('preserveAspectRatio', 'xMidYMid')
           .classed('svg-content-responsive', true)
           .call(renderTiles, 'highroad')
-          .call(renderTiles, 'buildings')
-          .call(renderKML);
+          .call(renderSF)
+          //.call(tip);
 
-  function slugify(text) {
+  function slugify (text) {
     return text.toString().toLowerCase()
       .replace(/\s+/g, '-')           // Replace spaces with -
       .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
@@ -56,6 +58,17 @@ App.Map.load = function () {
     });
   }
 
+  function renderSF (svg) {
+    d3.json('/static/data/sf-neighborhoods.json', function (error, json) {
+      svg.append('g').selectAll('path')
+        .data(json.features)
+      .enter().append('path')
+        .attr('class', 'neighborhood')
+        .attr('id', function (d) { return slugify(d.properties.neighborho); })
+        .attr('d', path);
+    });
+  }
+
   function renderTiles (svg, type) {
     svg.selectAll('g')
         .data(
@@ -65,12 +78,19 @@ App.Map.load = function () {
       .enter().append('g')
         .each(function (d) {
           var g = d3.select(this);
-          d3.json("http://" + ["a", "b", "c"][(d[0] * 31 + d[1]) % 3] + ".tile.openstreetmap.us/vectiles-"+type+"/" + d[2] + "/" + d[0] + "/" + d[1] + ".json", function (error, json) {
-            g.selectAll('path')
-                .data(json.features.sort(function(a, b) { return a.properties.sort_key - b.properties.sort_key; }))
-              .enter().append('path')
-                .attr('class', function (d) { return d.properties.kind; })
-                .attr('d', path);
+          d3.json("http://vector.mapzen.com/osm/all/" + d[2] + "/" + d[0] + "/" + d[1] + ".json?api_key=vector-tiles-ZS0fz7o", function(error, json) {
+
+            layers.forEach(function (layer) {
+              var data = json[layer];
+
+              if (data) {
+                g.selectAll('path')
+                    .data(data.features.sort(function(a, b) { return a.properties.sort_key - b.properties.sort_key; }))
+                  .enter().append('path')
+                    .attr('class', function (d) { return d.properties.kind; })
+                    .attr('d', path);
+              }
+            });
           });
         });
   }

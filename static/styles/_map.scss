@@ -5,12 +5,12 @@
 } */
 
 .svg-container {
-    display: inline-block;
+    display: block;
     position: relative;
     width: 100%;
     max-width: 1000px;
     padding-bottom: 48%;// 75%; /* aspect ratio */
-    margin: 0 20%;
+    margin: 0 auto;
     vertical-align: top;
     overflow: hidden;
 }
@@ -28,8 +28,19 @@ path {
   stroke-linecap: round;
 }
 
+.neighborhood {
+  fill: orange;
+  fill-opacity: 0.5;
+
+  &:hover {
+    fill: red;
+    cursor: pointer;
+  }
+}
+.park, .nature_reserve, .wood, .protected-land { stroke: none; }
+.ocean { fill: #EEFBFF; stroke: none; }
 .major_road { stroke: #776; }
 .minor_road { stroke: #ccb; }
 .highway { stroke: #f39; stroke-width: 1.5px; }
 .rail { stroke: #7de; }
-.buildings { stroke: none; fill: black; }
+.buildings path { stroke: none; fill: black; }
