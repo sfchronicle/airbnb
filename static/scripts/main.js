@@ -18,7 +18,7 @@ App.Map.load = function () {
 
   var projection = d3.geo.mercator()
       .center(self.coordinates)
-      .scale((1 << 21) / 2 / Math.PI)
+      .scale((1 << 20) / 2 / Math.PI)
       .translate([self.width / 2, self.height / 2]);
 
   var path = d3.geo.path()
@@ -28,24 +28,52 @@ App.Map.load = function () {
         .append('svg')
           .attr('viewBox', '0 0 '+self.width+' '+self.height)
           .attr('preserveAspectRatio', 'xMidYMid')
-          .classed('svg-content-responsive', true);
+          .classed('svg-content-responsive', true)
+          .call(renderTiles, 'highroad')
+          .call(renderTiles, 'buildings')
+          .call(renderKML);
 
-  svg.selectAll('g')
-      .data(
-        tiler.scale(projection.scale() * 2 * Math.PI)
-        .translate(projection([0, 0]))
-      )
-    .enter().append('g')
-      .each(function (d) {
-        var g = d3.select(this);
-        d3.json("http://" + ["a", "b", "c"][(d[0] * 31 + d[1]) % 3] + ".tile.openstreetmap.us/vectiles-highroad/" + d[2] + "/" + d[0] + "/" + d[1] + ".json", function (error, json) {
-          g.selectAll('path')
-              .data(json.features.sort(function(a, b) { return a.properties.sort_key - b.properties.sort_key; }))
-            .enter().append('path')
-              .attr('class', function (d) { return d.properties.kind; })
-              .attr('d', path);
+  function slugify(text) {
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-')           // Replace spaces with -
+      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+      .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+      .replace(/^-+/, '')             // Trim - from start of text
+      .replace(/-+$/, '');            // Trim - from end of text
+  }
+
+  function renderKML (svg) {
+    $.ajax('static/data/sf-neighborhoods.kml').done(function (xml) {
+      var neighborhoods = toGeoJSON.kml(xml);
+      svg.append('g')
+        .attr('class', 'neighborhoods')
+      .selectAll('path')
+        .data(neighborhoods.features)
+      .enter().append('path')
+        .attr('id', function (d) { return slugify(d.properties.name); })
+        .attr('class', 'neighborhood')
+        .attr('d', path);
+    });
+  }
+
+  function renderTiles (svg, type) {
+    svg.selectAll('g')
+        .data(
+          tiler.scale(projection.scale() * 2 * Math.PI)
+          .translate(projection([0, 0]))
+        )
+      .enter().append('g')
+        .each(function (d) {
+          var g = d3.select(this);
+          d3.json("http://" + ["a", "b", "c"][(d[0] * 31 + d[1]) % 3] + ".tile.openstreetmap.us/vectiles-"+type+"/" + d[2] + "/" + d[0] + "/" + d[1] + ".json", function (error, json) {
+            g.selectAll('path')
+                .data(json.features.sort(function(a, b) { return a.properties.sort_key - b.properties.sort_key; }))
+              .enter().append('path')
+                .attr('class', function (d) { return d.properties.kind; })
+                .attr('d', path);
+          });
         });
-      });
+  }
 };
 
 App.Story = App.Story || {
