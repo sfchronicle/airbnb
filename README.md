@@ -10,7 +10,7 @@ A look at Airbnb in San Francisco.
 ```bash
 $ git clone git@github.com:sfchronicle/airbnb.git && cd $_
 $ mkvirtualenv airbnb
-$ pip install -r requirements && npm install && bower install
+$ pip install -r requirements.txt && npm install && bower install
 $ grunt serve
 ```
 
