@@ -47,6 +47,9 @@ module.exports = function (grunt) {
         files: ['Gruntfile.js']
       },
       sass: {
+        options: {
+          livereload: false
+        },
         files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['sass:server', 'autoprefixer']
       },
