@@ -5,7 +5,7 @@ jQuery.ajaxSetup({ cache: false });
 var App = App || {};
 
 App.Map = App.Map || {
-  width: 900,
+  width: 1200,
   height: 600,
   coordinates: [-122.4183, 37.7750],
   rendered: false
@@ -13,7 +13,6 @@ App.Map = App.Map || {
 
 App.Map.load = function () {
   var self = this;
-  var tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d; });
   var layers = ['water', 'landuse', 'roads', 'buildings'];
   var tiler = d3.geo.tile()
       .size([self.width, self.height]);
@@ -26,14 +25,22 @@ App.Map.load = function () {
   var path = d3.geo.path()
       .projection(projection);
 
+  var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .html(function(d) { return d.properties.Name; });
+
   var svg = d3.select('#map').append('div').classed('svg-container', true)
         .append('svg')
           .attr('viewBox', '0 0 '+self.width+' '+self.height)
           .attr('preserveAspectRatio', 'xMidYMid')
           .classed('svg-content-responsive', true)
-          .call(renderTiles, 'highroad')
-          .call(renderSF)
-          //.call(tip);
+
+  svg.call(tip)
+    .call(renderTiles)
+    //.call(renderSF)
+    //.call(renderKML)
+    .call(renderTopojson)
+    .call(renderLegend)
 
   function slugify (text) {
     return text.toString().toLowerCase()
@@ -44,8 +51,31 @@ App.Map.load = function () {
       .replace(/-+$/, '');            // Trim - from end of text
   }
 
+  function renderLegend (svg) {
+    d3.selectAll('.svg-container').append('div')
+      .attr('class', 'legend');
+
+    $('.legend').html('<ul class="button-group right"><ul>')
+    $('.button-group')
+      .append('<li><a href="#" class="button">2014</a></li>')
+      .append('<li><a href="#" class="button">2015</a></li>')
+  }
+
+  function renderTopojson (svg) {
+      d3.json('/static/data/2015-06-23-sf-airbnb-neighborhoods.topojson', function (error, json) {
+        svg.append('g').selectAll('path')
+          .data(topojson.feature(json, json.objects.neighborhoods).features)
+        .enter().append('path')
+          .attr('class', 'neighborhood')
+          .attr('id', function (d) { return slugify(d.properties.Name); })
+          .attr('d', path)
+          .on('mouseover', tip.show)
+          .on('mouseout', tip.hide);
+      });
+  }
+
   function renderKML (svg) {
-    $.ajax('static/data/sf-neighborhoods.kml').done(function (xml) {
+    $.ajax('static/data/SFneighborhoods2014.kml').done(function (xml) {
       var neighborhoods = toGeoJSON.kml(xml);
       svg.append('g')
         .attr('class', 'neighborhoods')
@@ -69,7 +99,7 @@ App.Map.load = function () {
     });
   }
 
-  function renderTiles (svg, type) {
+  function renderTiles (svg) {
     svg.selectAll('g')
         .data(
           tiler.scale(projection.scale() * 2 * Math.PI)
