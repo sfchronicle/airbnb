@@ -11,8 +11,19 @@ App.Map = App.Map || {
   rendered: false
 };
 
+App.Utils = App.Utils || {};
+App.Utils.slugify = function (text) {
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
+};
+
 App.Map.load = function () {
   var self = this;
+  var slugify =  App.Utils.slugify;
   var layers = ['water', 'landuse', 'roads', 'buildings'];
   var tiler = d3.geo.tile()
       .size([self.width, self.height]);
@@ -37,66 +48,12 @@ App.Map.load = function () {
 
   svg.call(tip)
     .call(renderTiles)
-    //.call(renderSF)
-    //.call(renderKML)
     .call(renderTopojson)
-    .call(renderLegend)
-
-  function slugify (text) {
-    return text.toString().toLowerCase()
-      .replace(/\s+/g, '-')           // Replace spaces with -
-      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-      .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-      .replace(/^-+/, '')             // Trim - from start of text
-      .replace(/-+$/, '');            // Trim - from end of text
-  }
+    //.call(renderLegend)
 
   function renderLegend (svg) {
     d3.selectAll('.svg-container').append('div')
       .attr('class', 'legend');
-
-    $('.legend').html('<ul class="button-group right"><ul>')
-    $('.button-group')
-      .append('<li><a href="#" class="button">2014</a></li>')
-      .append('<li><a href="#" class="button">2015</a></li>')
-  }
-
-  function renderTopojson (svg) {
-      d3.json('/static/data/2015-06-23-sf-airbnb-neighborhoods.topojson', function (error, json) {
-        svg.append('g').selectAll('path')
-          .data(topojson.feature(json, json.objects.neighborhoods).features)
-        .enter().append('path')
-          .attr('class', 'neighborhood')
-          .attr('id', function (d) { return slugify(d.properties.Name); })
-          .attr('d', path)
-          .on('mouseover', tip.show)
-          .on('mouseout', tip.hide);
-      });
-  }
-
-  function renderKML (svg) {
-    $.ajax('static/data/SFneighborhoods2014.kml').done(function (xml) {
-      var neighborhoods = toGeoJSON.kml(xml);
-      svg.append('g')
-        .attr('class', 'neighborhoods')
-      .selectAll('path')
-        .data(neighborhoods.features)
-      .enter().append('path')
-        .attr('id', function (d) { return slugify(d.properties.name); })
-        .attr('class', 'neighborhood')
-        .attr('d', path);
-    });
-  }
-
-  function renderSF (svg) {
-    d3.json('/static/data/sf-neighborhoods.json', function (error, json) {
-      svg.append('g').selectAll('path')
-        .data(json.features)
-      .enter().append('path')
-        .attr('class', 'neighborhood')
-        .attr('id', function (d) { return slugify(d.properties.neighborho); })
-        .attr('d', path);
-    });
   }
 
   function renderTiles (svg) {
@@ -124,6 +81,46 @@ App.Map.load = function () {
           });
         });
   }
+
+  function renderTopojson (svg) {
+    /* Render topojson of SF Airbnb neighrborhoods
+       Converted from KML for John Blanchard */
+    d3.json('/static/data/2015-06-23-sf-airbnb-neighborhoods.topojson', function (error, json) {
+      svg.append('g').selectAll('path')
+        .data(topojson.feature(json, json.objects.neighborhoods).features)
+      .enter().append('path')
+        .attr('class', 'neighborhood')
+        .attr('id', function (d) { return slugify(d.properties.Name); })
+        .attr('d', path)
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
+        .on('click', self.render);
+    });
+  }
+
+  /*  =================
+      Function for rendering neighborhoods defined by the city
+      =================
+  */
+  // function renderSF (svg) {
+  //   d3.json('/static/data/sf-neighborhoods.json', function (error, json) {
+  //     svg.append('g').selectAll('path')
+  //       .data(json.features)
+  //     .enter().append('path')
+  //       .attr('class', 'neighborhood')
+  //       .attr('id', function (d) { return slugify(d.properties.neighborho); })
+  //       .attr('d', path);
+  //   });
+  // }
+};
+
+App.Map.render = function (d) {
+  /* Click event for neighborhood. Render template
+    these are paths so remember that typicall jQuery functions won't work
+  */
+  d3.selectAll('.neighborhood').classed('active', false);
+  var id = App.Utils.slugify( d.properties.Name );
+  d3.selectAll('.neighborhood#'+id).classed('active', true);
 };
 
 App.Story = App.Story || {

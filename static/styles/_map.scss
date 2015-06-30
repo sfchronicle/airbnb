@@ -52,10 +52,12 @@
 
 .legend {
   position: absolute;
-  right: 0;
-  //background-color: rgba(255, 255, 255, 0.8);
-  height: 100px;
-  width: 45%;
+  right: 5%;
+  background-color: rgba(247, 247, 247, 0.95);
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  height: 100%;
+  width: 20%;
 
   h2, p {
     color: white;
@@ -78,15 +80,15 @@ path {
   fill: orange;
   fill-opacity: 0.5;
 
-  &:hover {
+  &:hover, &.active {
     fill: red;
     cursor: pointer;
   }
 }
-.park, .nature_reserve, .wood, .protected-land { stroke: none; }
+.park, .nature_reserve, .wood, .protected-land { fill: #C7EAAA; stroke: none; }
 .ocean { fill: #EEFBFF; stroke: none; }
-.major_road { stroke: #776; }
-.minor_road { stroke: #ccb; }
-.highway { stroke: #f39; stroke-width: 1.5px; }
+.major_road { stroke: #C0B99D; }
+.minor_road { stroke: #D9D2B6; }
+.highway { stroke: #736C50; stroke-width: 1.5px; }
 .rail { stroke: #7de; }
-.buildings path { stroke: none; fill: black; }
+.buildings path { stroke: none; fill: #E1CEAD; }
