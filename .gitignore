@@ -7,3 +7,4 @@ bower_components/
 *.css
 *.css.map
 build/
+data/
