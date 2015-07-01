@@ -56,7 +56,7 @@ App.Map.load = function () {
 
   var tip = d3.tip()
       .attr('class', 'd3-tip')
-      .html(function(d) { return d.properties.Name; });
+      .html(function(d) { return d.properties.name; });
 
   var svg = d3.select('#map').append('div').classed('svg-container', true)
         .append('svg')
@@ -104,11 +104,12 @@ App.Map.load = function () {
     /* Render topojson of SF Airbnb neighrborhoods
        Converted from KML for John Blanchard */
     d3.json('/static/2015-07-01-sf-airbnb-neighborhoods.topojson', function (error, json) {
+      if (error) { console.error(error); return error; }
       svg.append('g').selectAll('path')
         .data(topojson.feature(json, json.objects.neighborhoods).features)
       .enter().append('path')
         .attr('class', 'neighborhood')
-        .attr('id', function (d) { return slugify(d.properties.Name); })
+        .attr('id', function (d) { console.info(d.properties); return slugify(d.properties.name); })
         .attr('d', path)
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide)
@@ -137,7 +138,7 @@ App.Map.render = function (d) {
     these are paths so remember that typicall jQuery functions won't work
   */
   var t = App.Utils.templatize;
-  var id = App.Utils.slugify( d.properties.Name );
+  var id = App.Utils.slugify( d.properties.name );
 
   d3.selectAll('.neighborhood').classed('active', false);
   d3.selectAll('.neighborhood#'+id).classed('active', true);

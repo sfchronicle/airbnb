@@ -46,6 +46,9 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
+      data: {
+        files: ['<%= config.app %>/{,*/}*.json']
+      },
       sass: {
         options: {
           livereload: false

@@ -6,17 +6,49 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Alamo Square",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+                        "name":"Alamo Square",
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 217.77,
+                                "2015": 261.59
+                            },
+                            "reviewCount": {
+                                "2014": 604,
+                                "2015": 750
+                            },
+                            "locationsCount": {
+                                "2014": 60,
+                                "2015": 58
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 90.05,
+                                "2015": 110.08
+                            },
+                            "reviewCount": {
+                                "2014": 799,
+                                "2015": 775
+                            },
+                            "locationsCount": {
+                                "2014": 20,
+                                "2015": 24
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 75.60,
+                                "2015": null
+                            },
+                            "reviewCount": {
+                                "2014": 33,
+                                "2015": null
+                            },
+                            "locationsCount": {
+                                "2014": 5,
+                                "2015": null
+                            }
+                        }
                     },
                     "arcs":[
                         [
@@ -30,17 +62,49 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Balboa Terrace\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+                        "name":"Balboa Terrace",
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": null,
+                                "2015": 317.25
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 121
+                            },
+                            "locationsCount": {
+                                "2014": null,
+                                "2015": 8
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": null,
+                                "2015": 142.83
+                            },
+                            "reviewCount": {
+                                "2014": null,
+                                "2015": 569
+                            },
+                            "locationsCount": {
+                                "2014": null,
+                                "2015": 18
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": null,
+                                "2015": 43.00
+                            },
+                            "reviewCount": {
+                                "2014": null,
+                                "2015": 5
+                            },
+                            "locationsCount": {
+                                "2014": null,
+                                "2015": 1
+                            }
+                        }
                     },
                     "arcs":[
                         [
@@ -53,17 +117,49 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Bayview",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+                        "name":"Bayview",
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 191.10,
+                                "2015": 184.47
+                            },
+                            "reviewCount": {
+                                "2014": 34,
+                                "2015": 154
+                            },
+                            "locationsCount": {
+                                "2014": 10,
+                                "2015": 15
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 83.40,
+                                "2015": 94.51
+                            },
+                            "reviewCount": {
+                                "2014": 460,
+                                "2015": 1097
+                            },
+                            "locationsCount": {
+                                "2014": 40,
+                                "2015": 43
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": null,
+                                "2015": null
+                            },
+                            "reviewCount": {
+                                "2014": null,
+                                "2015": null
+                            },
+                            "locationsCount": {
+                                "2014": null,
+                                "2015": null
+                            }
+                        }
                     },
                     "arcs":[
                         [
@@ -77,18 +173,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Bernal Heights",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
-                    },
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Bernal Heights"
+
+
+
+
+
+
+
+                      },
                     "arcs":[
                         [
                             11,
@@ -111,17 +248,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Chinatown",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Chinatown"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -134,17 +313,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Civic Center",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Civic Center"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -161,17 +382,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Cole Valley",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Cole Valley"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -186,17 +449,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Cow Hollow\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Cow Hollow\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -210,17 +515,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Crocker Amazon\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Crocker Amazon\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -234,17 +581,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Diamond Heights\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Diamond Heights\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -262,17 +651,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Dogpatch",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Dogpatch"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -286,17 +717,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Downtown",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Downtown"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -310,17 +783,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Duboce Triangle\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Duboce Triangle\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -334,17 +849,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Excelsior",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Excelsior"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -364,17 +921,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Financial District\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Financial District\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -388,17 +987,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Fisherman's Wharf\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Fisherman's Wharf\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -409,17 +1050,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Glen Park\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Glen Park\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -437,17 +1120,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Haight-Ashbury",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Haight-Ashbury"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -467,17 +1192,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Hayes Valley\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Hayes Valley\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -491,17 +1258,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Ingleside",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Ingleside"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -514,17 +1323,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Inner Sunset",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Inner Sunset"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -540,17 +1391,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Lakeshore",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Lakeshore"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -568,17 +1461,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Lower Haight\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Lower Haight\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -593,17 +1528,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Marina",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Marina"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -616,17 +1593,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Mission Bay",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Mission Bay"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -640,17 +1659,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Mission District\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Mission District\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -675,17 +1736,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Nob Hill\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Nob Hill\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -699,17 +1802,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Noe Valley",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Noe Valley"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -729,17 +1874,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"North Beach",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"North Beach"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -753,17 +1940,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Oceanview",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Oceanview"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -779,17 +2008,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Outer Sunset\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Outer Sunset\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -804,17 +2075,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Pacific Heights\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Pacific Heights\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -829,17 +2142,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Parkside",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Parkside"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -859,17 +2214,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Portola",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Portola"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -886,17 +2283,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Potrero Hill",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Potrero Hill"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -914,17 +2353,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Presidio Heights",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Presidio Heights"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -938,17 +2419,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Richmond District\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Richmond District\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -961,17 +2484,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Russian Hill",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Russian Hill"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -985,17 +2550,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"SoMa",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"SoMa"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -1014,17 +2621,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"South Beach\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"South Beach\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -1036,17 +2685,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Sunnyside",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Sunnyside"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -1062,17 +2753,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Telegraph Hill",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Telegraph Hill"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -1087,17 +2820,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Tenderloin",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Tenderloin"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -1114,17 +2889,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"The Castro",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"The Castro"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -1147,17 +2964,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Twin Peaks",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Twin Peaks"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -1179,17 +3038,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Visitacion Valley",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Visitacion Valley"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -1204,17 +3105,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"Western Addition/NOPA",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"Western Addition/NOPA"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
@@ -1236,17 +3179,59 @@
                 {
                     "type":"Polygon",
                     "properties":{
-                        "begin":null,
-                        "altitudeMo":null,
-                        "Name":"West Portal\n",
-                        "timestamp":null,
-                        "descriptio":null,
-                        "tessellate":-1,
-                        "extrude":-1,
-                        "visibility":-1,
-                        "drawOrder":null,
-                        "end":null,
-                        "icon":null
+
+
+                        "entireHome": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "privateRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "sharedRoom": {
+                            "avgOfPrice": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "reviewCount": {
+                                "2014": 0,
+                                "2015": 0
+                            },
+                            "locationsCount": {
+                                "2014": 0,
+                                "2015": 0
+                            }
+                        },
+                        "name":"West Portal\n"
+
+
+
+
+
+
+
+
                     },
                     "arcs":[
                         [
