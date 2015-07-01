@@ -4,13 +4,10 @@ jQuery.ajaxSetup({ cache: false });
 
 var App = App || {};
 
-App.Map = App.Map || {
-  width: 1200,
-  height: 600,
-  coordinates: [-122.4183, 37.7750],
-  rendered: false
-};
-
+/*  =================================================
+    UTILITIES
+    =================================================
+*/
 App.Utils = App.Utils || {};
 App.Utils.slugify = function (text) {
   return text.toString().toLowerCase()
@@ -20,10 +17,31 @@ App.Utils.slugify = function (text) {
     .replace(/^-+/, '')             // Trim - from start of text
     .replace(/-+$/, '');            // Trim - from end of text
 };
+App.Utils.templatize = function (template, placeholder, obj) {
+  /*  Handlebars template selector, placehodler selector, data object
+      Render Handlebars template
+  */
+  var source = $(template).html(),
+      hbs = Handlebars.compile( source );
+
+  $(placeholder).html( hbs( obj ) );
+};
+
+/*  =================================================
+    MAP
+    =================================================
+*/
+App.Map = App.Map || {
+  width: 1200,
+  height: 600,
+  coordinates: [-122.4183, 37.7750],
+  rendered: false
+};
 
 App.Map.load = function () {
   var self = this;
   var slugify =  App.Utils.slugify;
+  var templatize = App.Utils.templatize;
   var layers = ['water', 'landuse', 'roads', 'buildings'];
   var tiler = d3.geo.tile()
       .size([self.width, self.height]);
@@ -85,7 +103,7 @@ App.Map.load = function () {
   function renderTopojson (svg) {
     /* Render topojson of SF Airbnb neighrborhoods
        Converted from KML for John Blanchard */
-    d3.json('/static/data/2015-06-23-sf-airbnb-neighborhoods.topojson', function (error, json) {
+    d3.json('/static/data/2015-07-01-sf-airbnb-neighborhoods.topojson', function (error, json) {
       svg.append('g').selectAll('path')
         .data(topojson.feature(json, json.objects.neighborhoods).features)
       .enter().append('path')
@@ -118,11 +136,19 @@ App.Map.render = function (d) {
   /* Click event for neighborhood. Render template
     these are paths so remember that typicall jQuery functions won't work
   */
-  d3.selectAll('.neighborhood').classed('active', false);
+  var t = App.Utils.templatize;
   var id = App.Utils.slugify( d.properties.Name );
+
+  d3.selectAll('.neighborhood').classed('active', false);
   d3.selectAll('.neighborhood#'+id).classed('active', true);
+
+  t('#legend-tmpl', '.legend', d.properties);
 };
 
+/*  =================================================
+    STORY
+    =================================================
+*/
 App.Story = App.Story || {
   canScroll:          true,
   initialLoad:        true,

@@ -8,7 +8,7 @@
     display: block;
     position: relative;
     width: 100%;
-    //max-width: 1000px;
+    //max-width: 1200px;
     padding-bottom: 48%;// 75%; /* aspect ratio */
     margin: 0 auto;
     vertical-align: top;
@@ -58,10 +58,6 @@
   border-right: 1px solid #ccc;
   height: 100%;
   width: 20%;
-
-  h2, p {
-    color: white;
-  }
 
   p {
     margin-left: 5px !important;
