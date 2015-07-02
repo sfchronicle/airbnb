@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}New Web App | SF Chronicle{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://www.sfchronicle.com/external/css/global.sharedmain.r6.14.1.4.css">
+<link rel="stylesheet" href="http://www.sfchronicle.com/external/css/global.sharedmodules.r6.14.1.4.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/proto.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Page. -->
+<article class='page hidden'>
+  <div class='big-image'>
+      <div class='inner'>
+        <div class='fader'>
+          <div class='text'>
+            <a class='goto-next'>Read Next</a>
+            <h1 class='title'></h1>
+            <h2 class='description'></h2>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class='content container'>
+      <h3 class='byline'>
+        Published <time></time> by <span class='author'></span>
+      </h3>
+      <h1 class='title'></h1>
+      <h2 class='description'></h2>
+      <div class='text'></div>
+  </div>
+</article>
+{% endblock %}
+
+{% block javascript %}
+<script>
+$(document).ready(function () {
+  // Globals defined in main.js
+  $body   = $(document.body);
+  $window = $(window);
+  $html   = $(document.documentElement);
+
+});
+</script>
+{% endblock %}

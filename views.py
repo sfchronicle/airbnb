@@ -7,3 +7,7 @@ from models import *
 @app.route('/')
 def index():
     return render_template('index.html', title='index')
+
+@app.route('/prototype')
+def prototype():
+	return render_template('prototype.html')
