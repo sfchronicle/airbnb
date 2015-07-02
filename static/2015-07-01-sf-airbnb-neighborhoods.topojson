@@ -1216,44 +1216,44 @@
                         "name":"Lakeshore",
                         "entireHome": {
                             "avgOfPrice": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": 142.70
                             },
                             "reviewCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": 109
                             },
                             "locationsCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": 23
                             }
                         },
                         "privateRoom": {
                             "avgOfPrice": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": 83.89
                             },
                             "reviewCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": 216
                             },
                             "locationsCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": 19
                             }
                         },
                         "sharedRoom": {
                             "avgOfPrice": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": 71.67
                             },
                             "reviewCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": 5
                             },
                             "locationsCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": 9
                             }
                         }
                     },
@@ -1273,59 +1273,49 @@
                 {
                     "type":"Polygon",
                     "properties":{
-
-
+                        "name":"Lower Haight",
                         "entireHome": {
                             "avgOfPrice": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 225.00,
+                                "2015": 179.00
                             },
                             "reviewCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 15,
+                                "2015": 27
                             },
                             "locationsCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 1,
+                                "2015": 1
                             }
                         },
                         "privateRoom": {
                             "avgOfPrice": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 70.00,
+                                "2015": null
                             },
                             "reviewCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 1,
+                                "2015": null
                             },
                             "locationsCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 1,
+                                "2015": null
                             }
                         },
                         "sharedRoom": {
                             "avgOfPrice": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": null
                             },
                             "reviewCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": null
                             },
                             "locationsCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": null
                             }
-                        },
-                        "name":"Lower Haight\n"
-
-
-
-
-
-
-
-
+                        }
                     },
                     "arcs":[
                         [
@@ -2996,44 +2986,44 @@
                         "name":"Japantown",
                         "entireHome": {
                             "avgOfPrice": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 129.80,
+                                "2015": null
                             },
                             "reviewCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 30,
+                                "2015": null
                             },
                             "locationsCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 5,
+                                "2015": null
                             }
                         },
                         "privateRoom": {
                             "avgOfPrice": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 104.25,
+                                "2015": null
                             },
                             "reviewCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 1,
+                                "2015": null
                             },
                             "locationsCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": 4,
+                                "2015": null
                             }
                         },
                         "sharedRoom": {
                             "avgOfPrice": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": null
                             },
                             "reviewCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": null
                             },
                             "locationsCount": {
-                                "2014": 0,
-                                "2015": 0
+                                "2014": null,
+                                "2015": null
                             }
                         }
                     },

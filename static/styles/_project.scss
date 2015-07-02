@@ -3,6 +3,10 @@ $sans-serif: "AntennaMedium", sans-serif;
 $serif: "FarnhamText", Georgia, serif;
 $red: #B71C1C;
 
+.row {
+  max-width: 1200px;
+}
+
 body {
   font-family: $serif;
 }
