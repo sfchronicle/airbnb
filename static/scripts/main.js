@@ -103,7 +103,7 @@ App.Map.load = function () {
   function renderTopojson (svg) {
     /* Render topojson of SF Airbnb neighrborhoods
        Converted from KML for John Blanchard */
-    d3.json('/static/2015-07-01-sf-airbnb-neighborhoods.topojson', function (error, json) {
+    d3.json('/static/2015-07-02-sf-neighborhoods-airbnb.topojson', function (error, json) {
       if (error) { console.error(error); return error; }
       svg.append('g').selectAll('path')
         .data(topojson.feature(json, json.objects.neighborhoods).features)
