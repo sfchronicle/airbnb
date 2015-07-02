@@ -4,6 +4,33 @@ jQuery.ajaxSetup({ cache: false });
 
 var App = App || {};
 
+/*  =================================================
+    UTILITIES
+    =================================================
+*/
+App.Utils = App.Utils || {};
+App.Utils.slugify = function (text) {
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
+};
+App.Utils.templatize = function (template, placeholder, obj) {
+  /*  Handlebars template selector, placehodler selector, data object
+      Render Handlebars template
+  */
+  var source = $(template).html(),
+      hbs = Handlebars.compile( source );
+
+  $(placeholder).html( hbs( obj ) );
+};
+
+/*  =================================================
+    MAP
+    =================================================
+*/
 App.Map = App.Map || {
   width: 1200,
   height: 600,
@@ -13,6 +40,8 @@ App.Map = App.Map || {
 
 App.Map.load = function () {
   var self = this;
+  var slugify =  App.Utils.slugify;
+  var templatize = App.Utils.templatize;
   var layers = ['water', 'landuse', 'roads', 'buildings'];
   var tiler = d3.geo.tile()
       .size([self.width, self.height]);
@@ -27,7 +56,7 @@ App.Map.load = function () {
 
   var tip = d3.tip()
       .attr('class', 'd3-tip')
-      .html(function(d) { return d.properties.Name; });
+      .html(function(d) { return d.properties.name; });
 
   var svg = d3.select('#map').append('div').classed('svg-container', true)
         .append('svg')
@@ -37,66 +66,12 @@ App.Map.load = function () {
 
   svg.call(tip)
     .call(renderTiles)
-    //.call(renderSF)
-    //.call(renderKML)
     .call(renderTopojson)
-    .call(renderLegend)
-
-  function slugify (text) {
-    return text.toString().toLowerCase()
-      .replace(/\s+/g, '-')           // Replace spaces with -
-      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-      .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-      .replace(/^-+/, '')             // Trim - from start of text
-      .replace(/-+$/, '');            // Trim - from end of text
-  }
+    //.call(renderLegend)
 
   function renderLegend (svg) {
     d3.selectAll('.svg-container').append('div')
       .attr('class', 'legend');
-
-    $('.legend').html('<ul class="button-group right"><ul>')
-    $('.button-group')
-      .append('<li><a href="#" class="button">2014</a></li>')
-      .append('<li><a href="#" class="button">2015</a></li>')
-  }
-
-  function renderTopojson (svg) {
-      d3.json('/static/data/2015-06-23-sf-airbnb-neighborhoods.topojson', function (error, json) {
-        svg.append('g').selectAll('path')
-          .data(topojson.feature(json, json.objects.neighborhoods).features)
-        .enter().append('path')
-          .attr('class', 'neighborhood')
-          .attr('id', function (d) { return slugify(d.properties.Name); })
-          .attr('d', path)
-          .on('mouseover', tip.show)
-          .on('mouseout', tip.hide);
-      });
-  }
-
-  function renderKML (svg) {
-    $.ajax('static/data/SFneighborhoods2014.kml').done(function (xml) {
-      var neighborhoods = toGeoJSON.kml(xml);
-      svg.append('g')
-        .attr('class', 'neighborhoods')
-      .selectAll('path')
-        .data(neighborhoods.features)
-      .enter().append('path')
-        .attr('id', function (d) { return slugify(d.properties.name); })
-        .attr('class', 'neighborhood')
-        .attr('d', path);
-    });
-  }
-
-  function renderSF (svg) {
-    d3.json('/static/data/sf-neighborhoods.json', function (error, json) {
-      svg.append('g').selectAll('path')
-        .data(json.features)
-      .enter().append('path')
-        .attr('class', 'neighborhood')
-        .attr('id', function (d) { return slugify(d.properties.neighborho); })
-        .attr('d', path);
-    });
   }
 
   function renderTiles (svg) {
@@ -124,8 +99,57 @@ App.Map.load = function () {
           });
         });
   }
+
+  function renderTopojson (svg) {
+    /* Render topojson of SF Airbnb neighrborhoods
+       Converted from KML for John Blanchard */
+    d3.json('/static/2015-07-01-sf-airbnb-neighborhoods.topojson', function (error, json) {
+      if (error) { console.error(error); return error; }
+      svg.append('g').selectAll('path')
+        .data(topojson.feature(json, json.objects.neighborhoods).features)
+      .enter().append('path')
+        .attr('class', 'neighborhood')
+        .attr('id', function (d) { console.info(d.properties); return slugify(d.properties.name); })
+        .attr('d', path)
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
+        .on('click', self.render);
+    });
+  }
+
+  /*  =================
+      Function for rendering neighborhoods defined by the city
+      =================
+  */
+  // function renderSF (svg) {
+  //   d3.json('/static/data/sf-neighborhoods.json', function (error, json) {
+  //     svg.append('g').selectAll('path')
+  //       .data(json.features)
+  //     .enter().append('path')
+  //       .attr('class', 'neighborhood')
+  //       .attr('id', function (d) { return slugify(d.properties.neighborho); })
+  //       .attr('d', path);
+  //   });
+  // }
 };
 
+App.Map.render = function (d) {
+  /* Click event for neighborhood. Render template
+    these are paths so remember that typicall jQuery functions won't work
+  */
+  var t = App.Utils.templatize;
+  var id = App.Utils.slugify( d.properties.name );
+
+  d3.selectAll('.neighborhood').classed('active', false);
+  d3.selectAll('.neighborhood#'+id).classed('active', true);
+
+  t('#legend-tmpl', '.legend', d.properties);
+};
+
+/*  =================================================
+    STORY
+    =================================================
+*/
 App.Story = App.Story || {
   canScroll:          true,
   initialLoad:        true,

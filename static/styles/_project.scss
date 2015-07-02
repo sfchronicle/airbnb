@@ -3,6 +3,10 @@ $sans-serif: "AntennaMedium", sans-serif;
 $serif: "FarnhamText", Georgia, serif;
 $red: #B71C1C;
 
+.row {
+  max-width: 1200px;
+}
+
 body {
   font-family: $serif;
 }
@@ -12,16 +16,17 @@ article {
     overflow: hidden; /* hack to prevent map for busting margins */
 
     h1, h2, h3, h4, h5, h6 {
-      text-align: center;
+      //text-align: center;
     }
 
     p {
-      margin-left: 20%;
-      margin-right: 20%;
+      //margin-left: 20%;
+      //margin-right: 20%;
     }
 
     .big-image {
       height: 500px;
+      margin-top: 45px; // Keeps the photo just below the header
       background-size: cover;
     }
 
@@ -45,4 +50,7 @@ article {
   &.easing-upward {
     transition: all 450ms cubic-bezier(0.165, 0.84, 0.44, 1);
   }
+}
+
+.top-bar {
 }
