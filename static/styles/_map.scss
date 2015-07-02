@@ -81,6 +81,14 @@ path {
     cursor: pointer;
   }
 }
+
+#japantown {
+  fill-opacity: 0;
+  &:hover, &.active {
+    fill-opacity: 0.5;
+  }
+}
+
 .park, .nature_reserve, .wood, .protected-land { fill: #C7EAAA; stroke: none; }
 .ocean { fill: #EEFBFF; stroke: none; }
 .major_road { stroke: #C0B99D; }
