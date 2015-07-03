@@ -5,8 +5,8 @@
     <title>{% block title %}{% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    {% block head %}{% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    {% block head %}{% endblock %}
   </head>
   <body class="{% if config.DEBUG %}debug{% endif %}">
     <!--[if lt IE 10]>

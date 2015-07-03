@@ -6,8 +6,10 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="http://www.sfchronicle.com/external/css/global.sharedmain.r6.14.1.4.css">
 <link rel="stylesheet" href="http://www.sfchronicle.com/external/css/global.sharedmodules.r6.14.1.4.css">
-
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='AnimatedOpeningType/css/normalize.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='AnimatedOpeningType/css/component.css') }}" />
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/proto.css') }}">
+
 {% endblock %}
 
 {% block content %}
@@ -16,20 +18,29 @@
   <div class='big-image'>
       <div class='inner'>
         <div class='fader'>
-          <div class='text'>
-            <a class='goto-next'>Read Next</a>
-            <h1 class='title'>For better or worse?</h1>
-            <h2 class='description'>How some 5,000 impromptu listings skirt the law, affect housing supply — yet find favor with travelers, hosts</h2>
+          <div class='text sfc-head row'>
+            <a class='goto-next'></a>
+            <h1 class='title small-12'>For better or worse?</h1>
+            <h2 class='description small-6'>How some 5,000 impromptu listings skirt the law, affect housing supply — yet find favor with travelers, hosts</h2>
+            <div class='sfc-byline small-6'>
+              Story by Carolyn Said  |  Design by Michael Grant  |  Development and graphics by Aaron Williams, Maegan Clawges, and John Blanchard  |  Photography by Leah Suzuki, Joaquin Palomino, and Erin Brethauer  |  Edited by Tim O’Rouke and Kristen Go
+            </div>
           </div>
         </div>
       </div>
   </div>
-  <div class='content container'>
-      <h3 class='byline'>
-        Published <time></time> by <span class='author'></span>
-      </h3>
-      <h1 class='title'></h1>
-      <h2 class='description'></h2>
+  <div class='content container row'>
+      <div class='sfc-intro yellow small-10 small-offset-1 columns'>
+        <div class="drop-cap component">
+          <ul class="grid">
+            <li class="ot-letter-left"><span class='B' data-letter="B">B</span></li>
+          </ul>
+        </div>
+        <div class='text'>
+          oth Airbnb and its San Francisco critics are correct. <b>&middot;</b> Most of its local listings are only occasionally rented to travelers, as the vacation-rental company says. <b>&middot;</b> However, at least 300 entire homes appear to be full-time vacation rentals, while another 400 houses have so many guest reviews that they may also be year-round hotels. Meanwhile, rivals HomeAway and FlipKey enable hundreds of properties, many of them second homes, to serve as ersatz inns.
+        </div>
+      </div>
+      
       <div class='text'></div>
   </div>
 </article>
