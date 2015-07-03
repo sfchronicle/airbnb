@@ -67,11 +67,12 @@ App.Map.load = function () {
   svg.call(tip)
     .call(renderTiles)
     .call(renderTopojson)
-    //.call(renderLegend)
+    .call(renderLegend)
 
   function renderLegend (svg) {
     d3.selectAll('.svg-container').append('div')
-      .attr('class', 'legend');
+      .attr('class', 'legend effect6')
+    .append('h1').text('Hello');
   }
 
   function renderTiles (svg) {
@@ -109,7 +110,7 @@ App.Map.load = function () {
         .data(topojson.feature(json, json.objects.neighborhoods).features)
       .enter().append('path')
         .attr('class', 'neighborhood')
-        .attr('id', function (d) { console.info(d.properties); return slugify(d.properties.name); })
+        .attr('id', function (d) { return slugify(d.properties.name); })
         .attr('d', path)
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide)
@@ -237,6 +238,8 @@ App.Story.contentizeElement = function ($el, d) {
   $el.find('h1.title').html(d.title);
   $el.find('h2.description').html(d.title_secondary);
   $el.find('.content .text').html(d.content);
+  $el.find('.content .breakout_content').html(d.breakout_content);
+  $el.find('.content .text_secondary').html(d.content_secondary);
   $el.find('h3.byline time').html(d.date);
   $el.find('h3.byline .author').html(d.author);
 }

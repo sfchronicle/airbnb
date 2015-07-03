@@ -12,7 +12,11 @@
     padding-bottom: 48%;// 75%; /* aspect ratio */
     margin: 0 auto;
     vertical-align: top;
-    overflow: hidden;
+
+    svg {
+      border-top: 1px solid #cecece;
+      border-bottom: 1px solid #cecece;
+    }
 }
 .svg-content-responsive {
     display: inline-block;
@@ -53,11 +57,13 @@
 .legend {
   position: absolute;
   right: 5%;
-  background-color: rgba(247, 247, 247, 0.95);
+  background-color: #fff;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
   height: 100%;
-  width: 20%;
+  max-height: 500px;
+  top: 20px;
+  width: 30%;
 
   p {
     margin-left: 5px !important;
@@ -65,34 +71,97 @@
   }
 }
 
+.effect6
+{
+  	//position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect6:before, .effect6:after
+{
+	content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.effect6:after
+{
+	right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+
 path {
   fill: none;
-  stroke: #000;
+  stroke: #e0e0e0;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
 
 .neighborhood {
-  fill: orange;
+  fill: #FDB605;
   fill-opacity: 0.5;
+  stroke: #C38701;
 
   &:hover, &.active {
-    fill: red;
+    fill-opacity: 0.9;
     cursor: pointer;
   }
 }
 
 #japantown {
-  fill-opacity: 0 !important;
+  fill-opacity: 0;
   &:hover, &.active {
-    fill-opacity: 0.5;
+    fill-opacity: 0.9 !important;
   }
 }
 
-.park, .nature_reserve, .wood, .protected-land { fill: #C7EAAA; stroke: none; }
-.ocean { fill: #EEFBFF; stroke: none; }
-.major_road { stroke: #C0B99D; }
-.minor_road { stroke: #D9D2B6; }
-.highway { stroke: #736C50; stroke-width: 1.5px; }
-.rail { stroke: #7de; }
-.buildings path { stroke: none; fill: #E1CEAD; }
+// .park, .nature_reserve, .wood, .protected-land { fill: #C7EAAA; stroke: none; }
+.ocean { fill: #359DCF; stroke: #359DCF; }
+.major_road {  }
+.minor_road {  }
+.highway { stroke: #CFCFCF; stroke-width: 1.5px; }
+.rail {  }
+.buildings path { stroke: none;  }
+
+
+// @media #{$small-up} {
+//   #map { width: 100%; }
+// }
+// @media #{$small-only} { }
+//
+// @media #{$medium-up} {
+//   #map { width: 40.063em; }
+// }
+// @media #{$medium-only} { }
+//
+// @media #{$large-up} {
+//   #map {
+//     width: 64.063em;
+//     margin-left: -50%;
+//   }
+// }
+// @media #{$large-only} { }
+//
+// @media #{$xlarge-up} {
+//   #map { width: 75em; }
+// }
+// @media #{$xlarge-only} { }
+//
+// @media #{$xxlarge-up} {
+//   #map { width: 85em; }
+// }
+// @media #{$xxlarge-only} { }

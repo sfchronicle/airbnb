@@ -4,7 +4,7 @@ $serif: "FarnhamText", Georgia, serif;
 $red: #B71C1C;
 
 .row {
-  max-width: 1200px;
+  max-width: 80.063rem;
 }
 
 body {
@@ -52,5 +52,6 @@ article {
   }
 }
 
-.top-bar {
+.text_secondary {
+  margin-top: 60px;
 }
