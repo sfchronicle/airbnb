@@ -68,10 +68,13 @@ App.Map.load = function () {
     .call(renderTiles)
     .call(renderTopojson)
     //.call(renderLegend)
+    .call(renderCredits);
 
   function renderLegend (svg) {
     d3.selectAll('.svg-container').append('div')
-      .attr('class', 'legend');
+      .attr('class', 'legend effect6')
+    .append('h3').text('Hello')
+    .append('p').text('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
   }
 
   function renderTiles (svg) {
@@ -103,20 +106,36 @@ App.Map.load = function () {
   function renderTopojson (svg) {
     /* Render topojson of SF Airbnb neighrborhoods
        Converted from KML for John Blanchard */
-    d3.json('/static/2015-07-01-sf-airbnb-neighborhoods.topojson', function (error, json) {
-      if (error) { console.error(error); return error; }
+    function build (json) {
+      // render neighborhoods on map
       svg.append('g').selectAll('path')
         .data(topojson.feature(json, json.objects.neighborhoods).features)
       .enter().append('path')
         .attr('class', 'neighborhood')
-        .attr('id', function (d) { console.info(d.properties); return slugify(d.properties.name); })
+        .attr('id', function (d) { return slugify(d.properties.name); })
         .attr('d', path)
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide)
         .on('click', self.render);
-    });
+    }
+
+    // Checking for cached JSON to keep network trips down
+    if (!App.jsonCache) {
+      d3.json('/static/2015-07-02-sf-neighborhoods-airbnb.topojson', function (error, json) {
+        if (error) { console.error(error); return error; }
+        App.jsonCache = json;
+        build( json );
+      });
+    } else {
+      build( App.jsonCache );
+    }
   }
 
+  function renderCredits (svg) {
+    d3.selectAll('.svg-container').append('span')
+      .attr('id', 'map-credits')
+      .text('Credits: Aaron Williams, John Blanchard and Maegan Clawges | Source: Connotate');
+  }
   /*  =================
       Function for rendering neighborhoods defined by the city
       =================
@@ -237,6 +256,8 @@ App.Story.contentizeElement = function ($el, d) {
   $el.find('h1.title').html(d.title);
   $el.find('h2.description').html(d.title_secondary);
   $el.find('.content .text').html(d.content);
+  $el.find('.content .breakout_content').html(d.breakout_content);
+  $el.find('.content .text_secondary').html(d.content_secondary);
   $el.find('h3.byline time').html(d.date);
   $el.find('h3.byline .author').html(d.author);
 }

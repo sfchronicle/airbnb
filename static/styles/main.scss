@@ -1,9 +1,11 @@
-@import "../bower_components/foundation/scss/foundation/components/grid";
-@import "../bower_components/foundation/scss/foundation/components/labels";
-@import "../bower_components/foundation/scss/foundation/components/type";
-@import "../bower_components/foundation/scss/foundation/components/buttons";
-@import "../bower_components/foundation/scss/foundation/components/button-groups";
-@import "../bower_components/foundation/scss/foundation/components/top-bar";
+@import "../bower_components/foundation/scss/normalize";
+// @import "../bower_components/foundation/scss/foundation/components/grid";
+// @import "../bower_components/foundation/scss/foundation/components/labels";
+// @import "../bower_components/foundation/scss/foundation/components/type";
+// @import "../bower_components/foundation/scss/foundation/components/buttons";
+// @import "../bower_components/foundation/scss/foundation/components/button-groups";
+// @import "../bower_components/foundation/scss/foundation/components/top-bar";
+@import "../bower_components/foundation/scss/foundation";
 
 @import 'project';
 @import 'map';

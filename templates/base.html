@@ -6,7 +6,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     {% block head %}{% endblock %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    {% assets filters="cleancss", output="build/main.%(version)s.css",
+        'styles/main.css' %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
   </head>
   <body class="{% if config.DEBUG %}debug{% endif %}">
     <!--[if lt IE 10]>
@@ -14,29 +17,28 @@
     <![endif]-->
     {% block content %}{% endblock %}
 
-    <!-- Modernizr -->
     <script src="{{ url_for('static', filename='bower_components/modernizr/modernizr.js') }}"></script>
-    <!-- vendor -->
-    <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.js') }}"></script>
-
-    <script src="{{ url_for('static', filename='bower_components/handlebars/handlebars.js') }}"></script>
-
-    <script src="{{ url_for('static', filename='bower_components/jquery-scrollto/src/documents/lib/jquery-scrollto.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/ajaxify/ajaxify-html5.js') }}"></script>
-
-    <script src="{{ url_for('static', filename='bower_components/d3/d3.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/d3-plugins/geo/tile/tile.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/d3-tip/index.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/topojson/topojson.js') }}"></script>
-
-    <script src="{{ url_for('static', filename='bower_components/foundation/js/foundation.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/foundation/js/foundation/foundation.tooltip.js') }}"></script>
-
-    <!-- endvendor -->
+    {% assets filters="uglifyjs", output="build/vendor.%(version)s.js",
+        'bower_components/jquery/dist/jquery.js',
+        'bower_components/handlebars/handlebars.js',
+        'bower_components/jquery-scrollto/src/documents/lib/jquery-scrollto.js',
+        'bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js',
+        'bower_components/ajaxify/ajaxify-html5.js',
+        'bower_components/d3/d3.js',
+        'bower_components/d3-plugins/geo/tile/tile.js',
+        'bower_components/d3-tip/index.js',
+        'bower_components/topojson/topojson.js',
+        'bower_components/foundation/js/foundation.js',
+        'bower_components/foundation/js/foundation/foundation.tooltip.js' %}
+    <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
 
     <!-- project -->
-    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+    {% assets filters="uglifyjs", output="build/production.%(version)s.js",
+        'scripts/main.js' %}
+    <script src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
     {% block javascript %}{% endblock %}
     <!-- endproject -->
 

@@ -4,7 +4,9 @@ A look at Airbnb in San Francisco.
 ### Requirements
 - Python 2.7.x
 - Node.js 0.12
-- Bower and Grunt (`$ npm install -g grunt-cli bower`)
+  - uglifyjs (`npm install -g uglifyjs`)
+  - clean-css (`npm install -g uglifyjs`)
+  - Bower and Grunt (`$ npm install -g grunt-cli bower`)
 
 ### Installation
 ```bash
@@ -15,6 +17,13 @@ $ grunt serve
 ```
 
 ### Build and deployment
+Create a `local_settings.py` file in the `settings` directory. Add the following env variables:
+```python
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+````
+
+Now run `build.py` to compress assets for production and upload production files to Amazon S3
 ```bash
 $ python build.py
 ```
