@@ -6,7 +6,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     {% block head %}{% endblock %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    {% assets filters="cleancss", output="build/main.%(version)s.css",
+        'styles/main.css' %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
   </head>
   <body class="{% if config.DEBUG %}debug{% endif %}">
     <!--[if lt IE 10]>

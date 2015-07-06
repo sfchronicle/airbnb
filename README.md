@@ -5,7 +5,8 @@ A look at Airbnb in San Francisco.
 - Python 2.7.x
 - Node.js 0.12
   - uglifyjs (`npm install -g uglifyjs`)
-- Bower and Grunt (`$ npm install -g grunt-cli bower`)
+  - clean-css (`npm install -g uglifyjs`)
+  - Bower and Grunt (`$ npm install -g grunt-cli bower`)
 
 ### Installation
 ```bash

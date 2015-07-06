@@ -9,3 +9,4 @@ bower_components/
 build/
 data/
 .webassets-cache/
+local_settings.py
