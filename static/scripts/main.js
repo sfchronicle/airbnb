@@ -255,11 +255,11 @@ App.Story.contentizeElement = function ($el, d) {
   $el.find('.big-image').css({ backgroundImage: "url(" + d.image + ")" });
   $el.find('h1.title').html(d.title);
   $el.find('h2.description').html(d.title_secondary);
-  $el.find('.content .text').html(d.content);
+  $el.find('.content .intro-text').html(d.intro);
+  $el.find('.content .body-text').html(d.content);
   $el.find('.content .breakout_content').html(d.breakout_content);
   $el.find('.content .text_secondary').html(d.content_secondary);
-  $el.find('h3.byline time').html(d.date);
-  $el.find('h3.byline .author').html(d.author);
+  $el.find('.sfc-byline').html(d.author);
 }
 
 App.Story.animatePage = function(callback){

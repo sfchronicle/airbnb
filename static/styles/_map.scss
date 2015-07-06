@@ -4,6 +4,10 @@
   //overflow: hidden;
 } */
 
+#map {
+  clear: both;
+}
+
 .svg-container {
     display: block;
     position: relative;
@@ -154,12 +158,12 @@ path {
 //   #map { width: 100%; }
 // }
 // @media #{$small-only} { }
-//
+
 // @media #{$medium-up} {
 //   #map { width: 40.063em; }
 // }
 // @media #{$medium-only} { }
-//
+
 // @media #{$large-up} {
 //   #map {
 //     width: 64.063em;
@@ -167,12 +171,12 @@ path {
 //   }
 // }
 // @media #{$large-only} { }
-//
+
 // @media #{$xlarge-up} {
 //   #map { width: 75em; }
 // }
 // @media #{$xlarge-only} { }
-//
+
 // @media #{$xxlarge-up} {
 //   #map { width: 85em; }
 // }

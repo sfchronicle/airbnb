@@ -12,35 +12,40 @@
 
 {% block content %}
 <!-- Page. -->
-{% include 'headers/_topbar.html' %}
+<!-- {% include 'headers/_topbar.html' %} -->
 <article class='page hidden'>
   <div class='big-image'>
       <div class='inner'>
         <div class='fader'>
-          <div class='text'>
-            <a class='goto-next'>Read Next</a>
-            <h1 class='title'></h1>
-            <h2 class='description'></h2>
+          <div class='text sfc-head row'>
+            <!-- <a class='goto-next'>Read Next</a> -->
+            <h1 class='title small-10 small-offset-1 medium-12 medium-offset-0'></h1>
+            <h2 class='description small-10 small-offset-1 medium-6 medium-offset-0'></h2>
+            <h3 class='sfc-byline small-10 small-offset-1 medium-6 medium-offset-0'></h3>
           </div>
         </div>
       </div>
   </div>
   <div class='content container'>
-      <div class="row" id="sfc-row">
-        <div class="large-6 large-offset-3 columns">
-          <h3 class='byline'>
-            Published <time></time> by <span class='author'></span>
-          </h3>
-          <h1 class='title'></h1>
-          <h2 class='description'></h2>
-          <div class='text'></div>
+      <div class="small-12 medium-10 medium-offset-1 columns" id="sfc-row">
+        <div class="sfc-intro yellow">
+          <div class="drop-cap component">
+            <ul class="grid">
+              <li class="ot-letter-left yellow-letter">
+                <span data-letter="B" class="B">B</span>
+              </li>
+            </ul>
+          </div>
+          <div class="intro-text text"></div>
         </div>
       </div>
+
+      <div class='body-text body text small-12 medium-9 medium-offset-2 large-6 large-offset-4 columns'></div>
 
       <aside class="breakout_content"></aside>
 
       <div class="row">
-        <div class="large-6 large-offset-3 columns">
+        <div class="body-text body text small-12 medium-9 medium-offset-2 large-6 large-offset-4 columns">
           <div class="text_secondary"></div>
         </div>
       </div>
