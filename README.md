@@ -17,6 +17,13 @@ $ grunt serve
 ```
 
 ### Build and deployment
+Create a `local_settings.py` file in the `settings` directory. Add the following env variables:
+```python
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+````
+
+Now run `build.py` to compress assets for production and upload production files to Amazon S3
 ```bash
 $ python build.py
 ```
