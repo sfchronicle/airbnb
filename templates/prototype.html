@@ -49,7 +49,7 @@
 
       Croque monsieur fondue cheddar. Brie port-salut cauliflower cheese boursin cheese triangles jarlsberg bavarian bergkase queso. Everyone loves cheesecake taleggio when the cheese comes out everybody's happy fondue mozzarella cheese and wine cheeseburger. Cheese and biscuits brie mozzarella cream cheese bavarian bergkase cheese and biscuits gouda cheddar. Cheese triangles feta emmental cream cheese.
       </div>
-      <img class='body-pic full' src='http://127.0.0.1:5000/static/images/outside-peach.jpg'>
+      <img class='body-pic' src='http://127.0.0.1:5000/static/images/outside-peach.jpg'>
       <h3>Both Airbnb and its San Francisco critics are correct. <b>&middot;</b> Most of its local listings are only occasionally rented to travelers, as the vacation-rental company says.</h3>
       <div class='body row'>
         <div class='aside small-8 small-offset-2 medium-3 medium-offset-0 columns'>I had to get back to you woah, Sold it dirty like Diana never clean, I got money in the courts so all my whoas are free, I see you doin‘ well baby, We prolly be out in Silicon tryna get our billions on.
@@ -121,7 +121,7 @@
 
       Croque monsieur fondue cheddar. Brie port-salut cauliflower cheese boursin cheese triangles jarlsberg bavarian bergkase queso. Everyone loves cheesecake taleggio when the cheese comes out everybody's happy fondue mozzarella cheese and wine cheeseburger. Cheese and biscuits brie mozzarella cream cheese bavarian bergkase cheese and biscuits gouda cheddar. Cheese triangles feta emmental cream cheese.
       </div>
-      <img class='body-pic full' src='http://127.0.0.1:5000/static/images/outside-peach.jpg'>
+      <img class='body-pic map' src='http://127.0.0.1:5000/static/images/map-screenshot.png'>
       <h3>Both Airbnb and its San Francisco critics are correct. <b>&middot;</b> Most of its local listings are only occasionally rented to travelers, as the vacation-rental company says.</h3>
       <div class='body row'>
         <div class='aside small-8 small-offset-2 medium-3 medium-offset-0 columns'>I had to get back to you woah, Sold it dirty like Diana never clean, I got money in the courts so all my whoas are free, I see you doin‘ well baby, We prolly be out in Silicon tryna get our billions on.
@@ -193,7 +193,7 @@
 
       Croque monsieur fondue cheddar. Brie port-salut cauliflower cheese boursin cheese triangles jarlsberg bavarian bergkase queso. Everyone loves cheesecake taleggio when the cheese comes out everybody's happy fondue mozzarella cheese and wine cheeseburger. Cheese and biscuits brie mozzarella cream cheese bavarian bergkase cheese and biscuits gouda cheddar. Cheese triangles feta emmental cream cheese.
       </div>
-      <img class='body-pic full' src='http://127.0.0.1:5000/static/images/outside-peach.jpg'>
+      <img class='body-pic' src='http://127.0.0.1:5000/static/images/outside-peach.jpg'>
       <h3>Both Airbnb and its San Francisco critics are correct. <b>&middot;</b> Most of its local listings are only occasionally rented to travelers, as the vacation-rental company says.</h3>
       <div class='body row'>
         <div class='aside small-8 small-offset-2 medium-3 medium-offset-0 columns'>I had to get back to you woah, Sold it dirty like Diana never clean, I got money in the courts so all my whoas are free, I see you doin‘ well baby, We prolly be out in Silicon tryna get our billions on.
@@ -239,6 +239,9 @@ $(document).ready(function () {
   $body   = $(document.body);
   $window = $(window);
   $html   = $(document.documentElement);
+  var width  = $( window ).width();
+  console.log(width);
+  $('.map').css("width", width);
 
 });
 </script>
