@@ -4,6 +4,6 @@ from app import app, db
 from models import *
 
 
-@app.route('/')
+@app.route('/index.html')
 def index():
     return render_template('index.html', title='index')

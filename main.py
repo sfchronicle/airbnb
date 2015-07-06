@@ -1,5 +1,5 @@
 import os
-from app import app, db
+from app import app, db, assets
 
 from admin import admin
 from models import *
@@ -14,4 +14,5 @@ if __name__ == '__main__':
 
     # Start app
     app.config['DEBUG'] = True
+    app.config['ASSETS_DEBUG'] = True
     app.run()
