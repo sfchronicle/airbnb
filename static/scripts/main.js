@@ -300,7 +300,7 @@ App.Story.contentizeElement = function ($el, d) {
   $el.find('.big-image').css({ backgroundImage: "url(" + d.image + ")" });
   $el.find('h1.title').html(d.title);
   $el.find('h2.description').html(d.title_secondary);
-  $el.find('.content .sfc-intro').html(App.Story.createDropCap(d.intro));
+  if (d.intro) { $el.find('.content .sfc-intro').html(App.Story.createDropCap(d.intro)); }
   $el.find('.content .body-text').html(d.content);
   $el.find('.content .breakout_content').html(d.breakout_content);
   $el.find('.content .text_secondary').html(d.content_secondary);
