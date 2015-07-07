@@ -105,8 +105,10 @@ App.Map.load = function () {
 
   function renderLegend (svg) {
 
-    d3.selectAll('.svg-container').append('div')
-      .attr('class', 'legend small-3 small-offset-1 columns');
+    d3.selectAll('.svg-container')
+      .append('div').attr('class', 'row')
+        .append('div')
+          .attr('class', 'legend large-4 large-offset-0 small-3 small-offset-1 columns');
 
     templatize('#legend-tmpl', '.legend',  {});
 
