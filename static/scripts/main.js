@@ -118,6 +118,9 @@ App.Map.load = function () {
       var id = event.target.id;
       var quantize = generateScales( id );
 
+      $('.sfc-data-button').removeClass('active');
+      $(this).addClass('active');
+
       svg.selectAll('.neighborhood')
         .attr('class', function (d) {
           var data = addAllProperties( d, id, 2015 ).total;
