@@ -70,10 +70,16 @@ $(document).ready(function () {
 
 {% raw %}
 <script type="text/x-handlebars" id="legend-tmpl">
-  <h2>{{ Name }}</h2>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
+  <h4>Measuring Airbnb activity by neighborhood</h4>
+  <p>A new data set reflects changes that help tell the story of how Airbnb is being used across San Francisco neighborhoods. Key findings inclde:</p>
+
+  <ul class="button-group even-3">
+    <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny secondary">Average prices</a></li>
+    <li><a href="#" id="locationsCount" class="button sfc-data-button tiny secondary">Number of locations</a></li>
+    <li><a href="#" id="reviewCount" class="button sfc-data-button tiny secondary">Number of Reviews</a></li>
+  </ul>
+
+  <p>{{ tidbit }}</p>
 </script>
 {% endraw %}
 {% endblock %}
