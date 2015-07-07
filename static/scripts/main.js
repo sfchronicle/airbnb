@@ -32,9 +32,9 @@ App.Utils.templatize = function (template, placeholder, obj) {
     =================================================
 */
 App.Map = App.Map || {
-  width: 1200,
+  width: 1000,
   height: 600,
-  coordinates: [-122.4183, 37.7750],
+  coordinates: [-122.4883, 37.7520],
   rendered: false
 };
 
@@ -67,14 +67,62 @@ App.Map.load = function () {
   svg.call(tip)
     .call(renderTiles)
     .call(renderTopojson)
-    //.call(renderLegend)
+    .call(renderLegend)
     .call(renderCredits);
 
+  function generateScales (id) {
+    /* Given an ID, generate a scale */
+    var scale;
+    var scaleLength = 8;
+    var neighborhoods = App.jsonCache.objects.neighborhoods.geometries;
+    var _topHood = _.max(neighborhoods, function (neighborhood) { return addAllProperties( neighborhood, id, 2015 ).total; });
+    var _bottomHood = _.min(neighborhoods, function (neighborhood) { return addAllProperties( neighborhood, id, 2015 ).total; });
+
+    var min = addAllProperties(_bottomHood, id, 2015).total
+    var max = addAllProperties(_topHood, id, 2015).total
+
+    console.info(id, 'min:', min, 'max:', max);
+
+    scale = d3.scale.quantize()
+      .domain([min, max])
+      .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+
+    return scale;
+  }
+
+  function addAllProperties (d, id, year) {
+    var total      = 0.0;
+    var properties = ['entireHome', 'privateRoom', 'sharedRoom'];
+
+    properties.forEach(function (property) {
+      total += d.properties[property][id][year]
+    });
+
+    if (id === 'avgOfPrice') { total = total / 3 }
+
+    return {'neighborhood': d.properties.name, 'property': id, 'total': total};
+  };
+
   function renderLegend (svg) {
+
     d3.selectAll('.svg-container').append('div')
-      .attr('class', 'legend effect6')
-    .append('h3').text('Hello')
-    .append('p').text('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+      .attr('class', 'legend small-3 small-offset-1 columns');
+
+    templatize('#legend-tmpl', '.legend',  {});
+
+    $('.sfc-data-button').on('click', function (event) {
+
+      event.preventDefault();
+      var id = event.target.id;
+      var quantize = generateScales( id );
+
+      svg.selectAll('.neighborhood')
+        .attr('class', function (d) {
+          var data = addAllProperties( d, id, 2015 ).total;
+          return quantize(data) + ' neighborhood'
+        })
+        .attr('d', path);
+    });
   }
 
   function renderTiles (svg) {
@@ -104,7 +152,7 @@ App.Map.load = function () {
   }
 
   function renderTopojson (svg) {
-    /* Render topojson of SF Airbnb neighrborhoods
+    /* Render topojson of SF Airbnb neighborhoods
        Converted from KML for John Blanchard */
     function build (json) {
       // render neighborhoods on map
@@ -255,7 +303,7 @@ App.Story.contentizeElement = function ($el, d) {
   $el.find('.big-image').css({ backgroundImage: "url(" + d.image + ")" });
   $el.find('h1.title').html(d.title);
   $el.find('h2.description').html(d.title_secondary);
-  $el.find('.content .sfc-intro').html(App.Story.createDropCap(d.intro));
+  if (d.intro) { $el.find('.content .sfc-intro').html(App.Story.createDropCap(d.intro)); }
   $el.find('.content .body-text').html(d.content);
   $el.find('.content .breakout_content').html(d.breakout_content);
   $el.find('.content .text_secondary').html(d.content_secondary);
