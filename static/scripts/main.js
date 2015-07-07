@@ -72,6 +72,7 @@ App.Map.load = function () {
 
   function generateScales (id) {
     /* Given an ID, generate a scale */
+    var scale;
     var scaleLength = 8;
     var neighborhoods = App.jsonCache.objects.neighborhoods.geometries;
     var _topHood = _.max(neighborhoods, function (neighborhood) { return addAllProperties( neighborhood, id, 2015 ).total; });
@@ -80,11 +81,13 @@ App.Map.load = function () {
     var min = addAllProperties(_bottomHood, id, 2015).total
     var max = addAllProperties(_topHood, id, 2015).total
 
-    var quantize = d3.scale.quantize()
+    console.info(id, 'min:', min, 'max:', max);
+
+    scale = d3.scale.quantize()
       .domain([min, max])
       .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
 
-    return quantize;
+    return scale;
   }
 
   function addAllProperties (d, id, year) {
