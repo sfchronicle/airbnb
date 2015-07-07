@@ -110,12 +110,12 @@ path {
   padding: 5px;
 }
 
-#japantown {
-  fill-opacity: 0;
-  &:hover, &.active {
-    fill-opacity: 0.9 !important;
-  }
-}
+// #japantown {
+//   fill-opacity: 0;
+//   &:hover, &.active {
+//     fill-opacity: 0.9 !important;
+//   }
+// }
 
 // .park, .nature_reserve, .wood, .protected-land { fill: #C7EAAA; stroke: none; }
 .ocean { fill: #F2F3F4; stroke: #F2F3F4; }
