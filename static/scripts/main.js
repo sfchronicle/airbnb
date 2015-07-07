@@ -255,11 +255,18 @@ App.Story.contentizeElement = function ($el, d) {
   $el.find('.big-image').css({ backgroundImage: "url(" + d.image + ")" });
   $el.find('h1.title').html(d.title);
   $el.find('h2.description').html(d.title_secondary);
-  $el.find('.content .intro-text').html(d.intro);
+  $el.find('.content .sfc-intro').html(App.Story.createDropCap(d.intro));
   $el.find('.content .body-text').html(d.content);
   $el.find('.content .breakout_content').html(d.breakout_content);
   $el.find('.content .text_secondary').html(d.content_secondary);
   $el.find('.sfc-byline').html(d.author);
+}
+
+App.Story.createDropCap = function (text) {
+  var cap       = text.substring(0,1);
+  text          = text.substring(1, text.length);
+  var introHTML = '<div class="drop-cap component"><ul class="grid"><li class="ot-letter-left yellow-letter"><span data-letter="' + cap + '" class="' + cap + '">' + cap + '</span></li></ul></div><div class="intro-text text">' + text + '</div>';
+  return introHTML;
 }
 
 App.Story.animatePage = function(callback){
