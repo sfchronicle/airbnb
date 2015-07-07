@@ -83,11 +83,36 @@ App.Map.load = function () {
 
     console.info(id, 'min:', min, 'max:', max);
 
-    scale = d3.scale.quantize()
-      .domain([min, max])
-      .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+    var map = {
+      'avgOfPrice': function () {
+        scale = d3.scale.quantize()
+          .domain([min, max])
+          .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+      },
+      'locationsCount': function () {
+        var domain = _.chain(neighborhoods)
+            .map(function (neighborhood) { return addAllProperties( neighborhood, id, 2015 ).total; })
+            .sortBy(function (value) { return value; })
+            .value();
 
-    return scale;
+        scale = d3.scale.quantile()
+          .domain(domain)
+          .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+      },
+      'reviewCount': function () {
+        var domain = _.chain(neighborhoods)
+            .map(function (neighborhood) { return addAllProperties( neighborhood, id, 2015 ).total; })
+            .sortBy(function (value) { return value; })
+            .value();
+
+        scale = d3.scale.quantile()
+          .domain(domain)
+          .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+      }
+    };
+
+    var thisScale = map[id];
+    if (thisScale) { thisScale(); return scale; }
   }
 
   function addAllProperties (d, id, year) {
