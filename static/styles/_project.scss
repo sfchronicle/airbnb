@@ -41,6 +41,7 @@ article {
 
   &.next {
     background-color: #000;
+    height: 390px;
 
     .big-image {
       opacity: 0.8;
@@ -55,14 +56,20 @@ article {
     }
   }
 
-  &.fade-up-out {
-    opacity: 0;
-    transform: scale(0.8) translate3d(0, -10%, 0);
-    transition: all 450ms cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
+  // &.fade-up-out {
+  //   opacity: 0;
+  //   transform: scale(0.8) translate3d(0, -10%, 0);
+  //   transition: all 450ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  // }
   &.easing-upward {
     transition: all 450ms cubic-bezier(0.165, 0.84, 0.44, 1);
   }
+}
+
+.fade-up-out {
+  opacity: 0;
+  transform: scale(0.8) translate3d(0, -10%, 0);
+  transition: all 450ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .text_secondary {
