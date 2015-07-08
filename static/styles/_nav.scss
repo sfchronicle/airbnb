@@ -1,0 +1,22 @@
+.sfc-top-bar {
+  background-color: white;
+  h1 > a { color: #222 !important; }
+
+  .top-bar-section {
+    ul {
+      li {
+        &:not(.has-form) {
+          a:not(.button) {
+            background: white;
+            color: #222;
+
+            &:hover {
+              background: darken(white, 10%);
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
