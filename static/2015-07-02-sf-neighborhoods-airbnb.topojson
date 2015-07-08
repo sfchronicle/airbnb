@@ -7,6 +7,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 217.24
+                        },
                         "name":"Alamo Square",
                         "entireHome": {
                             "avgOfPrice": {
@@ -63,6 +67,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 190.81
+                        },
                         "name":"Balboa Terrace",
                         "entireHome": {
                             "avgOfPrice": {
@@ -118,6 +126,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 117.78
+                        },
                         "name":"Bayview",
                         "entireHome": {
                             "avgOfPrice": {
@@ -174,6 +186,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 172.63
+                        },
                         "name":"Bernal Heights",
                         "entireHome": {
                             "avgOfPrice": {
@@ -240,6 +256,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 149.85
+                        },
                         "name":"Chinatown",
                         "entireHome": {
                             "avgOfPrice": {
@@ -295,6 +315,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 211.86
+                        },
                         "name":"Civic Center",
                         "entireHome": {
                             "avgOfPrice": {
@@ -354,6 +378,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 227.83
+                        },
                         "name":"Cole Valley",
                         "entireHome": {
                             "avgOfPrice": {
@@ -411,6 +439,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 233.27
+                        },
                         "name":"Cow Hollow",
                         "entireHome": {
                             "avgOfPrice": {
@@ -467,6 +499,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 92.37
+                        },
                         "name":"Crocker Amazon",
                         "entireHome": {
                             "avgOfPrice": {
@@ -523,6 +559,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 163.00
+                        },
                         "name":"Diamond Heights",
                         "entireHome": {
                             "avgOfPrice": {
@@ -583,6 +623,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 212.23
+                        },
                         "name":"Dogpatch",
                         "entireHome": {
                             "avgOfPrice": {
@@ -639,6 +683,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 187.10
+                        },
                         "name":"Downtown",
                         "entireHome": {
                             "avgOfPrice": {
@@ -695,6 +743,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 201.13
+                        },
                         "name":"Duboce Triangle",
                         "entireHome": {
                             "avgOfPrice": {
@@ -751,6 +803,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 122.56
+                        },
                         "name":"Excelsior",
                         "entireHome": {
                             "avgOfPrice": {
@@ -813,6 +869,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 183.96
+                        },
                         "name":"Financial District",
                         "entireHome": {
                             "avgOfPrice": {
@@ -869,6 +929,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 287.13
+                        },
                         "name":"Fisherman's Wharf",
                         "entireHome": {
                             "avgOfPrice": {
@@ -922,6 +986,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 197.92
+                        },
                         "name":"Glen Park",
                         "entireHome": {
                             "avgOfPrice": {
@@ -982,6 +1050,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 201.80
+                        },
                         "name":"Haight-Ashbury",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1044,6 +1116,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 191.68
+                        },
                         "name":"Hayes Valley",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1100,6 +1176,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                       "totalAvgPrice": {
+                        "2014": 0,
+                        "2015": 166.19
+                    },
                        "name":"Ingleside",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1156,6 +1236,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 174.49
+                        },
                         "name":"Inner Sunset",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1214,6 +1298,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 108.25
+                        },
                         "name":"Lakeshore",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1270,6 +1358,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 179.00
+                        },
                         "name":"Lower Haight",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1327,6 +1419,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 263.70
+                        },
                         "name":"Marina",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1382,6 +1478,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 192.70
+                        },
                         "name":"Mission Bay",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1438,6 +1538,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 138.41
+                        },
                         "name":"Mission District",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1505,6 +1609,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 215.62
+                        },
                         "name":"Nob Hill",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1561,6 +1669,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 219.08
+                        },
                         "name":"Noe Valley",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1624,6 +1736,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 245.21
+                        },
                         "name":"North Beach",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1680,6 +1796,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 114.20
+                        },
                         "name":"Oceanview",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1738,6 +1858,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 154.36
+                        },
                         "name":"Outer Sunset",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1794,6 +1918,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 288.20
+                        },
                         "name":"Pacific Heights",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1851,6 +1979,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 136.36
+                        },
                         "name":"Portola",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1910,6 +2042,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 200.99
+                        },
                         "name":"Potrero Hill",
                         "entireHome": {
                             "avgOfPrice": {
@@ -1970,6 +2106,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 229.89
+                        },
                         "name":"Presidio Heights",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2026,6 +2166,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 179.23
+                        },
                         "name":"Richmond District",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2081,6 +2225,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 255.15
+                        },
                         "name":"Russian Hill",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2137,6 +2285,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 225.62
+                        },
                         "name":"SoMa",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2198,6 +2350,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 243.89
+                        },
                         "name":"South Beach",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2252,6 +2408,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 181.28
+                        },
                         "name":"Sunnyside",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2313,6 +2473,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 240.00
+                        },
                         "name":"Telegraph Hill",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2370,6 +2534,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 132.66
+                        },
                         "name":"Tenderloin",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2429,6 +2597,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 204.20
+                        },
                         "name":"The Castro",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2495,6 +2667,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 188.78
+                        },
                         "name":"Twin Peaks",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2560,6 +2736,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 122.05
+                        },
                         "name":"Visitacion Valley",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2617,6 +2797,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 222.78
+                        },
                         "name":"Western Addition/NOPA",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2681,6 +2865,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 0
+                        },
                         "name":"Japantown",
                         "entireHome": {
                             "avgOfPrice": {
@@ -2734,6 +2922,10 @@
                 {
                     "type":"Polygon",
                     "properties":{
+                        "totalAvgPrice": {
+                            "2014": 0,
+                            "2015": 0
+                        },
                         "name":"Mission Terrace",
                         "entireHome": {
                             "avgOfPrice": {
