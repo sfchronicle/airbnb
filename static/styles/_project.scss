@@ -31,6 +31,11 @@ article {
     &.hidden, &.content-hidden .content { display: none; }
 
     &.current {
+      header {
+        .description, .sfc-byline {
+          max-width: 640px;
+        }
+      }
       .big-image {
         .title, .description {
           color: white;

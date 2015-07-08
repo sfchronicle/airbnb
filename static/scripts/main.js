@@ -35,7 +35,8 @@ App.Map = App.Map || {
   width: 1000,
   height: 600,
   coordinates: [-122.4883, 37.7520],
-  rendered: false
+  rendered: false,
+  currentId: 'avgOfPrice' // This acts as the default view for the choropleth
 };
 
 App.Map.load = function () {
@@ -71,11 +72,11 @@ App.Map.load = function () {
     .call(renderCredits);
 
   function createTooltip (d) {
-    if (!App.currentId) { return d.properties.name; }
+    if (!App.Map.currentId) { return d.properties.name; }
     var data = {
       'name': d.properties.name,
-      2014: addAllProperties(d, App.currentId, 2014).total,
-      2015: addAllProperties(d, App.currentId, 2015).total
+      2014: self.addAllProperties(d, App.Map.currentId, 2014).total,
+      2015: self.addAllProperties(d, App.Map.currentId, 2015).total
     }
 
     var source = $('#tooltip-tmpl').html();
@@ -83,94 +84,35 @@ App.Map.load = function () {
     return template( data );
   };
 
-  function generateScales (id) {
-    /* Given an ID, generate a scale */
-    var scale;
-    var scaleLength = 8;
-    var neighborhoods = App.jsonCache.objects.neighborhoods.geometries;
-    var _topHood = _.max(neighborhoods, function (neighborhood) { return addAllProperties( neighborhood, id, 2015 ).total; });
-    var _bottomHood = _.min(neighborhoods, function (neighborhood) { return addAllProperties( neighborhood, id, 2015 ).total; });
+  function adjustChoroplethEvent () {
+    $('.sfc-data-button').on('click', function (event) {
+      event.preventDefault();
+      var id = event.target.id;
+      App.Map.currentId = id;
 
-    var min = addAllProperties(_bottomHood, id, 2015).total
-    var max = addAllProperties(_topHood, id, 2015).total
-
-    console.info(id, 'min:', min, 'max:', max);
-
-    var map = {
-      'avgOfPrice': function () {
-        scale = d3.scale.quantize()
-          .domain([min, max])
-          .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
-      },
-      'locationsCount': function () {
-        var domain = _.chain(neighborhoods)
-            .map(function (neighborhood) { return addAllProperties( neighborhood, id, 2015 ).total; })
-            .sortBy(function (value) { return value; })
-            .value();
-
-        scale = d3.scale.quantile()
-          .domain(domain)
-          .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
-      },
-      'reviewCount': function () {
-        var domain = _.chain(neighborhoods)
-            .map(function (neighborhood) { return addAllProperties( neighborhood, id, 2015 ).total; })
-            .sortBy(function (value) { return value; })
-            .value();
-
-        scale = d3.scale.quantile()
-          .domain(domain)
-          .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
-      }
-    };
-
-    var thisScale = map[id];
-    if (thisScale) { thisScale(); return scale; }
+      self.choropleth(svg, path, id);
+      templatize('#legend-tmpl', '.legend', self.legendCopy( id ));
+      adjustChoroplethEvent();
+      $('.sfc-data-button').removeClass('active');
+      $('.sfc-data-button#'+id).addClass('active');
+    });
   }
 
-  function addAllProperties (d, id, year) {
-    var total      = 0.0;
-    var properties = ['entireHome', 'privateRoom', 'sharedRoom'];
-
-    properties.forEach(function (property) {
-      total += d.properties[property][id][year]
-    });
-
-    if (id === 'avgOfPrice') { total = total / 3 }
-
-    return {'neighborhood': d.properties.name, 'property': id, 'total': total};
-  };
-
   function renderLegend (svg) {
+    var defaultId = 'avgOfPrice';
+
     d3.selectAll('.svg-container')
       .append('div').attr('class', 'row')
         .append('div')
           .attr('class', 'legend large-4 large-offset-0 small-3 small-offset-1 columns');
 
-    templatize('#legend-tmpl', '.legend',  {});
-
-    $('.sfc-data-button').on('click', function (event) {
-      event.preventDefault();
-
-      var id        = event.target.id;
-      var scale     = generateScales( id );
-      var scaletype = id === 'avgOfPrice' ? 'quantize' : 'quantile';
-
-      App.currentId = id;
-
-      $('.sfc-data-button').removeClass('active');
-      $(this).addClass('active');
-
-      svg.selectAll('.neighborhood')
-        .attr('class', function (d) {
-          var data = addAllProperties( d, id, 2015 ).total;
-          return scale(data) + ' neighborhood';
-        })
-        .attr('d', path);
-    });
+    templatize('#legend-tmpl', '.legend',  self.legendCopy( defaultId ));
+    adjustChoroplethEvent();
+    $('.sfc-data-button#'+defaultId).addClass('active');
   }
 
   function renderTiles (svg) {
+    /* Hit Mapzen Vector Tile API for map data */
     svg.selectAll('g')
         .data(
           tiler.scale(projection.scale() * 2 * Math.PI)
@@ -209,7 +151,7 @@ App.Map.load = function () {
         .attr('d', path)
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide)
-        .on('click', self.render);
+        .on('click', function (d) { console.log(d); alert('Implement a click event') });
     }
 
     // Checking for cached JSON to keep network trips down
@@ -218,45 +160,122 @@ App.Map.load = function () {
         if (error) { console.error(error); return error; }
         App.jsonCache = json;
         build( json );
+        self.choropleth(svg, path, 'avgOfPrice'); // KICK OFF
       });
     } else {
       build( App.jsonCache );
+      self.choropleth(svg, path, 'avgOfPrice'); // KICK OFF
     }
   }
 
   function renderCredits (svg) {
+    /* Credits for map */
     d3.selectAll('.svg-container').append('span')
       .attr('id', 'map-credits')
       .text('Credits: Aaron Williams, John Blanchard and Maegan Clawges | Source: Connotate');
   }
-  /*  =================
-      Function for rendering neighborhoods defined by the city
-      =================
-  */
-  // function renderSF (svg) {
-  //   d3.json('/static/data/sf-neighborhoods.json', function (error, json) {
-  //     svg.append('g').selectAll('path')
-  //       .data(json.features)
-  //     .enter().append('path')
-  //       .attr('class', 'neighborhood')
-  //       .attr('id', function (d) { return slugify(d.properties.neighborho); })
-  //       .attr('d', path);
-  //   });
-  // }
 };
 
-App.Map.render = function (d) {
-  /* Click event for neighborhood. Render template
-    these are paths so remember that typicall jQuery functions won't work
-  */
-  var t = App.Utils.templatize;
-  var id = App.Utils.slugify( d.properties.name );
+App.Map.choropleth = function (svg, path, id) {
+  /* Creat choropleth map based on data Id */
+  var self = this;
 
-  d3.selectAll('.neighborhood').classed('active', false);
-  d3.selectAll('.neighborhood#'+id).classed('active', true);
+  var scale     = self.generateScales( id );
+  var scaletype = id === 'avgOfPrice' ? 'quantize' : 'quantile';
 
-  t('#legend-tmpl', '.legend', d.properties);
+  d3.selectAll('.neighborhood')
+    .attr('class', function (d) { return scale( self.addAllProperties( d, id, 2015 ).total ) + ' neighborhood'; })
+    .attr('d', path);
+}
+
+App.Map.generateScales = function (id) {
+  /* Given an ID, generate a scale */
+  var scale;
+  var self = this;
+  var scaleLength = 8;
+  var neighborhoods = App.jsonCache.objects.neighborhoods.geometries;
+  var _topHood = _.max(neighborhoods, function (neighborhood) { return self.addAllProperties( neighborhood, id, 2015 ).total; });
+  var _bottomHood = _.min(neighborhoods, function (neighborhood) { return self.addAllProperties( neighborhood, id, 2015 ).total; });
+
+  var min = self.addAllProperties(_bottomHood, id, 2015).total
+  var max = self.addAllProperties(_topHood, id, 2015).total
+
+  console.info(id, 'min:', min, 'max:', max);
+
+  var map = {
+    'avgOfPrice': function () {
+      scale = d3.scale.quantize()
+        .domain([min, max])
+        .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+    },
+    'locationsCount': function () {
+      var domain = _.chain(neighborhoods)
+          .map(function (neighborhood) { return self.addAllProperties( neighborhood, id, 2015 ).total; })
+          .sortBy(function (value) { return value; })
+          .value();
+
+      scale = d3.scale.quantile()
+        .domain(domain)
+        .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+    },
+    'reviewCount': function () {
+      var domain = _.chain(neighborhoods)
+          .map(function (neighborhood) { return self.addAllProperties( neighborhood, id, 2015 ).total; })
+          .sortBy(function (value) { return value; })
+          .value();
+
+      scale = d3.scale.quantile()
+        .domain(domain)
+        .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+    }
+  };
+
+  var thisScale = map[id];
+  if (thisScale) { thisScale(); return scale; }
+}
+
+App.Map.addAllProperties = function (d, id, year) {
+  /* Sum the values of an id type */
+  var total      = 0.0;
+  var properties = ['entireHome', 'privateRoom', 'sharedRoom'];
+
+  properties.forEach(function (property) {
+    total += d.properties[property][id][year]
+  });
+
+  if (id === 'avgOfPrice') { total = total / 3 }
+
+  return {'neighborhood': d.properties.name, 'property': id, 'total': total};
 };
+
+App.Map.legendCopy = function (id) {
+  var map = {
+    'avgOfPrice': function () {
+      var copy = {};
+      copy.hed = 'Average price'
+      copy.dek = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.';
+      copy.id = 'avgOfPrice';
+      return copy;
+    },
+    'locationsCount': function () {
+      var copy = {};
+      copy.hed = 'Total locations';
+      copy.dek = 'My woes, This is that nasty flow, Way way way up, They need the whole thing, The shit was gettin‘ too predictable, You know they all sentimental now.';
+      copy.id = 'locationsCount';
+      return copy;
+    },
+    'reviewCount': function () {
+      var copy = {};
+      copy.hed = 'Total reviews';
+      copy.dek = 'Tousled forage chillwave, lomo Williamsburg twee mlkshk semiotics try-hard gastropub. Cred PBR messenger bag Etsy skateboard, dreamcatcher scenester 8-bit locavore.';
+      copy.id = 'reviewCount';
+      return copy;
+    }
+  };
+
+  var thisScale = map[id];
+  if (thisScale) { return thisScale(); }
+}
 
 /*  =================================================
     STORY
