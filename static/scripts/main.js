@@ -381,18 +381,33 @@ App.Story.contentizeElement = function ($el, d) {
   $el.find('.big-image').css({ backgroundImage: "url(" + d.image + ")" });
   $el.find('h1.title').html(d.title);
   $el.find('h2.description').html(d.title_secondary);
-  if (d.intro) { $el.find('.content .sfc-intro').html(App.Story.createDropCap(d.intro)); }
+  if (d.intro) { $el.find('.content .sfc-intro').html(App.Story.createDropCap(d.intro, d.color)); }
+  $(".sfc-intro").addClass(d.color);
   $el.find('.content .body-text').html(d.content);
   $el.find('.content .breakout_content').html(d.breakout_content);
   $el.find('.content .text_secondary').html(d.content_secondary);
   $el.find('.sfc-byline').html(d.author);
+  if (d.photos) { $el.find('.body-pic').html(App.Story.formatPhotos(d.photos, d.caption)); }
 }
 
-App.Story.createDropCap = function (text) {
+App.Story.createDropCap = function (text, color) {
   var cap       = text.substring(0,1);
   text          = text.substring(1, text.length);
-  var introHTML = '<div class="drop-cap component"><ul class="grid"><li class="ot-letter-left yellow-letter"><span data-letter="' + cap + '" class="' + cap + '">' + cap + '</span></li></ul></div><div class="intro-text text">' + text + '</div>';
+  var introHTML = '<div class="drop-cap component"><ul class="grid"><li class="ot-letter-left ' + color + '-letter"><span data-letter="' + cap + '" class="' + cap + '">' + cap + '</span></li></ul></div><div class="intro-text text">' + text + '</div>';
   return introHTML;
+}
+
+App.Story.formatPhotos = function (photos, caption) {
+  var photoHTML   = "";
+  if (photos.length == 1) {
+    photoHTML    += '<img class="small-10 small-offset-1" src="' + photos[0] + '">';
+    photoHTML    += '<h3 class="small-10 small-offset-1">' + caption + '</h3>';
+  } else if (photos.length == 3) {
+    photoHTML    += '<div class="multi-pic small-12 medium-4 columns"><img src="' + photos[1] + '">';
+    photoHTML    += '<img class="vertical-align" src="' + photos[2] + '"></div>';
+    photoHTML    += '<div class="small-12 medium-8 columns"><img src="' + photos[0] + '"></div>';        
+  }
+  return photoHTML;
 }
 
 App.Story.animatePage = function(callback){
