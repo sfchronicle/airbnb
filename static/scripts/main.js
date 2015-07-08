@@ -31,6 +31,20 @@ App.Utils.templatize = function (template, placeholder, obj) {
     MAP
     =================================================
 */
+App.Nav = App.Nav || {};
+App.Nav.load = function () {
+  $('.sfc-history').on('click', function (event) {
+    event.preventDefault();
+    
+    var chapterId = $(event.target).data('chapterId');
+    App.Story.triggerGotoNextClick( chapterId );
+  });
+};
+
+/*  =================================================
+    MAP
+    =================================================
+*/
 App.Map = App.Map || {
   width: 1000,
   height: 600,
@@ -306,7 +320,7 @@ App.Story.load = function () {
       self.refreshCurrentAndNextSelection();
 
       /* Push initial on to stack */
-      history.pushState(pageState(), '', '#' + self.currentPostIndex)
+      window.history.pushState(pageState(), '', '#' + self.currentPostIndex)
 
       /* Bind to some events. */
       self.bindGotoNextClick();
@@ -407,6 +421,27 @@ App.Story.animatePage = function(callback){
   }, self.animationDuration );
 }
 
+App.Story.gotoNextClick = function () {
+  var self = this;
+  self.animatePage(function(){
+    self.createPost({ fromTemplate: true, type: 'next' });
+    self.bindGotoNextClick();
+    window.history.pushState( pageState(), '', "#" + self.currentPostIndex);
+  });
+};
+
+App.Story.triggerGotoNextClick = function (chapterId) {
+  // var self = this;
+  // this.currentPostIndex = parseInt(chapterId);
+  //
+  // self.animatePage(function(){
+  //   self.createPost({ fromTemplate: true, type: 'current' });
+  //   self.bindGotoNextClick();
+  //   window.history.pushState( pageState(), '', "#" + chapterId);
+  // });
+  console.info('Ideally, this would go to chapter', chapterId);
+};
+
 App.Story.bindGotoNextClick = function(){
   var self  = this;
   var e     = 'ontouchstart' in window ? 'touchstart' : 'click';
@@ -414,14 +449,9 @@ App.Story.bindGotoNextClick = function(){
   this.$next.find('.big-image').on(e, function(e){
     e.preventDefault();
     $(this).unbind(e);
-
-    self.animatePage(function(){
-      self.createPost({ fromTemplate: true, type: 'next' });
-      self.bindGotoNextClick();
-      history.pushState( pageState(), '', "#" + self.currentPostIndex);
-    });
+    self.gotoNextClick();
   });
-}
+};
 
 App.Story.bindPopstate = function(){
   var self = this;
