@@ -47,7 +47,6 @@
   </div>
 </article>
 
-
 {% endblock %}
 
 {% block javascript %}
@@ -80,6 +79,12 @@ $(document).ready(function () {
   </section>
 
   <div id="map-legend"></div>
+</script>
+
+<script type="text/x-handlebars" id="tooltip-tmpl">
+  <h4>{{ name }}</h4>
+  <p>2014: {{ 2014 }}</p>
+  <p>2015: {{ 2015 }}</p>
 </script>
 {% endraw %}
 {% endblock %}

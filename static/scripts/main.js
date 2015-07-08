@@ -55,8 +55,8 @@ App.Map.load = function () {
       .projection(projection);
 
   var tip = d3.tip()
-      .attr('class', 'd3-tip')
-      .html(function(d) { return d.properties.name; });
+      .attr('class', 'map-tooltip')
+      .html(createTooltip);
 
   var svg = d3.select('#map').append('div').classed('svg-container', true)
         .append('svg')
@@ -69,6 +69,19 @@ App.Map.load = function () {
     .call(renderTopojson)
     .call(renderLegend)
     .call(renderCredits);
+
+  function createTooltip (d) {
+    if (!App.currentId) { return d.properties.name; }
+    var data = {
+      'name': d.properties.name,
+      2014: addAllProperties(d, App.currentId, 2014).total,
+      2015: addAllProperties(d, App.currentId, 2015).total
+    }
+
+    var source = $('#tooltip-tmpl').html();
+    var template = Handlebars.compile( source );
+    return template( data );
+  };
 
   function generateScales (id) {
     /* Given an ID, generate a scale */
@@ -129,7 +142,6 @@ App.Map.load = function () {
   };
 
   function renderLegend (svg) {
-
     d3.selectAll('.svg-container')
       .append('div').attr('class', 'row')
         .append('div')
@@ -138,10 +150,13 @@ App.Map.load = function () {
     templatize('#legend-tmpl', '.legend',  {});
 
     $('.sfc-data-button').on('click', function (event) {
-
       event.preventDefault();
-      var id = event.target.id;
-      var quantize = generateScales( id );
+
+      var id        = event.target.id;
+      var scale     = generateScales( id );
+      var scaletype = id === 'avgOfPrice' ? 'quantize' : 'quantile';
+
+      App.currentId = id;
 
       $('.sfc-data-button').removeClass('active');
       $(this).addClass('active');
@@ -149,7 +164,7 @@ App.Map.load = function () {
       svg.selectAll('.neighborhood')
         .attr('class', function (d) {
           var data = addAllProperties( d, id, 2015 ).total;
-          return quantize(data) + ' neighborhood'
+          return scale(data) + ' neighborhood';
         })
         .attr('d', path);
     });
