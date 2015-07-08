@@ -6,8 +6,7 @@
     display: block;
     position: relative;
     width: 100%;
-    //max-width: 1200px;
-    padding-bottom: 58%;// 75%; /* aspect ratio */
+    padding-bottom: 29%;// 75%; /* aspect ratio */
     margin: 0 auto;
     vertical-align: top;
 
@@ -23,40 +22,19 @@
     left: 0;
 }
 
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
-
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
-
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
+.map-tooltip {
+  background-color: white;
+  padding: 20px;
+  width: 250px;
+  height: 150px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 }
 
 .legend {
   margin-top: 15%;
 
-  h2, h3, h4, h5, h5 {
-    font-family: 'AntennaBlack';
+  h3 {
+    font-family: 'FarnhamTextBold', 'Comic Sans';
     color: #4F4F4F;
   }
 
@@ -64,40 +42,35 @@
     font-family: 'Antenna';
     color: #4F4F4F;
   }
+
+  .button-group {
+    .sfc-data-button {
+      border: 1px solid #CACBCC;
+      background-color: #ffffff;
+      color: #222;
+
+      &.active, &:hover, &:focus {
+        background-color: #dadada;
+      }
+    }
+  }
 }
 
-// .effect6
-// {
-//   	//position:relative;
-//     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-//        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-//             box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-// }
-// .effect6:before, .effect6:after
-// {
-// 	content:"";
-//     position:absolute;
-//     z-index:-1;
-//     -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-//     -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
-//     box-shadow:0 0 20px rgba(0,0,0,0.8);
-//     top:50%;
-//     bottom:0;
-//     left:10px;
-//     right:10px;
-//     -moz-border-radius:100px / 10px;
-//     border-radius:100px / 10px;
-// }
-// .effect6:after
-// {
-// 	right:10px;
-//     left:auto;
-//     -webkit-transform:skew(8deg) rotate(3deg);
-//        -moz-transform:skew(8deg) rotate(3deg);
-//         -ms-transform:skew(8deg) rotate(3deg);
-//          -o-transform:skew(8deg) rotate(3deg);
-//             transform:skew(8deg) rotate(3deg);
-// }
+#map-legend {
+  .inline-list {
+    margin: 0 auto;
+
+    .key {
+      font-family: 'Antenna';
+      border-top-width: 15px;
+      border-top-style: solid;
+      font-size: .75em;
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 10px;
+    }
+  }
+}
 
 path {
   fill: none;
@@ -108,7 +81,7 @@ path {
 
 .neighborhood {
   fill: #FDB605;
-  fill-opacity: 0.5;
+  fill-opacity: 0.6;
   stroke: #C38701;
 
   &:hover, &.active {
@@ -116,14 +89,14 @@ path {
     cursor: pointer;
   }
 
-  &.q0-8 { stroke: white; fill:rgb(255,255,204); }
-  &.q1-8 { stroke: white; fill:rgb(255,237,160); }
-  &.q2-8 { stroke: white; fill:rgb(254,217,118); }
-  &.q3-8 { stroke: white; fill:rgb(254,178,76); }
-  &.q4-8 { stroke: white; fill:rgb(253,141,60); }
-  &.q5-8 { stroke: white; fill:rgb(252,78,42); }
-  &.q6-8 { stroke: white; fill:rgb(227,26,28); }
-  &.q7-8 { stroke: white; fill:rgb(177,0,38); }
+  &.q0-8 { stroke: white; fill:rgb(255,255,204); transition-property: fill; transition-duration: 2s; }
+  &.q1-8 { stroke: white; fill:rgb(255,237,160); transition-property: fill; transition-duration: 2s; }
+  &.q2-8 { stroke: white; fill:rgb(254,217,118); transition-property: fill; transition-duration: 2s; }
+  &.q3-8 { stroke: white; fill:rgb(254,178,76); transition-property: fill; transition-duration: 2s; }
+  &.q4-8 { stroke: white; fill:rgb(253,141,60); transition-property: fill; transition-duration: 2s; }
+  &.q5-8 { stroke: white; fill:rgb(252,78,42); transition-property: fill; transition-duration: 2s; }
+  &.q6-8 { stroke: white; fill:rgb(227,26,28); transition-property: fill; transition-duration: 2s; }
+  &.q7-8 { stroke: white; fill:rgb(177,0,38); transition-property: fill; transition-duration: 2s; }
 }
 
 #map-credits {
@@ -137,46 +110,17 @@ path {
   padding: 5px;
 }
 
-#japantown {
-  fill-opacity: 0;
-  &:hover, &.active {
-    fill-opacity: 0.9 !important;
-  }
-}
+// #japantown {
+//   fill-opacity: 0;
+//   &:hover, &.active {
+//     fill-opacity: 0.9 !important;
+//   }
+// }
 
-// .park, .nature_reserve, .wood, .protected-land { fill: #C7EAAA; stroke: none; }
+//.park, .nature_reserve, .wood, .protected-land { fill: #C7EAAA; stroke: none; }
 .ocean { fill: #F2F3F4; stroke: #F2F3F4; }
 .major_road {  }
 .minor_road {  }
 .highway { stroke: #CFCFCF; stroke-width: 1.5px; }
 .rail {  }
 .buildings path { stroke: none;  }
-
-
-// @media #{$small-up} {
-//   #map { width: 100%; }
-// }
-// @media #{$small-only} { }
-
-// @media #{$medium-up} {
-//   #map { width: 40.063em; }
-// }
-// @media #{$medium-only} { }
-
-// @media #{$large-up} {
-//   #map {
-//     width: 64.063em;
-//     margin-left: -50%;
-//   }
-// }
-// @media #{$large-only} { }
-
-// @media #{$xlarge-up} {
-//   #map { width: 75em; }
-// }
-// @media #{$xlarge-only} { }
-
-// @media #{$xxlarge-up} {
-//   #map { width: 85em; }
-// }
-// @media #{$xxlarge-only} { }
