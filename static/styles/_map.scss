@@ -23,11 +23,43 @@
 }
 
 .map-tooltip {
-  background-color: white;
-  padding: 20px;
-  width: 250px;
-  height: 150px;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.25);;
+  border: 1px solid #A0A0A0;
+  display: block;
+  padding: 10px;
+  margin: 20px;
+  line-height: 1.4em;
+  font-family: 'Antenna';
+}
+
+.t-right {
+  text-align: right;
+}
+
+.title {
+  font-family: 'AntennaBlack';
+  text-transform: capitalize;
+}
+
+.title-bottom {
+  font-family: 'AntennaBlack';
+}
+
+.mid {
+  border-right: 1px solid black;
+  padding-right: 20px;
+  border-left: 1px solid black;
+  padding-left: 20px;
+}
+
+.brd-btm {
+  border-bottom: 1px solid black;
+}
+
+table, th, td {
+    border: 0px solid black;
+    font-size: .9em;
 }
 
 .legend {

@@ -31,7 +31,7 @@
   <div class='content container'>
     <div class="row">
       <div class="small-12 medium-10 medium-offset-1 columns" id="sfc-row">
-        <div class="sfc-intro">
+        <div class="sfc-intro yellow">
         </div>
       </div>
     </div>
@@ -46,15 +46,6 @@
         <div class="text_secondary"></div>
       </div>
     </div>
-
-    <div class='body-pic row'></div>
-
-    <div class="row">
-      <div class="body-text body text small-12 medium-9 medium-offset-2 large-6 large-offset-4 columns">
-        <div class="text_secondary"></div>
-      </div>
-    </div>
-
   </div>
 </article>
 
@@ -88,9 +79,37 @@ $(document).ready(function () {
 </script>
 
 <script type="text/x-handlebars" id="tooltip-tmpl">
-  <h4>{{ name }}</h4>
-  <p>2014: {{ 2014 }}</p>
-  <p>2015: {{ 2015 }}</p>
+    <table border="1" style="width:100%">
+      <col width="160">
+      <col width="90">
+      <col width="90">
+      <tr class="brd-btm">
+        <td class="t-left title"><h4>{{ name }}</h4></td>
+        <td class="t-right mid title"><p>2014: {{ 2014 }}</p></td>
+        <td class="t-right title"><p>2015: {{ 2015 }}</p></td>
+      </tr>
+      <tr class="brd-btm">
+        <td>Houses</td>
+        <td class="t-right mid">XX</td>
+        <td class="t-right">XX</td>
+      </tr>
+      <tr class="brd-btm">
+        <td>Rooms</td>
+        <td class="t-right mid">XX</td>
+        <td class="t-right">XX</td>
+      </tr>
+      <tr class="brd-btm">
+        <td>Shared Rooms</td>
+        <td class="t-right mid">XX</td>
+        <td class="t-right">XX</td>
+      </tr>
+      <tr>
+        <td class="title-bottom">Total</td>
+        <td class="t-right mid title-bottom">XX</td>
+        <td class="t-right title-bottom">789</td>
+      </tr>
+    </table>
+
 </script>
 {% endraw %}
 {% endblock %}
