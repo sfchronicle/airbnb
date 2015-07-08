@@ -72,8 +72,9 @@ $(document).ready(function () {
 
 {% raw %}
 <script type="text/x-handlebars" id="legend-tmpl">
-  <h3>{{ hed }}</h3>
-  <p>{{ dek }}</p>
+  <h3>Measuring Airbnb activity in S.F. by neighborhood</h3>
+  <p>By Aaron Williams and Jon Blanchard</p>
+  <p>The Chronicle commissioned data-extraction companies <a href="">Connotate Inc.</a> and <a href="">Import.io</a> to harvest San Francisco information from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, allowing for insights about year-over-year changes.</p>
 
   <ul class="button-group even-3">
     <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny">Price</a></li>
@@ -82,6 +83,11 @@ $(document).ready(function () {
   </ul>
 
   <div id="map-legend"></div>
+
+  <blockquote>
+    <h5>{{ hed }}</h5>
+    {{ dek }}
+  </blockquote>
 </script>
 
 <script type="text/x-handlebars" id="tooltip-tmpl">

@@ -35,7 +35,7 @@ App.Nav = App.Nav || {};
 App.Nav.load = function () {
   $('.sfc-history').on('click', function (event) {
     event.preventDefault();
-    
+
     var chapterId = $(event.target).data('chapterId');
     App.Story.triggerGotoNextClick( chapterId );
   });
@@ -83,7 +83,7 @@ App.Map.load = function () {
     .call(renderTiles)
     .call(renderTopojson)
     .call(renderLegend)
-    .call(renderCredits);
+    //.call(renderCredits);
 
   function createTooltip (d) {
     if (!App.Map.currentId) { return d.properties.name; }
@@ -408,7 +408,7 @@ App.Story.formatPhotos = function (photos, caption) {
     photoHTML    += '<div class="multi-pic small-12 medium-4 columns"><img src="' + photos[1] + '">';
     photoHTML    += '<img class="vertical-align" src="' + photos[2] + '"></div>';
     photoHTML    += '<div class="small-12 medium-8 columns"><img src="' + photos[0] + '"></div>';
-    photoHTML    += '<h3 class="small-12 columns left photo-header">' + caption + '</h3>';     
+    photoHTML    += '<h3 class="small-12 columns left photo-header">' + caption + '</h3>';
   }
   return photoHTML;
 }
