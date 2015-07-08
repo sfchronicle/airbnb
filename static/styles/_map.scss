@@ -7,7 +7,7 @@
     position: relative;
     width: 100%;
     //max-width: 1200px;
-    padding-bottom: 58%;// 75%; /* aspect ratio */
+    padding-bottom: 40%;// 75%; /* aspect ratio */
     margin: 0 auto;
     vertical-align: top;
 
@@ -55,8 +55,8 @@
 .legend {
   margin-top: 15%;
 
-  h2, h3, h4, h5, h5 {
-    font-family: 'AntennaBlack';
+  h3 {
+    font-family: 'FarnhamTextBold', 'Comic Sans';
     color: #4F4F4F;
   }
 
@@ -65,9 +65,15 @@
     color: #4F4F4F;
   }
 
-  .sfc-data-button {
-    &.active {
-      background-color: #b9b9b9;
+  .button-group {
+    .sfc-data-button {
+      border: 1px solid #CACBCC;
+      background-color: #ffffff;
+      color: #222;
+
+      &.active, &:hover, &:focus {
+        background-color: #dadada;
+      }
     }
   }
 }
@@ -81,7 +87,7 @@ path {
 
 .neighborhood {
   fill: #FDB605;
-  fill-opacity: 0.5;
+  fill-opacity: 0.6;
   stroke: #C38701;
 
   &:hover, &.active {
@@ -89,14 +95,14 @@ path {
     cursor: pointer;
   }
 
-  &.q0-8 { stroke: white; fill:rgb(255,255,204); }
-  &.q1-8 { stroke: white; fill:rgb(255,237,160); }
-  &.q2-8 { stroke: white; fill:rgb(254,217,118); }
-  &.q3-8 { stroke: white; fill:rgb(254,178,76); }
-  &.q4-8 { stroke: white; fill:rgb(253,141,60); }
-  &.q5-8 { stroke: white; fill:rgb(252,78,42); }
-  &.q6-8 { stroke: white; fill:rgb(227,26,28); }
-  &.q7-8 { stroke: white; fill:rgb(177,0,38); }
+  &.q0-8 { stroke: white; fill:rgb(255,255,204); transition-property: fill; transition-duration: 2s; }
+  &.q1-8 { stroke: white; fill:rgb(255,237,160); transition-property: fill; transition-duration: 2s; }
+  &.q2-8 { stroke: white; fill:rgb(254,217,118); transition-property: fill; transition-duration: 2s; }
+  &.q3-8 { stroke: white; fill:rgb(254,178,76); transition-property: fill; transition-duration: 2s; }
+  &.q4-8 { stroke: white; fill:rgb(253,141,60); transition-property: fill; transition-duration: 2s; }
+  &.q5-8 { stroke: white; fill:rgb(252,78,42); transition-property: fill; transition-duration: 2s; }
+  &.q6-8 { stroke: white; fill:rgb(227,26,28); transition-property: fill; transition-duration: 2s; }
+  &.q7-8 { stroke: white; fill:rgb(177,0,38); transition-property: fill; transition-duration: 2s; }
 }
 
 #map-credits {
@@ -117,7 +123,7 @@ path {
 //   }
 // }
 
-// .park, .nature_reserve, .wood, .protected-land { fill: #C7EAAA; stroke: none; }
+//.park, .nature_reserve, .wood, .protected-land { fill: #C7EAAA; stroke: none; }
 .ocean { fill: #F2F3F4; stroke: #F2F3F4; }
 .major_road {  }
 .minor_road {  }

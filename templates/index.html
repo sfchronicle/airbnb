@@ -21,7 +21,7 @@
             <!-- <a class='goto-next'>Read Next</a> -->
             <h1 class='title small-10 small-offset-1 medium-12 medium-offset-0'></h1>
             <h2 class='description small-10 small-offset-1 medium-6 medium-offset-0'></h2>
-            <h3 class='sfc-byline small-10 small-offset-1 medium-6 medium-offset-0'></h3>
+            <p class='sfc-byline small-10 small-offset-1 medium-6 medium-offset-0'></p>
           </div>
         </div>
       </div>
@@ -65,16 +65,21 @@ $(document).ready(function () {
 
 {% raw %}
 <script type="text/x-handlebars" id="legend-tmpl">
-  <h4>Measuring Airbnb activity by neighborhood</h4>
+  <h3>Measuring Airbnb activity by neighborhood</h3>
   <p>A new data set reflects changes that help tell the story of how Airbnb is being used across San Francisco neighborhoods. Key findings inclde:</p>
 
   <ul class="button-group even-3">
-    <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny secondary">Average prices</a></li>
-    <li><a href="#" id="locationsCount" class="button sfc-data-button tiny secondary">Number of locations</a></li>
-    <li><a href="#" id="reviewCount" class="button sfc-data-button tiny secondary">Number of Reviews</a></li>
+    <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny">Price</a></li>
+    <li><a href="#" id="locationsCount" class="button sfc-data-button tiny">Locations</a></li>
+    <li><a href="#" id="reviewCount" class="button sfc-data-button tiny">Reviews</a></li>
   </ul>
 
-  <p>{{ tidbit }}</p>
+  <section>
+    <h5>{{ hed }}</h5>
+    <p>{{ tidbit }}</p>
+  </section>
+
+  <div id="map-legend"></div>
 </script>
 {% endraw %}
 {% endblock %}
