@@ -106,7 +106,8 @@ App.Map.load = function () {
 
       self.choropleth(svg, path, id);
       templatize('#legend-tmpl', '.legend', self.legendCopy( id ));
-      adjustChoroplethEvent();
+      self.createlegend( id );
+      adjustChoroplethEvent(); // Reattaches events to new template
       $('.sfc-data-button').removeClass('active');
       $('.sfc-data-button#'+id).addClass('active');
     });
@@ -200,47 +201,78 @@ App.Map.choropleth = function (svg, path, id) {
   d3.selectAll('.neighborhood')
     .attr('class', function (d) { return scale( self.addAllProperties( d, id, 2015 ).total ) + ' neighborhood'; })
     .attr('d', path);
-}
 
-App.Map.generateScales = function (id) {
+  self.createlegend( 'avgOfPrice' );
+};
+
+App.Map.createlegend = function (id) {
+  $('#map-legend').html('');
+  var self = this;
+  //var scaleLength = 8;
+  //var scaletype   = id === 'avgOfPrice' ? 'quantize' : 'quantile';
+
+  var legend = d3.select('#map-legend').append('ul')
+      .attr('class', 'inline-list');
+
+  var colors = self.generateScales(id, true);
+
+  // var colors = d3.scale.quantize()
+  //   .range(range);
+
+  var keys = legend.selectAll('li.key')
+    .data(colors.range());
+
+  keys.enter().append('li')
+    .attr('class', 'key')
+    .style('border-bottom-color', String)
+    .text(function (d) {
+      var r       = colors.invertExtent(d),
+          lowEnd  = Math.floor(r[0]), //Math.floor(r[0] * 100),
+          highEnd = Math.floor(r[1]); //Math.floor(r[1] * 100);
+
+      return lowEnd+' - '+highEnd;
+    });
+};
+
+App.Map.generateScales = function (id, forLegend) {
+  var forLegend = forLegend || false;
   /* Given an ID, generate a scale */
   var scale;
   var self = this;
   var scaleLength = 8;
+
+  var legendRange = ['rgb(255,255,204)', 'rgb(255,237,160)', 'rgb(254,217,118)', 'rgb(254,178,76)', 'rgb(253,141,60)', 'rgb(252,78,42)', 'rgb(227,26,28)', 'rgb(177,0,38)'],
+      mapRange = d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }),
+      range = forLegend ? legendRange : mapRange;
+
   var neighborhoods = App.jsonCache.objects.neighborhoods.geometries;
-  var _topHood = _.max(neighborhoods, function (neighborhood) { return self.addAllProperties( neighborhood, id, 2015 ).total; });
-  var _bottomHood = _.min(neighborhoods, function (neighborhood) { return self.addAllProperties( neighborhood, id, 2015 ).total; });
 
-  var min = self.addAllProperties(_bottomHood, id, 2015).total
-  var max = self.addAllProperties(_topHood, id, 2015).total
-
-  console.info(id, 'min:', min, 'max:', max);
+  var domain = _.chain(neighborhoods)
+      .map(function (neighborhood) { return self.addAllProperties( neighborhood, id, 2015 ).total; })
+      .sortBy(function (value) { return value; })
+      .value();
 
   var map = {
     'avgOfPrice': function () {
+      var _topHood    = _.max(neighborhoods, function (n) { return self.addAllProperties(n, id, 2015 ).total; }),
+          _bottomHood = _.min(neighborhoods, function (n) { return self.addAllProperties(n, id, 2015 ).total; });
+
+      var min = self.addAllProperties(_bottomHood, id, 2015).total,
+          max = self.addAllProperties(_topHood, id, 2015).total;
+
       scale = d3.scale.quantize()
         .domain([min, max])
-        .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+        .range(range);
     },
     'locationsCount': function () {
-      var domain = _.chain(neighborhoods)
-          .map(function (neighborhood) { return self.addAllProperties( neighborhood, id, 2015 ).total; })
-          .sortBy(function (value) { return value; })
-          .value();
-
       scale = d3.scale.quantile()
         .domain(domain)
-        .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+        .range(range);
     },
     'reviewCount': function () {
-      var domain = _.chain(neighborhoods)
-          .map(function (neighborhood) { return self.addAllProperties( neighborhood, id, 2015 ).total; })
-          .sortBy(function (value) { return value; })
-          .value();
-
       scale = d3.scale.quantile()
         .domain(domain)
-        .range(d3.range(scaleLength).map(function (i) { return 'q'+i+'-'+scaleLength }));
+        .range(range);
     }
   };
 
