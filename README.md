@@ -5,7 +5,7 @@ A look at Airbnb in San Francisco.
 - Python 2.7.x
 - Node.js 0.12
   - uglifyjs (`npm install -g uglifyjs`)
-  - clean-css (`npm install -g uglifyjs`)
+  - clean-css (`npm install -g cleancss`)
   - Bower and Grunt (`$ npm install -g grunt-cli bower`)
 
 ### Installation
@@ -29,8 +29,6 @@ $ python build.py
 ```
 
 ## Building the map
-- Download San Francisco map geography from data.sfgov.org
-  - *Coming soon*
 - Download [John Blanchard's Neighborhoods](https://s3-us-west-1.amazonaws.com/sfchronicle/SF+neighborhoods+for+Air+BnB+2015.kml) (.kml file)
   - Convert the .kml file to a shapefile using QGIS
     - http://www.igismap.com/convert-kml-shapefile-qgis/
