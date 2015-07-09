@@ -445,7 +445,7 @@ App.Story.createDropCap = function (text, color) {
 
 App.Story.formatPhotos = function (photos, caption, color) {
   var photoHTML   = "";
-  if (photos.length == 1) {
+  if (photos.length === 1) {
     photoHTML    += '<img class="small-10 small-offset-1" src="' + photos[0] + '">';
     photoHTML    += '<h3 class="photo-header ' + color + ' small-12 medium-10 medium-offset-1 columns left">' + caption + '</h3>';
   } else if (photos.length == 2) {
@@ -456,7 +456,7 @@ App.Story.formatPhotos = function (photos, caption, color) {
     photoHTML    += '<div class="multi-pic small-12 medium-4 columns"><img src="' + photos[1] + '">';
     photoHTML    += '<img class="vertical-align" src="' + photos[2] + '"></div>';
     photoHTML    += '<div class="small-12 medium-8 columns"><img src="' + photos[0] + '"></div>';
-    photoHTML    += '<h3 class="small-12 columns left photo-header ' + color + '">' + caption + '</h3>';
+    photoHTML    += '<h3 class="row small-12 columns left photo-header ' + color + '">' + caption + '</h3>';
   }
   return photoHTML;
 }
