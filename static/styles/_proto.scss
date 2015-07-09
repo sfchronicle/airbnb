@@ -149,6 +149,10 @@ article.page .body {
 	font-family: "Farnham";
 }
 
+article.page h5 {
+	margin-bottom: 30px;
+}
+
 article.page .side-content {
 	float: right;
 	width: 70%;
@@ -165,10 +169,18 @@ article.page .text-tertiary, {
 	margin-bottom: 60px;
 }
 
-article.page .body-pic .photo-header {
+article.page .photo-header {
 	margin-left: 0.9375rem;
   	margin-right: 0.9375rem;
   	padding: 15px
+}
+
+article.page .side-photo {
+	margin-left: 0.9375rem;
+  	margin-right: 0.9375rem;
+  	padding: 15px;
+  	padding-bottom: 30px;
+  	margin-top: 0 !important;
 }
 
 /* caption for photos */
