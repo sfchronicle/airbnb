@@ -118,17 +118,23 @@ table, th, td {
 }
 
 #map-legend {
+  margin-bottom: 10px;
+
   .inline-list {
     margin: 0 auto;
 
     .key {
       font-family: 'Antenna';
-      border-top-width: 15px;
-      border-top-style: solid;
+      border-bottom-width: 15px;
+      border-bottom-style: solid;
       font-size: .75em;
       padding-left: 0;
       padding-right: 0;
-      margin-left: 10px;
+      margin-left: 8px;
+
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 }
