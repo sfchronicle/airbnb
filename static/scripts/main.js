@@ -421,7 +421,7 @@ App.Story.contentizeElement = function ($el, d) {
     var $button = $('.button.next-story');
     $button.removeClass('blue pink yellow');
 
-    $button.html('<div class="next-story">Next</div><p>'+d.title+'</p>');
+    $button.find('h3').html(d.title);
     $button.addClass(d.color);
   }
 
@@ -433,7 +433,9 @@ App.Story.contentizeElement = function ($el, d) {
   if (d.content_tertiary) { $el.find('.content .text-tertiary').html(d.content_tertiary); }
   $el.find('.sfc-byline').html(d.author);
   if (d.photos) { $el.find('.body-pic').html(App.Story.formatPhotos(d.photos, d.caption, d.color)); }
-  if (d.side_content) { $el.find('.side-content').html('<img src="' + d.side_content + '">'); }
+  if (d.side_content) { $el.find('.side-content').html('<img src="' + d.side_content + '"  data-src="'+ d.side_content +'">'); }
+
+  $('img').unveil(); // For lazy loading
 }
 
 App.Story.createDropCap = function (text, color) {
@@ -449,13 +451,13 @@ App.Story.formatPhotos = function (photos, caption, color) {
     photoHTML    += '<img class="small-10 small-offset-1" src="' + photos[0] + '">';
     photoHTML    += '<h3 class="photo-header ' + color + ' small-12 medium-10 medium-offset-1 columns left">' + caption + '</h3>';
   } else if (photos.length == 2) {
-    photoHTML    += '<img class="small-10 small-offset-1 medium-5 columns" src="' + photos[0] + '">';
-    photoHTML    += '<img class="small-10 small-offset-1 medium-5 medium-offset-0 columns" src="' + photos[1] + '">';
+    photoHTML    += '<img class="small-10 small-offset-1 medium-5 columns" src="' + photos[0] + '" data-src="'+photos[0]+'">';
+    photoHTML    += '<img class="small-10 small-offset-1 medium-5 medium-offset-0 columns" src="' + photos[1] + '" data-src="'+photos[1]+'">';
     photoHTML    += '<h3 class="small-10 small-offset-1 columns left photo-header ' + color + '">' + caption + '</h3>';
   } else if (photos.length == 3) {
-    photoHTML    += '<div class="multi-pic small-12 medium-4 columns"><img src="' + photos[1] + '">';
-    photoHTML    += '<img class="vertical-align" src="' + photos[2] + '"></div>';
-    photoHTML    += '<div class="small-12 medium-8 columns"><img src="' + photos[0] + '"></div>';
+    photoHTML    += '<div class="multi-pic small-12 medium-4 columns"><img src="' + photos[1] + '" data-src="'+photos[1]+'">';
+    photoHTML    += '<img class="vertical-align" src="' + photos[2] + '" data-src="'+photos[2]+'"></div>';
+    photoHTML    += '<div class="small-12 medium-8 columns"><img src="' + photos[0] + '" data-src="'+photos[0]+'"></div>';
     photoHTML    += '<h3 class="row small-12 columns left photo-header ' + color + '">' + caption + '</h3>';
   }
   return photoHTML;
