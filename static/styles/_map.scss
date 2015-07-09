@@ -73,11 +73,20 @@ table, th, td {
   h3 {
     font-family: 'FarnhamBold', 'Comic Sans';
     color: #4F4F4F;
+    line-height: 1.1em;
   }
 
   p {
     font-family: 'Antenna';
     color: #4F4F4F;
+    font-size: .87em;
+  }
+
+  p:first-of-type {
+    text-transform: uppercase !important;
+    font-family: 'AntennaBlack';
+    font-size: .7em;
+    color: #008CBA;
   }
 
   .button-group {
