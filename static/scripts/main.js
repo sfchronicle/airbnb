@@ -34,8 +34,7 @@ App.Utils.templatize = function (template, placeholder, obj) {
 App.Nav = App.Nav || {};
 App.Nav.load = function () {
   $('.sfc-history').on('click', function (event) {
-    console.log($(".sfc-head"));
-    $(".sfc-head").fadeOut();
+    
     event.preventDefault();
     var chapterId = $(event.target).data('chapterId');
     App.Story.triggerGotoNextClick( chapterId );
@@ -84,7 +83,7 @@ App.Map.load = function () {
     .call(renderTiles)
     .call(renderTopojson)
     .call(renderLegend)
-    .call(renderCredits);
+    //.call(renderCredits);
 
   function createTooltip (d) {
     if (!App.Map.currentId) { return d.properties.name; }

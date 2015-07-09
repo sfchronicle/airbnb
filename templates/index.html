@@ -38,6 +38,57 @@
     </div>
 
     <aside class="breakout_content"></aside>
+    <aside id='map-alt' class='show-for-small-only'>
+      <div class="row">
+        <div class="small-12 columns">
+          <h3>Measuring Airbnb activity in S.F. by neighborhood</h3>
+          <p>By Aaron Williams and John Blanchard</p>
+          <p>The Chronicle commissioned data-extraction companies <a href="">Connotate Inc.</a> and <a href="">Import.io</a> to harvest San Francisco information from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, allowing for insights about year-over-year changes.</p>
+
+          <label for="">Select a neighborhood</label>
+          <select name="" id="">
+            <option value=""></option>
+            <option value="Bananas">Bananas</option>
+            <option value="Bananas">Bananas</option>
+            <option value="Bananas">Bananas</option>
+            <option value="Bananas">Bananas</option>
+            <option value="Bananas">Bananas</option>
+          </select>
+
+          <table border="1" style="width:100%">
+            <col width="160">
+            <col width="90">
+            <col width="90">
+            <tr class="brd-btm">
+              <td class="t-left title"><h4>{{ name }}</h4></td>
+              <td class="t-right mid title"><p>2014: {{ 2014 }}</p></td>
+              <td class="t-right title"><p>2015: {{ 2015 }}</p></td>
+            </tr>
+            <tr class="brd-btm">
+              <td>Houses</td>
+              <td class="t-right mid">XX</td>
+              <td class="t-right">XX</td>
+            </tr>
+            <tr class="brd-btm">
+              <td>Rooms</td>
+              <td class="t-right mid">XX</td>
+              <td class="t-right">XX</td>
+            </tr>
+            <tr class="brd-btm">
+              <td>Shared Rooms</td>
+              <td class="t-right mid">XX</td>
+              <td class="t-right">XX</td>
+            </tr>
+            <tr>
+              <td class="title-bottom">Total</td>
+              <td class="t-right mid title-bottom">XX</td>
+              <td class="t-right title-bottom">789</td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+    </aside>
 
     <div class="row">
       <div class="text-secondary body text small-12 medium-8 medium-offset-2 large-6 large-offset-3 columns">
@@ -50,7 +101,6 @@
       <div class="text-tertiary body text small-12 medium-8 medium-offset-2 large-6 large-offset-3 columns">
       </div>
     </div>
-
   </div>
 </article>
 
@@ -72,8 +122,9 @@ $(document).ready(function () {
 
 {% raw %}
 <script type="text/x-handlebars" id="legend-tmpl">
-  <h3>{{ hed }}</h3>
-  <p>{{ dek }}</p>
+  <h3>Measuring Airbnb activity in S.F. by neighborhood</h3>
+  <p>By Aaron Williams and John Blanchard</p>
+  <p>The Chronicle commissioned data-extraction companies <a href="">Connotate Inc.</a> and <a href="">Import.io</a> to harvest San Francisco information from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, allowing for insights about year-over-year changes.</p>
 
   <ul class="button-group even-3">
     <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny">Price</a></li>
@@ -82,12 +133,45 @@ $(document).ready(function () {
   </ul>
 
   <div id="map-legend"></div>
+
+  <blockquote>
+    <h5>{{ hed }}</h5>
+    {{ dek }}
+  </blockquote>
 </script>
 
 <script type="text/x-handlebars" id="tooltip-tmpl">
-  <h4>{{ name }}</h4>
-  <p>2014: {{ 2014 }}</p>
-  <p>2015: {{ 2015 }}</p>
+    <table border="1" style="width:100%">
+      <col width="160">
+      <col width="90">
+      <col width="90">
+      <tr class="brd-btm">
+        <td class="t-left title"><h4>{{ name }}</h4></td>
+        <td class="t-right mid title"><p>2014: {{ 2014 }}</p></td>
+        <td class="t-right title"><p>2015: {{ 2015 }}</p></td>
+      </tr>
+      <tr class="brd-btm">
+        <td>Houses</td>
+        <td class="t-right mid">XX</td>
+        <td class="t-right">XX</td>
+      </tr>
+      <tr class="brd-btm">
+        <td>Rooms</td>
+        <td class="t-right mid">XX</td>
+        <td class="t-right">XX</td>
+      </tr>
+      <tr class="brd-btm">
+        <td>Shared Rooms</td>
+        <td class="t-right mid">XX</td>
+        <td class="t-right">XX</td>
+      </tr>
+      <tr>
+        <td class="title-bottom">Total</td>
+        <td class="t-right mid title-bottom">XX</td>
+        <td class="t-right title-bottom">789</td>
+      </tr>
+    </table>
+
 </script>
 {% endraw %}
 {% endblock %}
