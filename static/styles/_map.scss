@@ -93,6 +93,21 @@ table, th, td {
   }
 }
 
+#map-alt {
+  background-color: #F7AB03;
+  padding: 10px;
+
+  h3 {
+    font-family: 'FarnhamBold', 'Comic Sans';
+    color: white;
+  }
+
+  p {
+    font-family: 'Antenna';
+    color: white;
+  }
+}
+
 #map-legend {
   .inline-list {
     margin: 0 auto;
