@@ -15,6 +15,52 @@ article {
   &.page {
     overflow: hidden; /* hack to prevent map for busting margins */
 
+    .sfc-head {
+  		padding-top: 460px;
+
+  		.title {
+  			margin-bottom: 0;
+  			font-family: "AntennaBlack";
+  			font-size: 60px;
+  			line-height: 1.2em;
+  			text-align: left;
+  		}
+
+  		.description {
+  			margin-top: 10px;
+  			font-family: "Antenna";
+  			font-size: 21px;
+  			text-align: left;
+  		}
+
+  		.sfc-byline {
+  			margin-top: 40px;
+  			padding-top: 10px;
+  			border-top: 1px solid #fff;
+  			font-family: "Antenna";
+  			font-size: 12px;
+  			color: #fff;
+  		}
+
+  	}
+
+    header {
+      // background-color: transparent;
+      //
+      // &:hover {
+      //   background-color: rgba(34,34,34, 0.1);
+      //   transition: background-color .35s ease-in-out;
+      // }
+      .description, .sfc-byline {
+        max-width: 640px;
+      }
+    }
+    .big-image {
+      .title, .description {
+        color: white;
+      }
+    }
+
     .big-image {
       height: 800px;
       //margin-top: 45px; // Keeps the photo just below the header
@@ -31,16 +77,7 @@ article {
     &.hidden, &.content-hidden .content { display: none; }
 
     &.current {
-      header {
-        .description, .sfc-byline {
-          max-width: 640px;
-        }
-      }
-      .big-image {
-        .title, .description {
-          color: white;
-        }
-      }
+
     }
   }
 
@@ -53,6 +90,10 @@ article {
       transition: opacity .35s ease-in-out;
 
       &:hover { opacity: 1; }
+    }
+
+    header {
+      display: none;
     }
 
     &:hover {
@@ -79,4 +120,18 @@ article {
 
 .text_secondary {
   margin-top: 60px;
+}
+
+.button.next-story {
+  padding: 40px 20px 40px 40px;
+	font-family: "Antenna";
+	font-size: 21px;
+	color: #ffffff;
+  display: block;
+  position: relative;
+  top: 47px;
+
+  &:hover {
+    cursor: default;
+  }
 }

@@ -34,7 +34,7 @@ App.Utils.templatize = function (template, placeholder, obj) {
 App.Nav = App.Nav || {};
 App.Nav.load = function () {
   $('.sfc-history').on('click', function (event) {
-    
+
     event.preventDefault();
     var chapterId = $(event.target).data('chapterId');
     App.Story.triggerGotoNextClick( chapterId );
@@ -416,6 +416,15 @@ App.Story.createPost = function(opts, callback){
 App.Story.contentizeElement = function ($el, d) {
   $el.find('.big-image').css({ backgroundImage: "url(" + d.image + ")" });
   $el.find('h1.title').html(d.title);
+
+  if ($el.hasClass('next')) {
+    var $button = $('.button.next-story');
+    $button.removeClass('blue pink yellow');
+
+    $button.html('<div class="next-story">Next</div><p>'+d.title+'</p>');
+    $button.addClass(d.color);
+  }
+
   $el.find('h2.description').html(d.title_secondary);
   if (d.intro) { $el.find('.content #sfc-row').html(App.Story.createDropCap(d.intro, d.color)); }
   $el.find('.content .text-primary').html(d.content);
@@ -442,12 +451,12 @@ App.Story.formatPhotos = function (photos, caption, color) {
   } else if (photos.length == 2) {
     photoHTML    += '<img class="small-10 small-offset-1 medium-5 columns" src="' + photos[0] + '">';
     photoHTML    += '<img class="small-10 small-offset-1 medium-5 medium-offset-0 columns" src="' + photos[1] + '">';
-    photoHTML    += '<h3 class="small-10 small-offset-1 columns left photo-header ' + color + '">' + caption + '</h3>'; 
+    photoHTML    += '<h3 class="small-10 small-offset-1 columns left photo-header ' + color + '">' + caption + '</h3>';
   } else if (photos.length == 3) {
     photoHTML    += '<div class="multi-pic small-12 medium-4 columns"><img src="' + photos[1] + '">';
     photoHTML    += '<img class="vertical-align" src="' + photos[2] + '"></div>';
     photoHTML    += '<div class="small-12 medium-8 columns"><img src="' + photos[0] + '"></div>';
-    photoHTML    += '<h3 class="small-12 columns left photo-header ' + color + '">' + caption + '</h3>';     
+    photoHTML    += '<h3 class="small-12 columns left photo-header ' + color + '">' + caption + '</h3>';
   }
   return photoHTML;
 }
@@ -481,7 +490,7 @@ App.Story.animatePage = function(callback){
 App.Story.gotoNextClick = function () {
   var self = this;
   self.animatePage(function(){
-    
+
     self.createPost({ fromTemplate: true, type: 'next' });
     self.bindGotoNextClick();
     window.history.pushState( pageState(), '', "#" + self.currentPostIndex);
