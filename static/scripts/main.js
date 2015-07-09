@@ -34,9 +34,12 @@ App.Utils.templatize = function (template, placeholder, obj) {
 App.Nav = App.Nav || {};
 App.Nav.load = function () {
   $('.sfc-history').on('click', function (event) {
+    //console.log($(".sfc-head"));
+    //$(".sfc-head").fadeOut();
     event.preventDefault();
-    
+    console.log("heyo");
     var chapterId = $(event.target).data('chapterId');
+    console.log(chapterId);
     App.Story.triggerGotoNextClick( chapterId );
   });
 };
@@ -306,6 +309,7 @@ App.Story = App.Story || {
 };
 
 App.Story.load = function () {
+
   this.currentPostIndex = getURLIndex();
   this.makeSelections();
 
@@ -346,6 +350,7 @@ App.Story.getPost = function (index, callback) {
   }
 
   var self = this;
+  //console.log("b" + index);
   $.getJSON('/static/stories/post_'+ index +'.json', function (d) {
     self.postCache[index] = d;
     callback(d);
@@ -367,6 +372,7 @@ App.Story.createPost = function(opts, callback){
   }
 
   var index = (type == 'next') ? this.nextPostIndex( this.currentPostIndex) : this.currentPostIndex;
+  //console.log("a" + index);
   this.getPost(index, function (d) {
     self.contentizeElement(self['$' + type], d);
     callback && callback();
@@ -381,34 +387,33 @@ App.Story.contentizeElement = function ($el, d) {
   $el.find('.big-image').css({ backgroundImage: "url(" + d.image + ")" });
   $el.find('h1.title').html(d.title);
   $el.find('h2.description').html(d.title_secondary);
-  if (d.intro) { $el.find('.content .sfc-intro').html(App.Story.createDropCap(d.intro, d.color)); }
-  $(".sfc-intro").addClass(d.color);
+  if (d.intro) { $el.find('.content #sfc-row').html(App.Story.createDropCap(d.intro, d.color)); }
   $el.find('.content .text-primary').html(d.content);
   $el.find('.content .breakout_content').html(d.breakout_content);
-  $el.find('.content .text-secondary').html(d.content_secondary);
+  if (d.content_secondary) { $el.find('.content .text-secondary').html(d.content_secondary); }
   if (d.content_tertiary) { $el.find('.content .text-tertiary').html(d.content_tertiary); }
   $el.find('.sfc-byline').html(d.author);
-  if (d.photos) { $el.find('.body-pic').html(App.Story.formatPhotos(d.photos, d.caption)); }
-  $(".photo-header").addClass(d.color);
+  if (d.photos) { $el.find('.body-pic').html(App.Story.formatPhotos(d.photos, d.caption, d.color)); }
+  if (d.side_content) { $el.find('.side-content').html('<img src="' + d.side_content + '">'); }
 }
 
 App.Story.createDropCap = function (text, color) {
   var cap       = text.substring(0,1);
   text          = text.substring(1, text.length);
-  var introHTML = '<div class="drop-cap component"><ul class="grid"><li class="ot-letter-left ' + color + '-letter"><span data-letter="' + cap + '" class="' + cap + '">' + cap + '</span></li></ul></div><div class="intro-text text">' + text + '</div>';
+  var introHTML = '<div class="sfc-intro ' + color + '"><div class="drop-cap component"><ul class="grid"><li class="ot-letter-left ' + color + '-letter"><span data-letter="' + cap + '" class="' + cap + '">' + cap + '</span></li></ul></div><div class="intro-text text">' + text + '</div></div>';
   return introHTML;
 }
 
-App.Story.formatPhotos = function (photos, caption) {
+App.Story.formatPhotos = function (photos, caption, color) {
   var photoHTML   = "";
   if (photos.length == 1) {
     photoHTML    += '<img class="small-10 small-offset-1" src="' + photos[0] + '">';
-    photoHTML    += '<h3 class="photo-header small-12 medium-10 medium-offset-1 columns left">' + caption + '</h3>';
+    photoHTML    += '<h3 class="photo-header ' + color + ' small-12 medium-10 medium-offset-1 columns left">' + caption + '</h3>';
   } else if (photos.length == 3) {
     photoHTML    += '<div class="multi-pic small-12 medium-4 columns"><img src="' + photos[1] + '">';
     photoHTML    += '<img class="vertical-align" src="' + photos[2] + '"></div>';
     photoHTML    += '<div class="small-12 medium-8 columns"><img src="' + photos[0] + '"></div>';
-    photoHTML    += '<h3 class="small-12 columns left photo-header">' + caption + '</h3>';     
+    photoHTML    += '<h3 class="small-12 columns left photo-header ' + color + '">' + caption + '</h3>';     
   }
   return photoHTML;
 }
@@ -442,9 +447,11 @@ App.Story.animatePage = function(callback){
 App.Story.gotoNextClick = function () {
   var self = this;
   self.animatePage(function(){
+    
     self.createPost({ fromTemplate: true, type: 'next' });
     self.bindGotoNextClick();
     window.history.pushState( pageState(), '', "#" + self.currentPostIndex);
+    $(".sfc-head").fadeIn();
   });
 };
 

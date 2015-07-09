@@ -120,17 +120,22 @@ article.page .body {
 	font-family: "Farnham";
 }
 
-article.page .breakout_content {
-	padding: 40px 0;
+article.page .side-content {
+	float: right;
+	width: 70%;
+	margin-left: 20px;
+	margin-right: -30%;
 }
 
-article.page .body-pic {
-	margin-top: 60px;
+article.page .text-secondary,
+article.page .text-tertiary, {
+	margin-bottom: 60px;
 }
 
 article.page .body-pic .photo-header {
 	margin-left: 0.9375rem;
   	margin-right: 0.9375rem;
+  	padding: 15px
 }
 
 /* caption for photos */
