@@ -18,8 +18,8 @@
     {% block content %}{% endblock %}
 
     <script src="{{ url_for('static', filename='bower_components/modernizr/modernizr.js') }}"></script>
+    <script src="//www.sfchronicle.com/js/jquery-1.8.1.min.js"></script>
     {% assets filters="uglifyjs", output="build/vendor.%(version)s.js",
-        'bower_components/jquery/dist/jquery.js',
         'bower_components/handlebars/handlebars.js',
         'bower_components/unveil/jquery.unveil.js',
         'bower_components/underscore/underscore.js',
