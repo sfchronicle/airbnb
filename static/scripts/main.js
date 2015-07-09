@@ -428,7 +428,7 @@ App.Story.contentizeElement = function ($el, d) {
   $el.find('h2.description').html(d.title_secondary);
   if (d.intro) { $el.find('.content #sfc-row').html(App.Story.createDropCap(d.intro, d.color)); }
   $el.find('.content .text-primary').html(d.content);
-  $el.find('.content .breakout_content').html(d.breakout_content);
+  if (d.breakout_content) { $el.find('.content .breakout_content').html(d.breakout_content); } else { $el.find('.content .breakout_content').remove(); }
   if (d.content_secondary) { $el.find('.content .text-secondary').html(d.content_secondary); }
   if (d.content_tertiary) { $el.find('.content .text-tertiary').html(d.content_tertiary); }
   $el.find('.sfc-byline').html(d.author);
