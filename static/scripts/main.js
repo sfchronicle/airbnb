@@ -34,12 +34,10 @@ App.Utils.templatize = function (template, placeholder, obj) {
 App.Nav = App.Nav || {};
 App.Nav.load = function () {
   $('.sfc-history').on('click', function (event) {
-    //console.log($(".sfc-head"));
-    //$(".sfc-head").fadeOut();
+    console.log($(".sfc-head"));
+    $(".sfc-head").fadeOut();
     event.preventDefault();
-    console.log("heyo");
     var chapterId = $(event.target).data('chapterId');
-    console.log(chapterId);
     App.Story.triggerGotoNextClick( chapterId );
   });
 };
