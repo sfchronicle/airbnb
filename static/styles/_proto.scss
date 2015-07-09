@@ -74,6 +74,35 @@ article.page.current {
 
 }
 
+article.next .sfc-head h1 {
+	margin-bottom: 0;
+	margin-top: 60px;
+	font-family: "AntennaBlack";
+	font-size: 60px;
+	line-height: 1.2em;
+	text-align: left;
+	color: #fff;
+}
+
+article.next .sfc-head h2 {
+	margin-top: 10px;
+	width: 60%;
+	font-family: "Antenna";
+	font-size: 21px;
+	text-align: left;
+	color: #fff;
+}
+
+article.next .sfc-head p {
+	margin-top: 40px;
+	padding-top: 10px;
+	width: 60%;
+	border-top: 1px solid #fff;
+	font-family: "Antenna";
+	font-size: 12px;
+	color: #fff;
+}
+
 /* colored box inset with hinged drop-cap and intro text */
 article.page .sfc-intro {
 	margin-top: 80px;
@@ -120,17 +149,38 @@ article.page .body {
 	font-family: "Farnham";
 }
 
+article.page h5 {
+	margin-bottom: 30px;
+}
+
+article.page .side-content {
+	float: right;
+	width: 70%;
+	margin-left: 20px;
+	margin-right: -30%;
+}
+
 article.page .breakout_content {
-	padding: 40px 0;
+	margin-bottom: 140px;
+	}
+
+article.page .text-secondary,
+article.page .text-tertiary, {
+	margin-bottom: 60px;
 }
 
-article.page .body-pic {
-	margin-top: 60px;
-}
-
-article.page .body-pic .photo-header {
+article.page .photo-header {
 	margin-left: 0.9375rem;
   	margin-right: 0.9375rem;
+  	padding: 15px
+}
+
+article.page .side-photo {
+	margin-left: 0.9375rem;
+  	margin-right: 0.9375rem;
+  	padding: 15px;
+  	padding-bottom: 30px;
+  	margin-top: 0 !important;
 }
 
 /* caption for photos */
