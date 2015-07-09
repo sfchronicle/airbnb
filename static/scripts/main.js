@@ -48,7 +48,7 @@ App.Nav.load = function () {
 App.Map = App.Map || {
   width: 1000,
   height: 600,
-  coordinates: [-122.4883, 37.7520],
+  coordinates: [-122.50, 37.7520],
   rendered: false,
   currentId: 'avgOfPrice' // This acts as the default view for the choropleth
 };
@@ -224,6 +224,7 @@ App.Map.createlegend = function (id) {
 
   keys.enter().append('li')
     .attr('class', 'key')
+    .attr('id', id)
     .style('border-bottom-color', String)
     .text(function (d) {
       var r       = colors.invertExtent(d),
