@@ -37,9 +37,14 @@
   text-align: right;
 }
 
+.t-left.title h4 {
+  font-family: 'AntennaBlack' !important;
+  text-transform: capitalize;
+  font-size: 1.3em;
+}
+
 .title {
   font-family: 'AntennaBlack';
-  text-transform: capitalize;
 }
 
 .title-bottom {
@@ -47,14 +52,14 @@
 }
 
 .mid {
-  border-right: 1px solid black;
+  border-right: 1px solid #A0A0A0;
   padding-right: 20px;
-  border-left: 1px solid black;
+  border-left: 1px solid #A0A0A0;
   padding-left: 20px;
 }
 
 .brd-btm {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #A0A0A0;
 }
 
 table, th, td {
