@@ -120,7 +120,7 @@ article {
 
 .text_secondary {
   margin-top: 60px;
-}
+} 
 
 .button.next-story {
   padding: 40px 20px 40px 40px;
@@ -130,6 +130,19 @@ article {
   display: block;
   position: relative;
   top: 47px;
+
+  .next-label {
+    text-transform: uppercase !important;
+    font-family: 'AntennaBlack';
+    font-size: .7em;
+  }
+
+  h3 {
+    margin-top: 0px;
+    font-family: "AntennaLight";
+    font-size: 18px;
+    color: #fff;
+  }
 
   &:hover {
     cursor: default;

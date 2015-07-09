@@ -421,7 +421,7 @@ App.Story.contentizeElement = function ($el, d) {
     var $button = $('.button.next-story');
     $button.removeClass('blue pink yellow');
 
-    $button.html('<div class="next-story">Next</div><p>'+d.title+'</p>');
+    $button.find('h3').html(d.title);
     $button.addClass(d.color);
   }
 
