@@ -152,9 +152,10 @@ article.page .sfc-intro .drop-cap .grid li .B {
 }
 
 article.page .sfc-intro .text {
-	padding: 40px 20px 40px 40px;
+	padding: 50px 50px 50px 50px;
 	font-family: "Antenna";
-	font-size: 21px;
+	font-size: 23px;
+	line-height: 1.6em;
 	color: #ffffff;
 }
 
@@ -190,18 +191,18 @@ article.page .text-tertiary, {
 
 article.page .side-photo {
 	margin-left: 0.9375rem;
-  	margin-right: 0.9375rem;
-  	padding: 15px;
-  	padding-bottom: 30px;
-  	margin-top: 0 !important;
+	margin-right: 0.9375rem;
+  padding: 25px;
+	padding-bottom: 30px;
+	margin-top: 0 !important;
 }
 
 /* caption for photos */
 article.page .photo-header {
 	margin-top: 15px;
 	margin-left: 0.9375rem;
-  	margin-right: 0.9375rem;
-  	padding: 15px;
+  margin-right: 0.9375rem;
+  padding: 15px;
 	font-family: "AntennaLight";
 	font-size: 18px;
 	color: #fff;
@@ -209,7 +210,7 @@ article.page .photo-header {
 
 article.page .photo-header span {
 	font-family: "AntennaLightItalic";
-	
+
 }
 
 /* mini paragraph on left side */
@@ -265,6 +266,7 @@ article.page .vertical-align {
 	-ms-perspective: 550px;
 	perspective: 550px;
 	z-index: 1;
+	font-family: "AntennaBlack", Helvetica, Arial, sans-serif;
 }
 
 .grid li span:before,
@@ -296,8 +298,8 @@ article.page .vertical-align {
 .blue-letter span:after { color: $blue; } /* letter color when 'shut' */
 .blue-letter:hover span:after { color: #5DD3C2; } /* letter color when 'open' FF5A5F, FFBB12 */
 
-.pink-letter span { text-shadow: 1px 4px 6px $red, 0 0 0 hsla(0, 0%, 0%, 0.3), 1px 4px 6px $red; } /* drop shadow in background */
-.pink-letter span:after { color: $red; } /* letter color when 'shut' */
+.pink-letter span { text-shadow: 1px 4px 6px $pink, 0 0 0 hsla(0, 0%, 0%, 0.3), 1px 4px 6px $pink; } /* drop shadow in background */
+.pink-letter span:after { color: $pink; } /* letter color when 'shut' */
 .pink-letter:hover span:after { color: #F7696F; } /* letter color when 'open' FF5A5F, FFBB12 */
 
 .purple-letter span { text-shadow: 1px 4px 6px $purple, 0 0 0 hsla(0, 0%, 0%, 0.3), 1px 4px 6px $purple; } /* drop shadow in background */

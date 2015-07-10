@@ -33,45 +33,58 @@
   font-family: 'Antenna';
 }
 
-.t-right {
-  text-align: right;
-}
 
-.t-left.title h4 {
-  font-family: 'AntennaBlack' !important;
-  text-transform: capitalize;
-  font-size: 1.3em;
-}
 
-.title {
-  font-family: 'AntennaBlack';
-}
+table {
+  .title {
+    font-family: 'AntennaBlack';
+    &.t-left {
+      h4 {
+        font-family: 'AntennaBlack' !important;
+        text-transform: capitalize;
+        font-size: 1.3em;
+      }
+    }
+  }
 
-.title-bottom {
-  font-family: 'AntennaBlack';
-}
+  tbody#avgOfPrice {
+    td#year-2014,
+    td#year-2015 {
+      &::before {
+        content: '$';
+      }
+    }
+  }
 
-.mid {
-  border-right: 1px solid #A0A0A0;
-  padding-right: 20px;
-  border-left: 1px solid #A0A0A0;
-  padding-left: 20px;
-}
+  .t-right {
+    text-align: right;
+  }
 
-.brd-btm {
-  border-bottom: 1px solid #A0A0A0;
-}
+  .title-bottom {
+    font-family: 'AntennaBlack';
+  }
 
-table, th, td {
-    border: 0px solid black;
-    font-size: .9em;
+  .mid {
+    border-right: 1px solid #A0A0A0;
+    padding-right: 20px;
+    border-left: 1px solid #A0A0A0;
+    padding-left: 20px;
+  }
+
+  .brd-btm {
+    border-bottom: 1px solid #A0A0A0;
+  }
+  th, td {
+      border: 0px solid black;
+      font-size: .9em;
+  }
 }
 
 .legend {
-  margin-top: 15%;
+  margin-top: 50px;
 
   h3 {
-    font-family: 'FarnhamBold', 'Comic Sans';
+    font-family: 'FarnhamTextBold', Georgia, serif !important;
     color: #4F4F4F;
     line-height: 1.1em;
   }
