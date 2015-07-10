@@ -400,7 +400,7 @@ App.Story.getPost = function (index, callback) {
   }
 
   var self = this;
-  $.getJSON('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/stories/post_'+ index +'.json', function (d) {
+  $.getJSON('/static/stories/post_'+ index +'.json', function (d) {
     self.postCache[index] = d;
     callback(d);
   });
@@ -440,7 +440,7 @@ App.Story.contentizeElement = function ($el, d) {
 
   if ($el.hasClass('next')) {
     var $button = $('.button.next-story');
-    $button.removeClass('blue pink yellow');
+    $button.removeClass('blue pink yellow purple green');
 
     $button.find('h3').html(d.title);
     $button.addClass(d.color);
