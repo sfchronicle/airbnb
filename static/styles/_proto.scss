@@ -284,8 +284,8 @@ article.page .vertical-align {
 .blue-letter span:after { color: $blue; } /* letter color when 'shut' */
 .blue-letter:hover span:after { color: #5DD3C2; } /* letter color when 'open' FF5A5F, FFBB12 */
 
-.pink-letter span { text-shadow: 1px 4px 6px $red, 0 0 0 hsla(0, 0%, 0%, 0.3), 1px 4px 6px $red; } /* drop shadow in background */
-.pink-letter span:after { color: $red; } /* letter color when 'shut' */
+.pink-letter span { text-shadow: 1px 4px 6px $pink, 0 0 0 hsla(0, 0%, 0%, 0.3), 1px 4px 6px $pink; } /* drop shadow in background */
+.pink-letter span:after { color: $pink; } /* letter color when 'shut' */
 .pink-letter:hover span:after { color: #F7696F; } /* letter color when 'open' FF5A5F, FFBB12 */
 
 .purple-letter span { text-shadow: 1px 4px 6px $purple, 0 0 0 hsla(0, 0%, 0%, 0.3), 1px 4px 6px $purple; } /* drop shadow in background */
