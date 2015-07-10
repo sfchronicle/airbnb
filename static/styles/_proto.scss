@@ -140,9 +140,10 @@ article.page .sfc-intro .drop-cap .grid li .B {
 }
 
 article.page .sfc-intro .text {
-	padding: 40px 20px 40px 40px;
+	padding: 50px 50px 50px 50px;
 	font-family: "Antenna";
-	font-size: 21px;
+	font-size: 23px;
+	line-height: 1.6em;
 	color: #ffffff;
 }
 
@@ -251,6 +252,7 @@ article.page .vertical-align {
 	-ms-perspective: 550px;
 	perspective: 550px;
 	z-index: 1;
+	font-family: "AntennaBlack", Helvetica, Arial, sans-serif;
 }
 
 .grid li span:before,

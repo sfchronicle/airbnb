@@ -45,6 +45,19 @@ article {
 
   	}
 
+    p {
+      text-rendering: optimizeLegibility;
+      font-family: "FarnhamText", Georgia, serif;
+      font-size: 1.2em;
+      margin-bottom: 0.2em;
+      padding-bottom: 1.2em;
+      line-height: 1.6em;
+    }
+
+    p:last-of-type {
+      padding-bottom: 3em;
+    }
+
     header {
       // background-color: transparent;
       //
