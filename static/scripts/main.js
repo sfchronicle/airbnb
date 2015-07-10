@@ -365,7 +365,7 @@ App.Map.legendCopy = function (id) {
     'reviewCount': function () {
       var copy = {};
       copy.hed = 'Total reviews';
-      copy.dek = 'Tousled forage chillwave, lomo Williamsburg twee mlkshk semiotics try-hard gastropub. Cred PBR messenger bag Etsy skateboard, dreamcatcher scenester 8-bit locavore.';
+      copy.dek = 'While the number of reviews correlates to the number of listings in a neighborhood, it’s noteworthy that Mission listings have 16,282 reviews, 6,321 of them amassed in the past year, implying a heavy guest presence in that neighborhood. Not all guests write reviews, so the numbers underestimate usage.';
       copy.id = 'reviewCount';
       return copy;
     }
