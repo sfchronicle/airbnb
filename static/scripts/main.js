@@ -54,10 +54,8 @@ App.Utils.social = function () {
 App.Nav = App.Nav || {};
 App.Nav.load = function () {
   $('.sfc-history').on('click', function (event) {
-
     event.preventDefault();
-    var chapterId = $(event.target).data('chapterId');
-    App.Story.triggerGotoNextClick( chapterId );
+    window.location.reload();
   });
 };
 
@@ -521,18 +519,6 @@ App.Story.gotoNextClick = function () {
     window.history.pushState( pageState(), '', "#" + self.currentPostIndex);
     $(".sfc-head").fadeIn();
   });
-};
-
-App.Story.triggerGotoNextClick = function (chapterId) {
-  // var self = this;
-  // this.currentPostIndex = parseInt(chapterId);
-  //
-  // self.animatePage(function(){
-  //   self.createPost({ fromTemplate: true, type: 'current' });
-  //   self.bindGotoNextClick();
-  //   window.history.pushState( pageState(), '', "#" + chapterId);
-  // });
-  console.info('Ideally, this would go to chapter', chapterId);
 };
 
 App.Story.bindGotoNextClick = function(){
