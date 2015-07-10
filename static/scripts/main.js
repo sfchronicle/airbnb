@@ -351,7 +351,7 @@ App.Map.legendCopy = function (id) {
     'avgOfPrice': function () {
       var copy = {};
       copy.hed = 'Average price'
-      copy.dek = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.';
+      copy.dek = 'Airbnb prices correlate with the city’s regular real estate. the priciest vacation rentals _on average_ were in Pacific Heights ($288 for all types of properties; $360 for entire homes); and Fishermans Wharf ($287/$295), while the most-affordable were in Crocker Amazon ($92 for all types; $144 for entire homes) and Lakeshore ($108/$142).';
       copy.id = 'avgOfPrice';
       return copy;
     },
@@ -603,13 +603,10 @@ App.Story.currentElementClone = function(){
 }
 
 function numberWithCommas(x) {
-  try {
-    x = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  } catch (e) {
-    // null value
-  } finally {
-    return x;
-  }
+  // http://stackoverflow.com/a/2901298/868724
+  try { x = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+  catch (e) { /* null value */ }
+  finally { return x; }
 }
 
 function elementToTemplate($element){
