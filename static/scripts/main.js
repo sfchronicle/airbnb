@@ -54,6 +54,8 @@ App.Map = App.Map || {
 };
 
 App.Map.load = function () {
+  $('#map').html(''); // reset the map just in case a url clicks back from next article
+
   var self = this;
   var slugify =  App.Utils.slugify;
   var templatize = App.Utils.templatize;
@@ -175,11 +177,11 @@ App.Map.load = function () {
         if (error) { console.error(error); return error; }
         App.jsonCache = json;
         build( json );
-        self.choropleth(svg, path, 'avgOfPrice'); // KICK OFF
+        self.choropleth(svg, path, App.Map.currentId); // KICK OFF
       });
     } else {
       build( App.jsonCache );
-      self.choropleth(svg, path, 'avgOfPrice'); // KICK OFF
+      self.choropleth(svg, path, App.Map.currentId); // KICK OFF
     }
   }
 
@@ -202,7 +204,7 @@ App.Map.choropleth = function (svg, path, id) {
     .attr('class', function (d) { return scale( self.addAllProperties( d, id, 2015 ).total ) + ' neighborhood'; })
     .attr('d', path);
 
-  self.createlegend( 'avgOfPrice' );
+  self.createlegend( App.Map.currentId ); // intialize legend
 };
 
 App.Map.createlegend = function (id) {
