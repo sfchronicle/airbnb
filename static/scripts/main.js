@@ -44,8 +44,11 @@ App.Utils.social = function () {
   });
 
   $('.email-button').attr('href', 'mailto:friend@example.com?subject=From the Chronicle: '+encodeURIComponent(headline)+'&body='+encodeURIComponent(body));
-
 };
+
+App.Utils.handlebars = function () {
+  /* Register Handlebars Helpers */
+}
 
 /*  =================================================
     MAP
@@ -72,6 +75,7 @@ App.Map = App.Map || {
 };
 
 App.Map.load = function () {
+  App.Utils.handlebars();
   $('#map').html(''); // reset the map just in case a url clicks back from next article
 
   var self = this;
@@ -106,12 +110,39 @@ App.Map.load = function () {
     //.call(renderCredits);
 
   function createTooltip (d) {
+    var total;
     if (!App.Map.currentId) { return d.properties.name; }
-    var data = {
-      'name': d.properties.name,
-      2014: self.addAllProperties(d, App.Map.currentId, 2014).total,
-      2015: self.addAllProperties(d, App.Map.currentId, 2015).total
+
+    if (App.Map.currentId === 'avgOfPrice') {
+      total = {
+        2014: numberWithCommas(d.properties.totalAvgPrice['2014']),
+        2015: numberWithCommas(d.properties.totalAvgPrice['2015'])
+      };
+    } else {
+      total = {
+        2014: numberWithCommas(self.addAllProperties(d, App.Map.currentId, 2014).total),
+        2015: numberWithCommas(self.addAllProperties(d, App.Map.currentId, 2015).total)
+      };
     }
+
+    var data = {
+      id: App.Map.currentId,
+      name: d.properties.name,
+      total: total,
+      home: {
+        2014: numberWithCommas(d.properties.entireHome[App.Map.currentId]['2014']),
+        2015: numberWithCommas(d.properties.entireHome[App.Map.currentId]['2015'])
+      },
+      privateRoom: {
+        2014: numberWithCommas(d.properties.privateRoom[App.Map.currentId]['2014']),
+        2015: numberWithCommas(d.properties.privateRoom[App.Map.currentId]['2015'])
+      },
+      sharedRoom: {
+        2014: numberWithCommas(d.properties.sharedRoom[App.Map.currentId]['2014']),
+        2015: numberWithCommas(d.properties.sharedRoom[App.Map.currentId]['2015'])
+      }
+    }
+
 
     var source = $('#tooltip-tmpl').html();
     var template = Handlebars.compile( source );
@@ -327,7 +358,7 @@ App.Map.legendCopy = function (id) {
     'locationsCount': function () {
       var copy = {};
       copy.hed = 'Total locations';
-      copy.dek = 'My woes, This is that nasty flow, Way way way up, They need the whole thing, The shit was gettin‘ too predictable, You know they all sentimental now.';
+      copy.dek = 'The Mission District remained the neighborhood with the most Airbnb listings, though the average price of units didn’t rank among the city’s highest (Pacific Heights is the costliest at $288 for all types of properties). The percent change in the number of reviews within neighborhoods provides a clue about how frequently Airbnb units there are rented to visitors.';
       copy.id = 'locationsCount';
       return copy;
     },
@@ -359,7 +390,6 @@ App.Story = App.Story || {
 };
 
 App.Story.load = function () {
-
   this.currentPostIndex = getURLIndex();
   this.makeSelections();
 
@@ -572,6 +602,15 @@ App.Story.currentElementClone = function(){
   return this.$page.clone().removeClass('hidden').addClass('current');
 }
 
+function numberWithCommas(x) {
+  try {
+    x = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  } catch (e) {
+    // null value
+  } finally {
+    return x;
+  }
+}
 
 function elementToTemplate($element){
   return $element.get(0).outerHTML;
