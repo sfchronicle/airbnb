@@ -27,6 +27,26 @@ App.Utils.templatize = function (template, placeholder, obj) {
   $(placeholder).html( hbs( obj ) );
 };
 
+App.Utils.social = function () {
+  var $head = $('.current .sfc-head');
+  var headline = $head.find('h1.title').text();
+  var url = window.location.href;
+  var body = $head.find('h2.description').text() + '\n\n' + url;
+
+  $('.sfc-twitter-button').attr('href', 'https://twitter.com/intent/tweet?via=sfchronicle&text='+headline+' '+url);
+
+  $('.sfc-facebook-button').on('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), 'facebook-share-dialog', 'width=626,height=436');
+    return false;
+  });
+
+  $('.email-button').attr('href', 'mailto:friend@example.com?subject=From the Chronicle: '+encodeURIComponent(headline)+'&body='+encodeURIComponent(body));
+
+};
+
 /*  =================================================
     MAP
     =================================================
@@ -34,10 +54,8 @@ App.Utils.templatize = function (template, placeholder, obj) {
 App.Nav = App.Nav || {};
 App.Nav.load = function () {
   $('.sfc-history').on('click', function (event) {
-
     event.preventDefault();
-    var chapterId = $(event.target).data('chapterId');
-    App.Story.triggerGotoNextClick( chapterId );
+    window.location.reload();
   });
 };
 
@@ -54,6 +72,8 @@ App.Map = App.Map || {
 };
 
 App.Map.load = function () {
+  $('#map').html(''); // reset the map just in case a url clicks back from next article
+
   var self = this;
   var slugify =  App.Utils.slugify;
   var templatize = App.Utils.templatize;
@@ -171,15 +191,15 @@ App.Map.load = function () {
 
     // Checking for cached JSON to keep network trips down
     if (!App.jsonCache) {
-      d3.json('/static/2015-07-02-sf-neighborhoods-airbnb.topojson', function (error, json) {
+      d3.json('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/2015-07-02-sf-neighborhoods-airbnb.topojson', function (error, json) {
         if (error) { console.error(error); return error; }
         App.jsonCache = json;
         build( json );
-        self.choropleth(svg, path, 'avgOfPrice'); // KICK OFF
+        self.choropleth(svg, path, App.Map.currentId); // KICK OFF
       });
     } else {
       build( App.jsonCache );
-      self.choropleth(svg, path, 'avgOfPrice'); // KICK OFF
+      self.choropleth(svg, path, App.Map.currentId); // KICK OFF
     }
   }
 
@@ -202,7 +222,7 @@ App.Map.choropleth = function (svg, path, id) {
     .attr('class', function (d) { return scale( self.addAllProperties( d, id, 2015 ).total ) + ' neighborhood'; })
     .attr('d', path);
 
-  self.createlegend( 'avgOfPrice' );
+  self.createlegend( App.Map.currentId ); // intialize legend
 };
 
 App.Map.createlegend = function (id) {
@@ -380,7 +400,6 @@ App.Story.getPost = function (index, callback) {
   }
 
   var self = this;
-  //console.log("b" + index);
   $.getJSON('/static/stories/post_'+ index +'.json', function (d) {
     self.postCache[index] = d;
     callback(d);
@@ -408,6 +427,8 @@ App.Story.createPost = function(opts, callback){
     callback && callback();
   });
 
+  App.Utils.social();
+
   if (this.currentPostIndex === 1) {
     App.Map.load();
   }
@@ -419,7 +440,7 @@ App.Story.contentizeElement = function ($el, d) {
 
   if ($el.hasClass('next')) {
     var $button = $('.button.next-story');
-    $button.removeClass('blue pink yellow');
+    $button.removeClass('blue pink yellow purple green');
 
     $button.find('h3').html(d.title);
     $button.addClass(d.color);
@@ -498,18 +519,6 @@ App.Story.gotoNextClick = function () {
     window.history.pushState( pageState(), '', "#" + self.currentPostIndex);
     $(".sfc-head").fadeIn();
   });
-};
-
-App.Story.triggerGotoNextClick = function (chapterId) {
-  // var self = this;
-  // this.currentPostIndex = parseInt(chapterId);
-  //
-  // self.animatePage(function(){
-  //   self.createPost({ fromTemplate: true, type: 'current' });
-  //   self.bindGotoNextClick();
-  //   window.history.pushState( pageState(), '', "#" + chapterId);
-  // });
-  console.info('Ideally, this would go to chapter', chapterId);
 };
 
 App.Story.bindGotoNextClick = function(){
