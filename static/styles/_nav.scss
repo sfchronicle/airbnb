@@ -1,10 +1,25 @@
 .sfc-top-bar {
   background-color: white;
+  box-shadow: 2px 2px 2px #cecece;
   opacity: .9;
   h1 > a { color: #222 !important; }
 
+  .title-area {
+    .name {
+      position: relative;
+      max-width: 200px;
+      display: inline-block;
+      padding: 7px 5px 0 9px;
+    }
+  }
+
   .top-bar-section {
     ul {
+      .divider {
+        background-color: white;
+        border-right: 1px solid rgba(34, 34, 34, 0.3);
+      }
+
       li {
         &:not(.has-form) {
           a:not(.button) {

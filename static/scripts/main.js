@@ -27,6 +27,26 @@ App.Utils.templatize = function (template, placeholder, obj) {
   $(placeholder).html( hbs( obj ) );
 };
 
+App.Utils.social = function () {
+  var $head = $('.current .sfc-head');
+  var headline = $head.find('h1.title').text();
+  var url = window.location.href;
+  var body = $head.find('h2.description').text() + '\n\n' + url;
+
+  $('.sfc-twitter-button').attr('href', 'https://twitter.com/intent/tweet?via=sfchronicle&text='+headline+' '+url);
+
+  $('.sfc-facebook-button').on('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), 'facebook-share-dialog', 'width=626,height=436');
+    return false;
+  });
+
+  $('.email-button').attr('href', 'mailto:friend@example.com?subject=From the Chronicle: '+encodeURIComponent(headline)+'&body='+encodeURIComponent(body));
+
+};
+
 /*  =================================================
     MAP
     =================================================
@@ -408,6 +428,8 @@ App.Story.createPost = function(opts, callback){
     self.contentizeElement(self['$' + type], d);
     callback && callback();
   });
+
+  App.Utils.social();
 
   if (this.currentPostIndex === 1) {
     App.Map.load();
