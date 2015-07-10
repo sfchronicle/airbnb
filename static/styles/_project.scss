@@ -1,5 +1,6 @@
 $header: 'AntennaBlack', sans-serif;
-$sans-serif: "AntennaMedium", sans-serif;
+$header-serif: 'FarnhamTextBold', 'FarnhamBold', 'Georgia', serif;
+$sans-serif: "Antenna", sans-serif;
 $serif: "FarnhamText", Georgia, serif;
 $red: #B71C1C;
 
@@ -120,7 +121,7 @@ article {
 
 .text_secondary {
   margin-top: 60px;
-} 
+}
 
 .button.next-story {
   padding: 40px 20px 40px 40px;

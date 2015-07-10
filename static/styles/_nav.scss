@@ -14,6 +14,9 @@
   }
 
   .top-bar-section {
+    .package-name a {
+      font-family: $header-serif !important;
+    }
     ul {
       .divider {
         background-color: white;
@@ -25,6 +28,7 @@
           a:not(.button) {
             background: white;
             color: #222;
+            font-family: $sans-serif;
 
             &:hover {
               background: darken(white, 10%);
