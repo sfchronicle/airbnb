@@ -137,7 +137,7 @@ article {
 }
 
 .button.next-story {
-  padding: 40px 20px 40px 40px;
+  padding: 35px 20px 45px 40px;
   font-family: "Antenna";
   font-size: 22px;
 	color: #ffffff;
@@ -148,13 +148,20 @@ article {
   .next-label {
     text-transform: uppercase !important;
     font-family: 'AntennaBlack';
-    font-size: .7em;
+    font-size: .6em;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #fff;
+    max-width: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-bottom: 6px;
   }
 
   h3 {
     margin-top: 0px;
-    font-family: "AntennaLight";
-    font-size: 18px;
+    font-family: "Antenna";
+    font-size: 22px;
     color: #fff;
   }
 
