@@ -430,7 +430,7 @@ App.Story.getPost = function (index, callback) {
   }
 
   var self = this;
-  $.getJSON('/static/stories/post_'+ index +'.json', function (d) {
+  $.getJSON('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/stories/post_'+ index +'.json', function (d) {
     self.postCache[index] = d;
     callback(d);
   });
