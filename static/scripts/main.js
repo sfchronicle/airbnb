@@ -173,7 +173,7 @@ App.Map.load = function () {
 
     // Checking for cached JSON to keep network trips down
     if (!App.jsonCache) {
-      d3.json('/static/2015-07-02-sf-neighborhoods-airbnb.topojson', function (error, json) {
+      d3.json('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/2015-07-02-sf-neighborhoods-airbnb.topojson', function (error, json) {
         if (error) { console.error(error); return error; }
         App.jsonCache = json;
         build( json );
@@ -382,8 +382,7 @@ App.Story.getPost = function (index, callback) {
   }
 
   var self = this;
-  //console.log("b" + index);
-  $.getJSON('/static/stories/post_'+ index +'.json', function (d) {
+  $.getJSON('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/stories/post_'+ index +'.json', function (d) {
     self.postCache[index] = d;
     callback(d);
   });

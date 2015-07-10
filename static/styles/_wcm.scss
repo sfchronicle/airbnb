@@ -1,0 +1,7 @@
+.shiva-the-destroyer {
+ display: none !important;
+}
+
+#header, .ad-bottom, .hc_sitefooter {
+  @extend .shiva-the-destroyer;
+}
