@@ -101,16 +101,16 @@ table {
     font-size: .7em;
     color: #008CBA;
   }
+}
 
-  .button-group {
-    .sfc-data-button {
-      border: 1px solid #CACBCC;
-      background-color: #ffffff;
-      color: #222;
+.button-group {
+  .sfc-data-button {
+    border: 1px solid #CACBCC;
+    background-color: #ffffff;
+    color: #222;
 
-      &.active, &:hover, &:focus {
-        background-color: #dadada;
-      }
+    &.active, &:hover, &:focus {
+      background-color: #dadada;
     }
   }
 }
@@ -118,6 +118,17 @@ table {
 #map-alt {
   background-color: #F7AB03;
   padding: 10px;
+
+  table {
+    color: white;
+  }
+
+  a {
+    color: #222;
+    &:hover {
+      color: lighten(#222, 15%);
+    }
+  }
 
   h3 {
     font-family: 'FarnhamBold', 'Comic Sans';
@@ -127,6 +138,11 @@ table {
   p {
     font-family: 'Antenna';
     color: white;
+  }
+
+  blockquote {
+    color: white;
+    font-family: $sans-serif;
   }
 }
 

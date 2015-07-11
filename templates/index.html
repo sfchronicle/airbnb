@@ -39,7 +39,7 @@
     </div>
 
     <aside class="breakout_content"></aside>
-    <aside id='map-alt-placeholder' class='show-for-small-only'></aside>
+    <aside class='map-alt-placeholder hide-for-large-up'></aside>
 
     <div class="row">
       <div class="text-secondary body text small-12 medium-8 medium-offset-2 large-6 large-offset-3 columns">
@@ -81,10 +81,68 @@ $(document).ready(function () {
 </script>
 
 {% raw %}
-<script type="text/x-handlebars" id="legend-tmpl">
+<script type="text/x-handlebars" id="id-text-partial">
+  <blockquote>
+    <h5>{{ hed }}</h5>
+    {{ dek }}
+  </blockquote>
+</script>
+
+<script type="text/x-handlebars" id="map-text-partial" >
   <h3>Measuring Airbnb activity in S.F. by neighborhood</h3>
   <p>By Aaron Williams and John Blanchard</p>
-  <p>The Chronicle commissioned data-extraction companies <a title="Connotate Inc." href="http://www.connotate.com/#utm_source=2015June-Airbnb-SFC-article&utm_medium=PR&utm_term=none&utm_content=none&utm_campaign=2015June-Airbnb-SFC-article">Connotate Inc.</a> and <a title="Import.io" href="http://go.import.io/sfchronicle">Import.io</a> to harvest San Francisco information from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, allowing for insights about year-over-year changes.</p>
+
+  <p>Data-extraction firms <a title="Connotate Inc." href="http://www.connotate.com/#utm_source=2015June-Airbnb-SFC-article&utm_medium=PR&utm_term=none&utm_content=none&utm_campaign=2015June-Airbnb-SFC-article">Connotate Inc.</a> and <a title="Import.io" href="http://go.import.io/sfchronicle">Import.io</a> harvested San Francisco listings from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, providing insights about year-over-year changes.</p>
+</script>
+
+<script type="text/x-handlebars" id="map-datatable-partial">
+  <table border="1" style="width:100%">
+    <col width="160">
+    <col width="90">
+    <col width="90">
+    <thead>
+      <tr class="brd-btm">
+        <td id="tb-neighborhood" class="t-left title"><h4>{{ name }}</h4></td>
+        <td id="2014" class="t-right mid title"><p>2014</p></td>
+        <td id="2015" class="t-right title"><p>2015</p></td>
+      </tr>
+    </thead>
+
+    <tbody id="{{id}}">
+      <tr class="brd-btm">
+        <td>Entire home</td>
+        {{#with home}}
+        <td id="year-2014" class="t-right mid">{{ 2014 }}</td>
+        <td id="year-2015" class="t-right">{{ 2015 }}</td>
+        {{/with}}
+      </tr>
+      <tr class="brd-btm">
+        <td>Private room</td>
+        {{#with privateRoom}}
+        <td id="year-2014" class="t-right mid">{{ 2014 }}</td>
+        <td id="year-2015" class="t-right">{{ 2015 }}</td>
+        {{/with}}
+      </tr>
+      <tr class="brd-btm">
+        <td>Shared room</td>
+        {{#with sharedRoom}}
+        <td id="year-2014" class="t-right mid">{{ 2014 }}</td>
+        <td id="year-2015" class="t-right">{{ 2015 }}</td>
+        {{/with}}
+      </tr>
+      <tr>
+        <td class="title-bottom">Total</td>
+        {{#with total}}
+        <td id="year-2014" class="total t-right mid title-bottom">{{ 2014 }}</td>
+        <td id="year-2015" class="total t-right title-bottom">{{ 2015 }}</td>
+        {{/with}}
+      </tr>
+    </tbody>
+  </table>
+</script>
+
+<script type="text/x-handlebars" id="legend-tmpl">
+  {{>mapIntroText}}
 
   <ul class="button-group even-3">
     <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny">Price</a></li>
@@ -92,108 +150,83 @@ $(document).ready(function () {
     <li><a href="#" id="reviewCount" class="button sfc-data-button tiny">Reviews</a></li>
   </ul>
 
-  <blockquote>
-    <h5>{{ hed }}</h5>
-    {{ dek }}
-  </blockquote>
+  {{>idText}}
 
   <div id="map-legend"></div>
 </script>
 
 <script type="text/x-handlebars" id="tooltip-tmpl">
-    <table border="1" style="width:100%">
-      <col width="160">
-      <col width="90">
-      <col width="90">
-      <thead>
-        <tr class="brd-btm">
-          <td id="tb-neighborhood" class="t-left title"><h4>{{ name }}</h4></td>
-          <td id="2014" class="t-right mid title"><p>2014</p></td>
-          <td id="2015" class="t-right title"><p>2015</p></td>
-        </tr>
-      </thead>
-
-      <tbody id="{{id}}">
-        <tr class="brd-btm">
-          <td>Entire home</td>
-          {{#with home}}
-          <td id="year-2014" class="t-right mid">{{ 2014 }}</td>
-          <td id="year-2015" class="t-right">{{ 2015 }}</td>
-          {{/with}}
-        </tr>
-        <tr class="brd-btm">
-          <td>Private room</td>
-          {{#with privateRoom}}
-          <td id="year-2014" class="t-right mid">{{ 2014 }}</td>
-          <td id="year-2015" class="t-right">{{ 2015 }}</td>
-          {{/with}}
-        </tr>
-        <tr class="brd-btm">
-          <td>Shared room</td>
-          {{#with sharedRoom}}
-          <td id="year-2014" class="t-right mid">{{ 2014 }}</td>
-          <td id="year-2015" class="t-right">{{ 2015 }}</td>
-          {{/with}}
-        </tr>
-        <tr>
-          <td class="title-bottom">Total</td>
-          {{#with total}}
-          <td id="year-2014" class="total t-right mid title-bottom">{{ 2014 }}</td>
-          <td id="year-2015" class="total t-right title-bottom">{{ 2015 }}</td>
-          {{/with}}
-        </tr>
-      </tbody>
-    </table>
+  {{>datatable}}
 </script>
 
 <script type="text/x-handlebars" id="map-alt-tmpl">
   <div id="map-alt">
     <div class="row">
       <div class="small-12 columns">
-        <h3>Measuring Airbnb activity in S.F. by neighborhood</h3>
-        <p>By Aaron Williams and John Blanchard</p>
-        <p>The Chronicle commissioned data-extraction companies <a title="Connotate Inc." href="http://www.connotate.com/#utm_source=2015June-Airbnb-SFC-article&utm_medium=PR&utm_term=none&utm_content=none&utm_campaign=2015June-Airbnb-SFC-article">Connotate Inc.</a> and <a title="Import.io" href="http://go.import.io/sfchronicle">Import.io</a> to harvest San Francisco information from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, allowing for insights about year-over-year changes.</p>
+        {{>mapIntroText}}
 
-        <label for="">Select a neighborhood</label>
-        <select name="" id="">
+        <label for="neighborhoods">Select a neighborhood</label>
+        <select name="neighborhoods" id="">
           <option value=""></option>
-          <option value="Bananas">Bananas</option>
-          <option value="Bananas">Bananas</option>
-          <option value="Bananas">Bananas</option>
-          <option value="Bananas">Bananas</option>
-          <option value="Bananas">Bananas</option>
+          <option value="Alamo Square">Alamo Square</option>
+          <option value="Balboa Terrace">Balboa Terrace</option>
+          <option value="Bayview">Bayview</option>
+          <option value="Bernal Heights">Bernal Heights</option>
+          <option value="Chinatown">Chinatown</option>
+          <option value="Civic Center">Civic Center</option>
+          <option value="Cole Valley">Cole Valley</option>
+          <option value="Cow Hollow">Cow Hollow</option>
+          <option value="Crocker Amazon">Crocker Amazon</option>
+          <option value="Diamond Heights">Diamond Heights</option>
+          <option value="Dogpatch">Dogpatch</option>
+          <option value="Downtown">Downtown</option>
+          <option value="Duboce Triangle">Duboce Triangle</option>
+          <option value="Excelsior">Excelsior</option>
+          <option value="Financial District">Financial District</option>
+          <option value="Fisherman's Wharf">Fisherman's Wharf</option>
+          <option value="Glen Park">Glen Park</option>
+          <option value="Haight-Ashbury">Haight-Ashbury</option>
+          <option value="Hayes Valley">Hayes Valley</option>
+          <option value="Ingleside">Ingleside</option>
+          <option value="Inner Sunset">Inner Sunset</option>
+          <option value="Japantown">Japantown</option>
+          <option value="Lakeshore">Lakeshore</option>
+          <option value="Lower Haight">Lower Haight</option>
+          <option value="Marina">Marina</option>
+          <option value="Mission Bay">Mission Bay</option>
+          <option value="Mission District">Mission District</option>
+          <option value="Mission Terrace">Mission Terrace</option>
+          <option value="Nob Hill">Nob Hill</option>
+          <option value="Noe Valley">Noe Valley</option>
+          <option value="North Beach">North Beach</option>
+          <option value="Oceanview">Oceanview</option>
+          <option value="Outer Sunset">Outer Sunset</option>
+          <option value="Pacific Heights">Pacific Heights</option>
+          <option value="Portola">Portola</option>
+          <option value="Potrero Hill">Potrero Hill</option>
+          <option value="Presidio Heights">Presidio Heights</option>
+          <option value="Richmond District">Richmond District</option>
+          <option value="Russian Hill">Russian Hill</option>
+          <option value="SoMa">SoMa</option>
+          <option value="South Beach">South Beach</option>
+          <option value="Sunnyside">Sunnyside</option>
+          <option value="Telegraph Hill">Telegraph Hill</option>
+          <option value="Tenderloin">Tenderloin</option>
+          <option value="The Castro">The Castro</option>
+          <option value="Twin Peaks">Twin Peaks</option>
+          <option value="Visitacion Valley">Visitacion Valley</option>
+          <option value="Western Addition/NOPA">Western Addition/NOPA</option>
         </select>
 
-        <table border="1" style="width:100%">
-          <col width="160">
-          <col width="90">
-          <col width="90">
-          <tr class="brd-btm">
-            <td class="t-left title"><h4>{{ name }}</h4></td>
-            <td class="t-right mid title"><p>2014: {{ 2014 }}</p></td>
-            <td class="t-right title"><p>2015: {{ 2015 }}</p></td>
-          </tr>
-          <tr class="brd-btm">
-            <td>Houses</td>
-            <td class="t-right mid">XX</td>
-            <td class="t-right">XX</td>
-          </tr>
-          <tr class="brd-btm">
-            <td>Rooms</td>
-            <td class="t-right mid">XX</td>
-            <td class="t-right">XX</td>
-          </tr>
-          <tr class="brd-btm">
-            <td>Shared Rooms</td>
-            <td class="t-right mid">XX</td>
-            <td class="t-right">XX</td>
-          </tr>
-          <tr>
-            <td class="title-bottom">Total</td>
-            <td class="t-right mid title-bottom">XX</td>
-            <td class="t-right title-bottom">789</td>
-          </tr>
-        </table>
+        <ul class="button-group even-3">
+          <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny">Price</a></li>
+          <li><a href="#" id="locationsCount" class="button sfc-data-button tiny">Locations</a></li>
+          <li><a href="#" id="reviewCount" class="button sfc-data-button tiny">Reviews</a></li>
+        </ul>
+
+        {{>idText}}
+
+        <div class="map-alt-datatable-placeholder"></div>
 
       </div>
     </div>
