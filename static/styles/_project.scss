@@ -25,6 +25,7 @@ article {
   			font-size: 60px;
   			line-height: 1.2em;
   			text-align: left;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   		}
 
   		.description {
@@ -32,15 +33,17 @@ article {
   			font-family: "Antenna";
   			font-size: 21px;
   			text-align: left;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   		}
 
   		.sfc-byline {
   			margin-top: 40px;
   			padding-top: 10px;
   			border-top: 1px solid #fff;
-  			font-family: "Antenna";
+  			font-family: "AntennaMedium";
   			font-size: 12px;
   			color: #fff;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   		}
 
   	}
