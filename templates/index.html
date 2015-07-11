@@ -57,7 +57,7 @@
   <div class="row">
      <div class="button next-story pink">
        <div class="next-story">
-         <div class="next-label">Next</div>
+         <div class="next-label">Next Story</div>
        </div>
        <h3></h3>
      </div>
@@ -84,7 +84,7 @@ $(document).ready(function () {
 <script type="text/x-handlebars" id="legend-tmpl">
   <h3>Measuring Airbnb activity in S.F. by neighborhood</h3>
   <p>By Aaron Williams and John Blanchard</p>
-  <p>The Chronicle commissioned data-extraction companies <a href="">Connotate Inc.</a> and <a href="">Import.io</a> to harvest San Francisco information from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, allowing for insights about year-over-year changes.</p>
+  <p>The Chronicle commissioned data-extraction companies <a title="Connotate Inc." href="http://www.connotate.com/#utm_source=2015June-Airbnb-SFC-article&utm_medium=PR&utm_term=none&utm_content=none&utm_campaign=2015June-Airbnb-SFC-article">Connotate Inc.</a> and <a title="Import.io" href="http://go.import.io/sfchronicle">Import.io</a> to harvest San Francisco information from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, allowing for insights about year-over-year changes.</p>
 
   <ul class="button-group even-3">
     <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny">Price</a></li>
@@ -105,31 +105,44 @@ $(document).ready(function () {
       <col width="160">
       <col width="90">
       <col width="90">
-      <tr class="brd-btm">
-        <td class="t-left title"><h4>{{ name }}</h4></td>
-        <td class="t-right mid title"><p>2014: {{ 2014 }}</p></td>
-        <td class="t-right title"><p>2015: {{ 2015 }}</p></td>
-      </tr>
-      <tr class="brd-btm">
-        <td>Houses</td>
-        <td class="t-right mid">XX</td>
-        <td class="t-right">XX</td>
-      </tr>
-      <tr class="brd-btm">
-        <td>Rooms</td>
-        <td class="t-right mid">XX</td>
-        <td class="t-right">XX</td>
-      </tr>
-      <tr class="brd-btm">
-        <td>Shared Rooms</td>
-        <td class="t-right mid">XX</td>
-        <td class="t-right">XX</td>
-      </tr>
-      <tr>
-        <td class="title-bottom">Total</td>
-        <td class="t-right mid title-bottom">XX</td>
-        <td class="t-right title-bottom">789</td>
-      </tr>
+      <thead>
+        <tr class="brd-btm">
+          <td id="tb-neighborhood" class="t-left title"><h4>{{ name }}</h4></td>
+          <td id="2014" class="t-right mid title"><p>2014</p></td>
+          <td id="2015" class="t-right title"><p>2015</p></td>
+        </tr>
+      </thead>
+
+      <tbody id="{{id}}">
+        <tr class="brd-btm">
+          <td>Entire home</td>
+          {{#with home}}
+          <td id="year-2014" class="t-right mid">{{ 2014 }}</td>
+          <td id="year-2015" class="t-right">{{ 2015 }}</td>
+          {{/with}}
+        </tr>
+        <tr class="brd-btm">
+          <td>Private room</td>
+          {{#with privateRoom}}
+          <td id="year-2014" class="t-right mid">{{ 2014 }}</td>
+          <td id="year-2015" class="t-right">{{ 2015 }}</td>
+          {{/with}}
+        </tr>
+        <tr class="brd-btm">
+          <td>Shared room</td>
+          {{#with sharedRoom}}
+          <td id="year-2014" class="t-right mid">{{ 2014 }}</td>
+          <td id="year-2015" class="t-right">{{ 2015 }}</td>
+          {{/with}}
+        </tr>
+        <tr>
+          <td class="title-bottom">Total</td>
+          {{#with total}}
+          <td id="year-2014" class="total t-right mid title-bottom">{{ 2014 }}</td>
+          <td id="year-2015" class="total t-right title-bottom">{{ 2015 }}</td>
+          {{/with}}
+        </tr>
+      </tbody>
     </table>
 </script>
 
@@ -139,7 +152,7 @@ $(document).ready(function () {
       <div class="small-12 columns">
         <h3>Measuring Airbnb activity in S.F. by neighborhood</h3>
         <p>By Aaron Williams and John Blanchard</p>
-        <p>The Chronicle commissioned data-extraction companies <a href="">Connotate Inc.</a> and <a href="">Import.io</a> to harvest San Francisco information from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, allowing for insights about year-over-year changes.</p>
+        <p>The Chronicle commissioned data-extraction companies <a title="Connotate Inc." href="http://www.connotate.com/#utm_source=2015June-Airbnb-SFC-article&utm_medium=PR&utm_term=none&utm_content=none&utm_campaign=2015June-Airbnb-SFC-article">Connotate Inc.</a> and <a title="Import.io" href="http://go.import.io/sfchronicle">Import.io</a> to harvest San Francisco information from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, allowing for insights about year-over-year changes.</p>
 
         <label for="">Select a neighborhood</label>
         <select name="" id="">
