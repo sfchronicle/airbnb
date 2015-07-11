@@ -430,7 +430,7 @@ App.Story.getPost = function (index, callback) {
   }
 
   var self = this;
-  $.getJSON('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/stories/post_'+ index +'.json', function (d) {
+  $.getJSON('/static/stories/post_'+ index +'.json', function (d) {
     self.postCache[index] = d;
     callback(d);
   });
@@ -482,9 +482,9 @@ App.Story.contentizeElement = function ($el, d) {
   if (d.breakout_content) { $el.find('.content .breakout_content').html(d.breakout_content); } else { $el.find('.content .breakout_content').remove(); }
   if (d.content_secondary) { $el.find('.content .text-secondary').html(d.content_secondary); }
   if (d.content_tertiary) { $el.find('.content .text-tertiary').html(d.content_tertiary); }
-  $el.find('.sfc-byline').html(d.author);
+  if (d.author) { $el.find('.sfc-byline').html(d.author); } else { $el.find('.sfc-byline').remove(); }
   if (d.photos) { $el.find('.body-pic').html(App.Story.formatPhotos(d.photos, d.caption, d.color)); }
-  if (d.side_content) { $el.find('.side-content').html('<img src="' + d.side_content + '"  data-src="'+ d.side_content +'">'); }
+  if (d.side_content) { $el.find('.side-content').html('<img src="' + d.side_content + '"  data-src="'+ d.side_content +'"><h3 class="photo-header ' + d.color +'" style="width:100%;margin-left:0">' + d.side_caption + '</h3>'); }
 
   $('img').unveil(); // For lazy loading
 }
