@@ -29,13 +29,13 @@
 	font-weight:normal}
 
 @font-face {
-	font-family:"Farnham";
-	src:url("/static/fonts/Farnham/FarnhamText-Regular.otf") format("opentype");
+	font-family:"FarnhamText";
+	src:url("/static/fonts/Farnham/FarnhamText.otf") format("opentype");
 	font-style:normal;
 	font-weight:normal}
 
 @font-face {
-	font-family:"FarnhamBold";
+	font-family:"FarnhamTextBold";
 	src:url("/static/fonts/Farnham/FarnhamText-Bold.otf") format("opentype");
 	font-style:normal;
 	font-weight:normal}
@@ -160,13 +160,13 @@ article.page .sfc-intro .text {
 }
 
 article.page .sfc-intro b {
-	font-family: "Farnham";
+	font-family: "FarnhamText", serif;
 }
 
 /* main story styles */
 article.page .body {
 	margin-top: 40px;
-	font-family: "Farnham";
+	font-family: "FarnhamText", serif;
 }
 
 article.page h5 {
