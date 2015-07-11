@@ -47,7 +47,9 @@ App.Utils.social = function () {
 };
 
 App.Utils.handlebars = function () {
-  /* Register Handlebars Helpers */
+  Handlebars.registerPartial('mapIntroText', $('#map-text-partial').html());
+  Handlebars.registerPartial('datatable',    $('#map-datatable-partial').html());
+  Handlebars.registerPartial('idText',       $('#id-text-partial').html());
 }
 
 /*  =================================================
@@ -71,7 +73,8 @@ App.Map = App.Map || {
   height: 600,
   coordinates: [-122.50, 37.7520],
   rendered: false,
-  currentId: 'avgOfPrice' // This acts as the default view for the choropleth
+  currentId: 'avgOfPrice', // This acts as the default view for the choropleth
+  currentNeighborhood: 'Alamo Square' // default for mobile map view
 };
 
 App.Map.load = function () {
@@ -110,40 +113,7 @@ App.Map.load = function () {
     //.call(renderCredits);
 
   function createTooltip (d) {
-    var total;
-    if (!App.Map.currentId) { return d.properties.name; }
-
-    if (App.Map.currentId === 'avgOfPrice') {
-      total = {
-        2014: numberWithCommas(d.properties.totalAvgPrice['2014']),
-        2015: numberWithCommas(d.properties.totalAvgPrice['2015'])
-      };
-    } else {
-      total = {
-        2014: numberWithCommas(self.addAllProperties(d, App.Map.currentId, 2014).total),
-        2015: numberWithCommas(self.addAllProperties(d, App.Map.currentId, 2015).total)
-      };
-    }
-
-    var data = {
-      id: App.Map.currentId,
-      name: d.properties.name,
-      total: total,
-      home: {
-        2014: numberWithCommas(d.properties.entireHome[App.Map.currentId]['2014']),
-        2015: numberWithCommas(d.properties.entireHome[App.Map.currentId]['2015'])
-      },
-      privateRoom: {
-        2014: numberWithCommas(d.properties.privateRoom[App.Map.currentId]['2014']),
-        2015: numberWithCommas(d.properties.privateRoom[App.Map.currentId]['2015'])
-      },
-      sharedRoom: {
-        2014: numberWithCommas(d.properties.sharedRoom[App.Map.currentId]['2014']),
-        2015: numberWithCommas(d.properties.sharedRoom[App.Map.currentId]['2015'])
-      }
-    }
-
-
+    var data = self.getDatatable(d);
     var source = $('#tooltip-tmpl').html();
     var template = Handlebars.compile( source );
     return template( data );
@@ -155,12 +125,35 @@ App.Map.load = function () {
       var id = event.target.id;
       App.Map.currentId = id;
 
+      var obj = self.fetch( App.Map.currentNeighborhood );
+      var data = self.getDatatable( obj );
+
+
       self.choropleth(svg, path, id);
+
       templatize('#legend-tmpl', '.legend', self.legendCopy( id ));
+      templatize('#map-alt-tmpl', '.map-alt-placeholder',  self.legendCopy( id ));
+      templatize('#tooltip-tmpl', '.map-alt-datatable-placeholder', data);
+
+      // hack
+      // setting select view
+      $('#map-alt select').val(App.Map.currentNeighborhood);
+
       self.createlegend( id );
+
       adjustChoroplethEvent(); // Reattaches events to new template
       $('.sfc-data-button').removeClass('active');
       $('.sfc-data-button#'+id).addClass('active');
+    });
+
+    $('#map-alt select').on('change', function (event) {
+      App.Map.currentNeighborhood = this.value;
+
+      var obj = self.fetch( App.Map.currentNeighborhood );
+      var data = self.getDatatable( obj );
+
+      templatize('#tooltip-tmpl', '.map-alt-datatable-placeholder', data);
+      adjustChoroplethEvent(); // Reattaches events to new template
     });
   }
 
@@ -173,6 +166,8 @@ App.Map.load = function () {
           .attr('class', 'legend large-4 large-offset-0 small-3 small-offset-1 columns');
 
     templatize('#legend-tmpl', '.legend',  self.legendCopy( defaultId ));
+    templatize('#map-alt-tmpl', '.map-alt-placeholder',  self.legendCopy( defaultId ));
+
     adjustChoroplethEvent();
     $('.sfc-data-button#'+defaultId).addClass('active');
   }
@@ -242,6 +237,54 @@ App.Map.load = function () {
   }
 };
 
+App.Map.fetch = function (neighborhood) {
+  /* given a neighborhood name, return JSON object */
+  var obj = App.jsonCache.objects.neighborhoods.geometries.filter(function (n) {
+    return n.properties.name === neighborhood;
+  })[0];
+
+  return obj;
+};
+
+App.Map.getDatatable = function (d) {
+  /* Format data for tooltip and mobile table */
+  var total;
+  var self = this;
+  if (!App.Map.currentId) { return d.properties.name; }
+
+  if (App.Map.currentId === 'avgOfPrice') {
+    total = {
+      2014: numberWithCommas(d.properties.totalAvgPrice['2014']),
+      2015: numberWithCommas(d.properties.totalAvgPrice['2015'])
+    };
+  } else {
+    total = {
+      2014: numberWithCommas(self.addAllProperties(d, App.Map.currentId, 2014).total),
+      2015: numberWithCommas(self.addAllProperties(d, App.Map.currentId, 2015).total)
+    };
+  }
+
+  var data = {
+    id: App.Map.currentId,
+    name: d.properties.name,
+    total: total,
+    home: {
+      2014: numberWithCommas(d.properties.entireHome[App.Map.currentId]['2014']),
+      2015: numberWithCommas(d.properties.entireHome[App.Map.currentId]['2015'])
+    },
+    privateRoom: {
+      2014: numberWithCommas(d.properties.privateRoom[App.Map.currentId]['2014']),
+      2015: numberWithCommas(d.properties.privateRoom[App.Map.currentId]['2015'])
+    },
+    sharedRoom: {
+      2014: numberWithCommas(d.properties.sharedRoom[App.Map.currentId]['2014']),
+      2015: numberWithCommas(d.properties.sharedRoom[App.Map.currentId]['2015'])
+    }
+  }
+
+  return data;
+};
+
 App.Map.choropleth = function (svg, path, id) {
   /* Creat choropleth map based on data Id */
   var self = this;
@@ -259,8 +302,6 @@ App.Map.choropleth = function (svg, path, id) {
 App.Map.createlegend = function (id) {
   $('#map-legend').html('');
   var self = this;
-  //var scaleLength = 8;
-  //var scaletype   = id === 'avgOfPrice' ? 'quantize' : 'quantile';
 
   var legend = d3.select('#map-legend').append('ul')
       .attr('class', 'inline-list');
@@ -365,7 +406,7 @@ App.Map.legendCopy = function (id) {
     'reviewCount': function () {
       var copy = {};
       copy.hed = 'Total reviews';
-      copy.dek = 'Tousled forage chillwave, lomo Williamsburg twee mlkshk semiotics try-hard gastropub. Cred PBR messenger bag Etsy skateboard, dreamcatcher scenester 8-bit locavore.';
+      copy.dek = 'While the number of reviews correlates to the number of listings in a neighborhood, it’s noteworthy that Mission listings have 16,282 reviews, 6,321 of them amassed in the past year, implying a heavy guest presence in that neighborhood. Not all guests write reviews, so the numbers underestimate usage.';
       copy.id = 'reviewCount';
       return copy;
     }
