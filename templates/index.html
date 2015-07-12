@@ -131,7 +131,7 @@ $(document).ready(function () {
         {{/with}}
       </tr>
       <tr>
-        <td class="title-bottom">Total</td>
+        <td class="title-bottom">{{totalLabel}}</td>
         {{#with total}}
         <td id="year-2014" class="total t-right mid title-bottom">{{ 2014 }}</td>
         <td id="year-2015" class="total t-right title-bottom">{{ 2015 }}</td>
@@ -145,8 +145,8 @@ $(document).ready(function () {
   {{>mapIntroText}}
 
   <ul class="button-group even-3">
-    <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny">Price</a></li>
     <li><a href="#" id="locationsCount" class="button sfc-data-button tiny">Locations</a></li>
+    <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny">Average Price</a></li>
     <li><a href="#" id="reviewCount" class="button sfc-data-button tiny">Reviews</a></li>
   </ul>
 

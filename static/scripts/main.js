@@ -73,7 +73,7 @@ App.Map = App.Map || {
   height: 600,
   coordinates: [-122.50, 37.7520],
   rendered: false,
-  currentId: 'avgOfPrice', // This acts as the default view for the choropleth
+  currentId: 'locationsCount', // This acts as the default view for the choropleth
   currentNeighborhood: 'Alamo Square' // default for mobile map view
 };
 
@@ -158,18 +158,16 @@ App.Map.load = function () {
   }
 
   function renderLegend (svg) {
-    var defaultId = 'avgOfPrice';
-
     d3.selectAll('.svg-container')
       .append('div').attr('class', 'row')
         .append('div')
           .attr('class', 'legend large-4 large-offset-0 small-3 small-offset-1 columns');
 
-    templatize('#legend-tmpl', '.legend',  self.legendCopy( defaultId ));
-    templatize('#map-alt-tmpl', '.map-alt-placeholder',  self.legendCopy( defaultId ));
+    templatize('#legend-tmpl', '.legend',  self.legendCopy( App.Map.currentId ));
+    templatize('#map-alt-tmpl', '.map-alt-placeholder',  self.legendCopy( App.Map.currentId ));
 
     adjustChoroplethEvent();
-    $('.sfc-data-button#'+defaultId).addClass('active');
+    $('.sfc-data-button#'+App.Map.currentId).addClass('active');
   }
 
   function renderTiles (svg) {
@@ -268,6 +266,7 @@ App.Map.getDatatable = function (d) {
     id: App.Map.currentId,
     name: d.properties.name,
     total: total,
+    totalLabel: App.Map.currentId === 'avgOfPrice' ? 'Average, all property types' : 'Total',
     home: {
       2014: numberWithCommas(d.properties.entireHome[App.Map.currentId]['2014']),
       2015: numberWithCommas(d.properties.entireHome[App.Map.currentId]['2015'])
@@ -392,7 +391,7 @@ App.Map.legendCopy = function (id) {
     'avgOfPrice': function () {
       var copy = {};
       copy.hed = 'Average price'
-      copy.dek = 'Airbnb prices correlate with the city’s regular real estate. the priciest vacation rentals _on average_ were in Pacific Heights ($288 for all types of properties; $360 for entire homes); and Fishermans Wharf ($287/$295), while the most-affordable were in Crocker Amazon ($92 for all types; $144 for entire homes) and Lakeshore ($108/$142).';
+      copy.dek = "Airbnb prices correlate with the city’s regular real estate. the priciest vacation rentals on average were in Pacific Heights ($288 for all types of properties; $360 for entire homes); and Fisherman’s Wharf ($287/$295), while the most-affordable were in Crocker Amazon ($92 for all types; $144 for entire homes) and Lakeshore ($108/$142).";
       copy.id = 'avgOfPrice';
       return copy;
     },
