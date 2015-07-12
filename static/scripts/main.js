@@ -161,7 +161,7 @@ App.Map.load = function () {
     d3.selectAll('.svg-container')
       .append('div').attr('class', 'row')
         .append('div')
-          .attr('class', 'legend large-4 large-offset-0 small-3 small-offset-1 columns');
+          .attr('class', 'legend large-4 columns');
 
     templatize('#legend-tmpl', '.legend',  self.legendCopy( App.Map.currentId ));
     templatize('#map-alt-tmpl', '.map-alt-placeholder',  self.legendCopy( App.Map.currentId ));

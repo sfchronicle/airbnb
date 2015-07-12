@@ -95,11 +95,26 @@ table {
     font-size: .87em;
   }
 
-  p:first-of-type {
+  p#sfc-map-byline {
     text-transform: uppercase !important;
     font-family: 'AntennaBlack';
     font-size: .7em;
     color: #008CBA;
+  }
+}
+
+.legend-description {
+  border-left: 5px solid #cecece;
+  padding: 0 0 0 20px;
+
+  h5 {
+    font-family: 'Antenna';
+    padding: 0 !important;
+    margin-bottom: 10px !important;
+  }
+  p {
+    font-size: 1em !important;
+    padding: 0 !important;
   }
 }
 
@@ -147,7 +162,7 @@ table {
 }
 
 #map-legend {
-  margin-bottom: 10px;
+  margin: 20px 0 10px 0;
 
   .inline-list {
     margin: 0 auto;
@@ -223,3 +238,36 @@ path {
 .highway { stroke: #CFCFCF; stroke-width: 1.5px; }
 .rail {  }
 .buildings path { stroke: none;  }
+
+// Small screens
+@media only screen { } /* Define mobile styles */
+
+@media only screen and (max-width: 40em) { } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+// Medium screens
+@media only screen and (min-width: 40.063em) { } /* min-width 641px, medium screens */
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) { } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+// Large screens
+@media only screen and (min-width: 1025px) and (max-width: 1220px) {
+  .legend  {
+    width: 41.6666666667%;
+
+    #sfc-map-description {
+      font-size: 1em !important;
+      padding-bottom: 10px !important;
+    }
+
+    .legend-description {
+      p {
+        font-size: 0.85em !important;
+      }
+    }
+  }
+} /* min-width 1025px, large screens */
+
+// @media only screen and (min-width: 64.063em) and (max-width: 90em) { } /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+
+// XLarge screens
+@media only screen and (min-width: 90.063em) { } /* min-width 1441px, xlarge screens */

@@ -82,17 +82,17 @@ $(document).ready(function () {
 
 {% raw %}
 <script type="text/x-handlebars" id="id-text-partial">
-  <blockquote>
+  <div class="legend-description">
     <h5>{{ hed }}</h5>
-    {{ dek }}
-  </blockquote>
+    <p>{{ dek }}</p>
+  </div>
 </script>
 
 <script type="text/x-handlebars" id="map-text-partial" >
   <h3>Measuring Airbnb activity in S.F. by neighborhood</h3>
-  <p>By Aaron Williams and John Blanchard</p>
+  <p id="sfc-map-byline">By Aaron Williams and John Blanchard</p>
 
-  <p>Data-extraction firms <a title="Connotate Inc." href="http://www.connotate.com/#utm_source=2015June-Airbnb-SFC-article&utm_medium=PR&utm_term=none&utm_content=none&utm_campaign=2015June-Airbnb-SFC-article">Connotate Inc.</a> and <a title="Import.io" href="http://go.import.io/sfchronicle">Import.io</a> harvested San Francisco listings from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, providing insights about year-over-year changes.</p>
+  <p id="sfc-map-description">Data-extraction firms <a title="Connotate Inc." href="http://www.connotate.com/#utm_source=2015June-Airbnb-SFC-article&utm_medium=PR&utm_term=none&utm_content=none&utm_campaign=2015June-Airbnb-SFC-article">Connotate Inc.</a> and <a title="Import.io" href="http://go.import.io/sfchronicle">Import.io</a> harvested San Francisco listings from the Airbnb, HomeAway and FlipKey websites on May 19. Connotate also extracted Airbnb listing data for The Chronicle on the same date in 2014, providing insights about year-over-year changes.</p>
 </script>
 
 <script type="text/x-handlebars" id="map-datatable-partial">
@@ -146,7 +146,7 @@ $(document).ready(function () {
 
   <ul class="button-group even-3">
     <li><a href="#" id="locationsCount" class="button sfc-data-button tiny">Locations</a></li>
-    <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny">Average Price</a></li>
+    <li><a href="#" id="avgOfPrice" class="button sfc-data-button tiny">Avg. price</a></li>
     <li><a href="#" id="reviewCount" class="button sfc-data-button tiny">Reviews</a></li>
   </ul>
 
