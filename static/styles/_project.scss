@@ -18,6 +18,10 @@ article {
 
     .sfc-head {
   		padding-top: 460px;
+      position: absolute;
+      top: 0;
+      z-index: 3;
+      width: 100%;
 
   		.title {
   			margin-bottom: 0;
@@ -47,6 +51,20 @@ article {
   		}
 
   	}
+
+    .dim {
+      position: relative;
+      display: block;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      background-color: black;
+      opacity: 0.5;
+      width: 100%;
+      height: 100%;
+    }
 
     p {
       text-rendering: optimizeLegibility;
@@ -82,6 +100,9 @@ article {
       background-size: cover;
       background-position: center center;
   		box-shadow: inset 0 0 30em #000;
+      position: relative;
+      display: block;
+      z-index: 1;
     }
 
     /* States */
