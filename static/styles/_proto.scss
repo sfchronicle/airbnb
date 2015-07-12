@@ -173,13 +173,6 @@ article.page h5 {
 	margin-bottom: 30px;
 }
 
-article.page .side-content {
-	float: right;
-	width: 70%;
-	margin-left: 20px;
-	margin-right: -30%;
-}
-
 article.page .breakout_content {
 	margin-bottom: 140px;
 	}
@@ -342,6 +335,15 @@ article.page .vertical-align {
 	-webkit-transform: rotateY(-40deg);
 	-ms-transform: rotateY(-40deg);
 	transform: rotateY(-40deg);
+}
+
+@media #{$large-up} {
+	article.page .side-content {
+		float: right;
+		width: 70%;
+		margin-left: 20px;
+		margin-right: -30%;
+	}
 }
 
 @media screen and (max-width: 640px) {
