@@ -623,6 +623,12 @@ App.Story.bindGotoNextClick = function(){
   var self  = this;
   var e     = 'ontouchstart' in window ? 'touchstart' : 'click';
 
+  this.$current.find('.button.next-story').on(e, function(e){
+    e.preventDefault();
+    $(this).unbind(e);
+    self.gotoNextClick();
+  });
+
   this.$next.find('.big-image').on(e, function(e){
     e.preventDefault();
     $(this).unbind(e);

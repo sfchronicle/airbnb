@@ -13,6 +13,21 @@ body {
   overflow-x: hidden; // HACK to keep page in
 }
 
+
+.dim {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: black;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+}
+
 article {
   &.page {
     overflow: hidden; /* hack to prevent map for busting margins */
@@ -52,20 +67,6 @@ article {
   		}
 
   	}
-
-    .dim {
-      position: relative;
-      display: block;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-      background-color: black;
-      opacity: 0.5;
-      width: 100%;
-      height: 100%;
-    }
 
     p {
       text-rendering: optimizeLegibility;
@@ -171,8 +172,23 @@ article {
   display: block;
   position: relative;
   top: 47px;
+  z-index: 3;
+
+  .dim {
+    opacity: 0.2;
+    transition: opacity .35s ease-in-out;
+    &:hover {
+      opacity: 0;
+      transition: opacity .35s ease-in-out;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 
   .next-label {
+    position: relative;
     text-transform: uppercase !important;
     font-family: 'AntennaBlack';
     font-size: .6em;
@@ -183,17 +199,22 @@ article {
     right: 0;
     margin: 0 auto;
     margin-bottom: 6px;
+    z-index: 3;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   h3 {
+    position: relative;
     margin-top: 0px;
     font-family: "Antenna";
     font-size: 22px;
     color: #fff;
-  }
-
-  &:hover {
-    cursor: default;
+    z-index: 3;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
