@@ -217,6 +217,18 @@ article {
   font-size: 0.8em;
 }
 
+html.js {
+  #noscript {
+    display: none;
+  }
+}
+
+html
+  #noscript {
+    padding-top: 50px;
+  }
+}
+
 @media #{$small-only} {
   article {
     &.page {
