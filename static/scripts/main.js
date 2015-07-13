@@ -58,10 +58,24 @@ App.Utils.handlebars = function () {
 */
 App.Nav = App.Nav || {};
 App.Nav.load = function () {
-  $('.sfc-history').on('click', function (event) {
-    event.preventDefault();
-    window.location.reload();
+  $('.sfc-top-bar').slicknav({
+    label: '<i class="fa fa-bars"></i> MENU',
+  	prependTo:'body'
   });
+
+  $('.slicknav_menu')
+    .addClass('fixed')
+    .prepend('<a class="mobile-logo" href="//www.sfchronicle.com"><img src="http://www.sfchronicle.com/img/modules/siteheader/logos/logo_section_large_2x.png" alt=""></a>');
+
+  $('.slicknav_menu li a').on('click', goToStory);
+
+  $('.sfc-history').on('click', goToStory);
+
+  function goToStory (event) {
+    event.preventDefault();
+    window.location.href = event.target.href;
+    window.location.reload();
+  };
 };
 
 /*  =================================================
@@ -491,7 +505,13 @@ App.Story.createPost = function(opts, callback){
   }
 
   var index = (type == 'next') ? this.nextPostIndex( this.currentPostIndex) : this.currentPostIndex;
-  //console.log("a" + index);
+
+  $('.sfc-history')
+    .parent().removeClass('active');
+
+  $('.sfc-history[href="#'+this.currentPostIndex+'"]')
+    .parent().addClass('active');
+
   this.getPost(index, function (d) {
     self.contentizeElement(self['$' + type], d);
     callback && callback();
