@@ -197,6 +197,26 @@ article {
   }
 }
 
+.methodology {
+  @extend .yellow;
+  p, h5 {
+    color: white;
+  }
+
+  a {
+    color: #222;
+    &:hover {
+      color: lighten(#222, 20%);
+    }
+  }
+}
+
+.sfc-dateline {
+  border-left: 1px solid white;
+  padding-left: 10px;
+  font-size: 0.8em;
+}
+
 @media #{$small-only} {
   article {
     &.page {

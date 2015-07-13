@@ -235,7 +235,8 @@ App.Map.load = function () {
 
     // Checking for cached JSON to keep network trips down
     if (!App.jsonCache) {
-      d3.json('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/2015-07-02-sf-neighborhoods-airbnb.topojson', function (error, json) {
+      // http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/2015-07-02-sf-neighborhoods-airbnb.topojson
+      d3.json('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/2015-07-12-sf-neighborhoods-airbnb.topojson', function (error, json) {
         if (error) { console.error(error); return error; }
         App.jsonCache = json;
         build( json );
@@ -342,7 +343,7 @@ App.Map.createlegend = function (id) {
           lowEnd  = Math.floor(r[0]), //Math.floor(r[0] * 100),
           highEnd = Math.floor(r[1]); //Math.floor(r[1] * 100);
 
-      return lowEnd+' - '+highEnd;
+      return numberWithCommas(lowEnd)+' - '+numberWithCommas(highEnd);
     });
 };
 
@@ -401,7 +402,7 @@ App.Map.addAllProperties = function (d, id, year) {
     total += d.properties[property][id][year]
   });
 
-  if (id === 'avgOfPrice') { total = total / 3 }
+  if (id === 'avgOfPrice') { total = d.properties.totalAvgPrice[year]; }
 
   return {'neighborhood': d.properties.name, 'property': id, 'total': total};
 };
@@ -490,6 +491,7 @@ App.Story.getPost = function (index, callback) {
   }
 
   var self = this;
+  // http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/stories/
   $.getJSON('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/stories/post_'+ index +'.json', function (d) {
     self.postCache[index] = d;
     callback(d);
