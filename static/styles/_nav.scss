@@ -246,6 +246,16 @@
   padding: 12px 5px 0 9px;
 }
 
+@media screen and (max-width: 876px) {
+  .sfc-top-bar {
+    .top-bar-section {
+      ul#sfc-story-header {
+        display: none;
+      }
+    }
+  }
+}
+
 @media #{$medium-up} {
   .slicknav_menu {
     display: none;
