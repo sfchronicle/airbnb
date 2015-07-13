@@ -131,7 +131,7 @@ App.Map.load = function () {
     .call(renderTiles)
     .call(renderTopojson)
     .call(renderLegend)
-    //.call(renderCredits);
+    .call(attribution);
 
   function createTooltip (d) {
     var data = self.getDatatable(d);
@@ -176,7 +176,15 @@ App.Map.load = function () {
       templatize('#tooltip-tmpl', '.map-alt-datatable-placeholder', data);
       adjustChoroplethEvent(); // Reattaches events to new template
     });
-  }
+  };
+
+  function attribution (svg) {
+    d3.selectAll('.svg-container')
+      .append('div')
+      .attr('class', 'attribution');
+
+    templatize('#attribution-tmpl', '.attribution', {});
+  };
 
   function renderLegend (svg) {
     d3.selectAll('.svg-container')
