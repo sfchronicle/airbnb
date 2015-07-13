@@ -29,17 +29,23 @@ App.Utils.templatize = function (template, placeholder, obj) {
 
 App.Utils.social = function () {
   var $head = $('.current .sfc-head');
-  var headline = $head.find('h1.title').text();
   var url = window.location.href;
   var body = $head.find('h2.description').text() + '\n\n' + url;
+  var headline = {
+    1: 'At least 350 entire homes listed on Airbnb in SF appear to be full-time vacation rentals',
+    2: '“Rooms were being rented below us, above us and in the building all around us. It was very disconcerting; we felt trapped.”',
+    3: 'How @csaid figured out the number of Airbnb listings that serve as full-time vacation rentals in SF.',
+    4: '“The dirty little secret is that owners do this to avoid rent control”',
+    5: 'HomeAway is upfront that its business model flouts San Francisco’s new vacation-rental law'
+  };
 
-  $('.sfc-twitter-button').attr('href', 'https://twitter.com/intent/tweet?via=sfchronicle&text='+headline+' '+url);
+  $('.sfc-twitter-button').attr('href', 'https://twitter.com/intent/tweet?via=sfchronicle&text='+headline[App.Story.currentPostIndex]+' '+url);
 
   $('.sfc-facebook-button').on('click', function (event) {
     event.preventDefault();
     event.stopPropagation();
 
-    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), 'facebook-share-dialog', 'width=626,height=436');
+    window.open('http://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url), 'facebook-share-dialog', 'width=626,height=436');
     return false;
   });
 
@@ -224,8 +230,7 @@ App.Map.load = function () {
         .attr('id', function (d) { return slugify(d.properties.name); })
         .attr('d', path)
         .on('mouseover', tip.show)
-        .on('mouseout', tip.hide)
-        .on('click', function (d) { console.log(d); alert('Implement a click event') });
+        .on('mouseout', tip.hide);
     }
 
     // Checking for cached JSON to keep network trips down
