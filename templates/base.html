@@ -22,6 +22,7 @@
     {% assets filters="uglifyjs", output="build/vendor.%(version)s.js",
         'bower_components/handlebars/handlebars.js',
         'bower_components/unveil/jquery.unveil.js',
+        'bower_components/slicknav/dist/jquery.slicknav.js',
         'bower_components/underscore/underscore.js',
         'bower_components/jquery-scrollto/src/documents/lib/jquery-scrollto.js',
         'bower_components/history.js/scripts/bundled-uncompressed/html4+html5/jquery.history.js',
@@ -30,9 +31,7 @@
         'bower_components/d3-plugins/geo/tile/tile.js',
         'bower_components/d3-tip/index.js',
         'bower_components/d3-colorlegend/colorlegend.js',
-        'bower_components/topojson/topojson.js',
-        'bower_components/foundation/js/foundation.js',
-        'bower_components/foundation/js/foundation/foundation.tooltip.js' %}
+        'bower_components/topojson/topojson.js' %}
     <script src="{{ ASSET_URL }}"></script>
     {% endassets %}
 
