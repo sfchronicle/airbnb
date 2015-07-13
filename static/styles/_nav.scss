@@ -8,8 +8,16 @@
     .name {
       position: relative;
       max-width: 200px;
-      display: inline-block;
+      display: block;
+      width: 200px;
       padding: 12px 5px 0 9px;
+    }
+  }
+
+  ul.right {
+    li {
+      padding-top: 16px;
+      background-color: white;
     }
   }
 
