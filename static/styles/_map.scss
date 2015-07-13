@@ -87,18 +87,20 @@ table {
     font-family: 'FarnhamTextBold', Georgia, serif !important;
     color: #4F4F4F;
     line-height: 1.1em;
+    font-weight: bold;
   }
 
   p {
-    font-family: 'Antenna';
+    font-family: 'Antenna' !important;
     color: #4F4F4F;
-    font-size: .87em;
+    font-size: .87em !important;
+    line-height: 1.4em !important;
   }
 
   p:first-of-type {
     text-transform: uppercase !important;
-    font-family: 'AntennaBlack';
-    font-size: .7em;
+    font-family: 'AntennaBlack' !important;
+    font-size: .7em !important;
     color: #008CBA;
   }
 }
