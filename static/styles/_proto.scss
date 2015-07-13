@@ -336,6 +336,30 @@ article.page .vertical-align {
 	-ms-transform: rotateY(-40deg);
 	transform: rotateY(-40deg);
 }
+// hot fix
+
+#map {
+ position: relative;
+ margin-bottom: 40px;
+}
+
+.svg-container {
+ position: relative;
+ display: block;
+ padding-top: 30%;
+ padding-bottom: 30%;
+ margin-bottom: 40px;
+}
+
+article.page .breakout_content {
+ position: relative;
+ display: block;
+}
+.legend.large-4.columns {
+ position: absolute;
+ display: block;
+ top: 0px;
+}
 
 @media #{$large-up} {
 	article.page .side-content {
