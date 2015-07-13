@@ -97,6 +97,15 @@ table {
     line-height: 1.4em !important;
   }
 
+  p a {
+    font-family: 'AntennaBold' !important;
+    color: #008CBA !important;
+  }
+
+  p a:hover {
+    font-style: underline;
+  }
+
   p#sfc-map-byline {
     text-transform: uppercase !important;
     font-family: 'AntennaBlack' !important;
@@ -117,6 +126,7 @@ table {
   p {
     font-size: 1em !important;
     padding: 0 !important;
+    font-size: .87em !important;
   }
 }
 
