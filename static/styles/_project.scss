@@ -114,23 +114,6 @@ article {
       z-index: 1;
     }
 
-    aside.breakout_content_bigmap {
-      margin-bottom: 40px;
-      display: block;
-      position: relative;
-      padding-top: 30%;
-      padding-bottom: 30%;
-    }
-
-    #map {
-      clear: both;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-
     /* States */
     &.hidden, &.content-hidden .content { display: none; }
 
