@@ -75,8 +75,8 @@ App.Nav.load = function () {
     .prepend('<a class="mobile-logo" href="//www.sfchronicle.com"><img src="http://www.sfchronicle.com/img/modules/siteheader/logos/logo_section_large_2x.png" alt=""></a>');
 
   $('.slicknav_menu li a').on('click', goToStory);
-
   $('.sfc-history').on('click', goToStory);
+  $('.package-name a').on('click', goToStory);
 
   function goToStory (event) {
     event.preventDefault();
