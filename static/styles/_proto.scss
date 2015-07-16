@@ -361,6 +361,12 @@ article.page .breakout_content {
  top: 0px;
 }
 
+@media #{$small-only} {
+  .grid li {
+    font-size: 8em;
+  }
+}
+
 @media #{$large-up} {
 	article.page .side-content {
 		float: right;
