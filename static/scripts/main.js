@@ -75,8 +75,8 @@ App.Nav.load = function () {
     .prepend('<a class="mobile-logo" href="//www.sfchronicle.com"><img src="http://www.sfchronicle.com/img/modules/siteheader/logos/logo_section_large_2x.png" alt=""></a>');
 
   $('.slicknav_menu li a').on('click', goToStory);
-
   $('.sfc-history').on('click', goToStory);
+  $('.package-name a').on('click', goToStory);
 
   function goToStory (event) {
     event.preventDefault();
@@ -131,7 +131,7 @@ App.Map.load = function () {
     .call(renderTiles)
     .call(renderTopojson)
     .call(renderLegend)
-    //.call(renderCredits);
+    .call(attribution);
 
   function createTooltip (d) {
     var data = self.getDatatable(d);
@@ -176,7 +176,15 @@ App.Map.load = function () {
       templatize('#tooltip-tmpl', '.map-alt-datatable-placeholder', data);
       adjustChoroplethEvent(); // Reattaches events to new template
     });
-  }
+  };
+
+  function attribution (svg) {
+    d3.selectAll('.svg-container')
+      .append('div')
+      .attr('class', 'attribution');
+
+    templatize('#attribution-tmpl', '.attribution', {});
+  };
 
   function renderLegend (svg) {
     d3.selectAll('.svg-container')
@@ -235,7 +243,8 @@ App.Map.load = function () {
 
     // Checking for cached JSON to keep network trips down
     if (!App.jsonCache) {
-      d3.json('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/2015-07-02-sf-neighborhoods-airbnb.topojson', function (error, json) {
+      // http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/2015-07-02-sf-neighborhoods-airbnb.topojson
+      d3.json('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/2015-07-12-sf-neighborhoods-airbnb.topojson', function (error, json) {
         if (error) { console.error(error); return error; }
         App.jsonCache = json;
         build( json );
@@ -342,7 +351,7 @@ App.Map.createlegend = function (id) {
           lowEnd  = Math.floor(r[0]), //Math.floor(r[0] * 100),
           highEnd = Math.floor(r[1]); //Math.floor(r[1] * 100);
 
-      return lowEnd+' - '+highEnd;
+      return numberWithCommas(lowEnd)+' - '+numberWithCommas(highEnd);
     });
 };
 
@@ -401,7 +410,7 @@ App.Map.addAllProperties = function (d, id, year) {
     total += d.properties[property][id][year]
   });
 
-  if (id === 'avgOfPrice') { total = total / 3 }
+  if (id === 'avgOfPrice') { total = d.properties.totalAvgPrice[year]; }
 
   return {'neighborhood': d.properties.name, 'property': id, 'total': total};
 };
@@ -490,6 +499,7 @@ App.Story.getPost = function (index, callback) {
   }
 
   var self = this;
+  // http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/stories/
   $.getJSON('http://s3-us-west-1.amazonaws.com/sfc-airbnb/static/stories/post_'+ index +'.json', function (d) {
     self.postCache[index] = d;
     callback(d);
@@ -620,6 +630,12 @@ App.Story.gotoNextClick = function () {
 App.Story.bindGotoNextClick = function(){
   var self  = this;
   var e     = 'ontouchstart' in window ? 'touchstart' : 'click';
+
+  this.$current.find('.button.next-story').on(e, function(e){
+    e.preventDefault();
+    $(this).unbind(e);
+    self.gotoNextClick();
+  });
 
   this.$next.find('.big-image').on(e, function(e){
     e.preventDefault();

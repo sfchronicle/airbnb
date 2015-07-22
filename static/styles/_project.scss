@@ -13,6 +13,21 @@ body {
   overflow-x: hidden; // HACK to keep page in
 }
 
+
+.dim {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: black;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+}
+
 article {
   &.page {
     overflow: hidden; /* hack to prevent map for busting margins */
@@ -52,20 +67,6 @@ article {
   		}
 
   	}
-
-    .dim {
-      position: relative;
-      display: block;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-      background-color: black;
-      opacity: 0.5;
-      width: 100%;
-      height: 100%;
-    }
 
     p {
       text-rendering: optimizeLegibility;
@@ -114,6 +115,7 @@ article {
       z-index: 1;
     }
 
+<<<<<<< HEAD
     .map-wrapper {
       margin-bottom: 40px;
       display: block;
@@ -122,6 +124,8 @@ article {
       padding-bottom: 30%;
     }
 
+=======
+>>>>>>> 14a8e3798b3d07eb34abc227f57e0bd43bb8cb72
     /* States */
     &.hidden, &.content-hidden .content { display: none; }
 
@@ -179,8 +183,23 @@ article {
   display: block;
   position: relative;
   top: 47px;
+  z-index: 3;
+
+  .dim {
+    opacity: 0.2;
+    transition: opacity .35s ease-in-out;
+    &:hover {
+      opacity: 0;
+      transition: opacity .35s ease-in-out;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
 
   .next-label {
+    position: relative;
     text-transform: uppercase !important;
     font-family: 'AntennaBlack';
     font-size: .6em;
@@ -191,17 +210,68 @@ article {
     right: 0;
     margin: 0 auto;
     margin-bottom: 6px;
+    z-index: 3;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   h3 {
+    position: relative;
     margin-top: 0px;
     font-family: "Antenna";
     font-size: 22px;
     color: #fff;
+    z-index: 3;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.methodology {
+  @extend .yellow;
+  p, h5 {
+    color: white;
   }
 
-  &:hover {
-    cursor: default;
+  a {
+    color: #222;
+    &:hover {
+      color: lighten(#222, 20%);
+    }
+  }
+}
+
+.sfc-dateline {
+  border-left: 1px solid white;
+  padding-left: 10px;
+  font-size: 0.8em;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  font-family: 'Antenna';
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 5px;
+  font-size: 0.75em;
+}
+
+html.js {
+  #noscript {
+    display: none;
+  }
+}
+
+html {
+  #noscript {
+    padding-top: 50px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'AntennaBlack';
   }
 }
 
@@ -210,7 +280,7 @@ article {
     &.page {
       .sfc-head {
     		.title {
-          font-size: 60px;
+          font-size: 54px;
         }
       }
     }
