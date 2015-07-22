@@ -114,21 +114,12 @@ article {
       z-index: 1;
     }
 
-    aside.breakout_content_bigmap {
+    .map-wrapper {
       margin-bottom: 40px;
       display: block;
       position: relative;
       padding-top: 30%;
       padding-bottom: 30%;
-    }
-
-    #map {
-      clear: both;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
     }
 
     /* States */
@@ -224,4 +215,13 @@ article {
       }
     }
   }
+
+  article.page .sfc-intro .text {
+    padding: 42px;
+    font-family: Antenna;
+    font-size: 18px;
+    line-height: 1.6em;
+    color: #fff;
+  }
+
 }
