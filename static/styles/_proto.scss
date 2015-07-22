@@ -174,8 +174,8 @@ article.page h5 {
 }
 
 article.page .breakout_content {
-	margin-bottom: 140px;
-	}
+	margin-bottom: 5%;
+}
 
 article.page .text-secondary,
 article.page .text-tertiary, {
@@ -336,6 +336,36 @@ article.page .vertical-align {
 	-ms-transform: rotateY(-40deg);
 	transform: rotateY(-40deg);
 }
+// hot fix
+
+#map {
+ position: relative;
+ margin-bottom: 40px;
+}
+
+.svg-container {
+ position: relative;
+ display: block;
+ padding-top: 30%;
+ padding-bottom: 30%;
+ margin-bottom: 40px;
+}
+
+article.page .breakout_content {
+ position: relative;
+ display: block;
+}
+.legend.large-4.columns {
+ position: absolute;
+ display: block;
+ top: 0px;
+}
+
+@media #{$small-only} {
+  .grid li {
+    font-size: 8em;
+  }
+}
 
 @media #{$large-up} {
 	article.page .side-content {
@@ -343,6 +373,10 @@ article.page .vertical-align {
 		width: 70%;
 		margin-left: 20px;
 		margin-right: -30%;
+	}
+
+	.breakout_content {
+		margin-bottom: 12% !important;
 	}
 }
 

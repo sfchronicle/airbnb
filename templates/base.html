@@ -44,6 +44,10 @@
     {% block javascript %}{% endblock %}
     <!-- endproject -->
 
+    <noscript>
+      {% include 'graphics/_noscript.html' %}
+    </noscript>
+
     {% if config.DEBUG %}
     <script>document.write('<script src="http://'
         + location.host.split(':')[0]
